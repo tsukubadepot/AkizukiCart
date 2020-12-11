@@ -3,19 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66776B175395163F20B9A57C /* Pods_AkizukiCart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5BF42A7B12A6FB54465CB8 /* Pods_AkizukiCart.framework */; };
 		BF39D4A3258240220045026C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4A2258240220045026C /* AppDelegate.swift */; };
 		BF39D4A5258240220045026C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4A4258240220045026C /* SceneDelegate.swift */; };
 		BF39D4A7258240220045026C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4A6258240220045026C /* ViewController.swift */; };
 		BF39D4AA258240220045026C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF39D4A8258240220045026C /* Main.storyboard */; };
 		BF39D4AC258240250045026C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF39D4AB258240250045026C /* Assets.xcassets */; };
 		BF39D4AF258240250045026C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF39D4AD258240250045026C /* LaunchScreen.storyboard */; };
+		BF39D4B82582FC040045026C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4B72582FC040045026C /* SearchViewController.swift */; };
+		BF39D4BB2583283B0045026C /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4BA2583283B0045026C /* Results.swift */; };
+		BF39D4C62583366C0045026C /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4C52583366C0045026C /* APIHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AE62E21588A4C51E71B2763 /* Pods-AkizukiCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkizukiCart.release.xcconfig"; path = "Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart.release.xcconfig"; sourceTree = "<group>"; };
+		5C5BF42A7B12A6FB54465CB8 /* Pods_AkizukiCart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AkizukiCart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B907D6B6BE75658F5F1B5C11 /* Pods-AkizukiCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkizukiCart.debug.xcconfig"; path = "Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart.debug.xcconfig"; sourceTree = "<group>"; };
 		BF39D49F258240220045026C /* AkizukiCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AkizukiCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF39D4A2258240220045026C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF39D4A4258240220045026C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +31,9 @@
 		BF39D4AB258240250045026C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF39D4AE258240250045026C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF39D4B0258240250045026C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF39D4B72582FC040045026C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BF39D4BA2583283B0045026C /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		BF39D4C52583366C0045026C /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66776B175395163F20B9A57C /* Pods_AkizukiCart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B30E563AE9921732E81EDB9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B907D6B6BE75658F5F1B5C11 /* Pods-AkizukiCart.debug.xcconfig */,
+				4AE62E21588A4C51E71B2763 /* Pods-AkizukiCart.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF39D496258240220045026C = {
 			isa = PBXGroup;
 			children = (
 				BF39D4A1258240220045026C /* AkizukiCart */,
 				BF39D4A0258240220045026C /* Products */,
+				B30E563AE9921732E81EDB9C /* Pods */,
+				CAEF3C2ED694F253B8E3D325 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +78,7 @@
 		BF39D4A1258240220045026C /* AkizukiCart */ = {
 			isa = PBXGroup;
 			children = (
+				BF39D4C42583364F0045026C /* API Class */,
 				BF39D4A2258240220045026C /* AppDelegate.swift */,
 				BF39D4A4258240220045026C /* SceneDelegate.swift */,
 				BF39D4A6258240220045026C /* ViewController.swift */,
@@ -63,8 +86,26 @@
 				BF39D4AB258240250045026C /* Assets.xcassets */,
 				BF39D4AD258240250045026C /* LaunchScreen.storyboard */,
 				BF39D4B0258240250045026C /* Info.plist */,
+				BF39D4B72582FC040045026C /* SearchViewController.swift */,
 			);
 			path = AkizukiCart;
+			sourceTree = "<group>";
+		};
+		BF39D4C42583364F0045026C /* API Class */ = {
+			isa = PBXGroup;
+			children = (
+				BF39D4BA2583283B0045026C /* Results.swift */,
+				BF39D4C52583366C0045026C /* APIHandler.swift */,
+			);
+			path = "API Class";
+			sourceTree = "<group>";
+		};
+		CAEF3C2ED694F253B8E3D325 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C5BF42A7B12A6FB54465CB8 /* Pods_AkizukiCart.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF39D4B3258240250045026C /* Build configuration list for PBXNativeTarget "AkizukiCart" */;
 			buildPhases = (
+				C5FA5804F96681C1ACC5141B /* [CP] Check Pods Manifest.lock */,
 				BF39D49B258240220045026C /* Sources */,
 				BF39D49C258240220045026C /* Frameworks */,
 				BF39D49D258240220045026C /* Resources */,
+				1A8D0AC382FF70856CAACB8C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +175,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A8D0AC382FF70856CAACB8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5FA5804F96681C1ACC5141B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AkizukiCart-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BF39D49B258240220045026C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,7 +224,10 @@
 			files = (
 				BF39D4A7258240220045026C /* ViewController.swift in Sources */,
 				BF39D4A3258240220045026C /* AppDelegate.swift in Sources */,
+				BF39D4B82582FC040045026C /* SearchViewController.swift in Sources */,
+				BF39D4C62583366C0045026C /* APIHandler.swift in Sources */,
 				BF39D4A5258240220045026C /* SceneDelegate.swift in Sources */,
+				BF39D4BB2583283B0045026C /* Results.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,6 +371,7 @@
 		};
 		BF39D4B4258240250045026C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B907D6B6BE75658F5F1B5C11 /* Pods-AkizukiCart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -296,12 +385,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = TsukubaDepot.net.AkizukiCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		BF39D4B5258240250045026C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AE62E21588A4C51E71B2763 /* Pods-AkizukiCart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -315,7 +405,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = TsukubaDepot.net.AkizukiCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

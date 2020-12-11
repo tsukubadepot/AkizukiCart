@@ -1,24 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZKH-Na-wNT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--商品検索-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通販コード入力" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTb-bF-ZDD">
+                                <rect key="frame" x="16" y="104" width="382" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アルファベット" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvC-dw-jIo">
+                                <rect key="frame" x="16" y="144" width="382" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数字5桁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxE-lq-6mr">
+                                <rect key="frame" x="16" y="210" width="382" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KfA-pP-f5o">
+                                <rect key="frame" x="16" y="173" width="382" height="32"/>
+                                <segments>
+                                    <segment title="M"/>
+                                    <segment title="K"/>
+                                    <segment title="P"/>
+                                    <segment title="B"/>
+                                    <segment title="R"/>
+                                    <segment title="S"/>
+                                    <segment title="I"/>
+                                    <segment title="C"/>
+                                    <segment title="T"/>
+                                </segments>
+                            </segmentedControl>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0te-cU-i09">
+                                <rect key="frame" x="16" y="237" width="382" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMk-Ld-rXO">
+                                <rect key="frame" x="16" y="299" width="382" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiL-JC-K3Y">
+                                <rect key="frame" x="16" y="388" width="382" height="50"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jMX-MJ-t3v"/>
+                                </constraints>
+                                <state key="normal" title="検索実行">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZKH-KK-097"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OTE-sT-1g5">
+                                <rect key="frame" x="16" y="326" width="382" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cTb-bF-ZDD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="01E-qb-9IH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PMk-Ld-rXO" secondAttribute="trailing" constant="16" id="1hz-Kb-Pky"/>
+                            <constraint firstItem="EiL-JC-K3Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2CK-ON-Lav"/>
+                            <constraint firstItem="PMk-Ld-rXO" firstAttribute="leading" secondItem="0te-cU-i09" secondAttribute="leading" id="2CN-yt-sdH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EiL-JC-K3Y" secondAttribute="trailing" constant="16" id="3Uk-OU-Rjo"/>
+                            <constraint firstItem="0te-cU-i09" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4MU-nL-cem"/>
+                            <constraint firstItem="0te-cU-i09" firstAttribute="top" secondItem="qxE-lq-6mr" secondAttribute="bottom" constant="6" id="51o-Gf-eh7"/>
+                            <constraint firstItem="qxE-lq-6mr" firstAttribute="leading" secondItem="KfA-pP-f5o" secondAttribute="leading" id="5wn-AV-wN8"/>
+                            <constraint firstItem="OTE-sT-1g5" firstAttribute="top" secondItem="PMk-Ld-rXO" secondAttribute="bottom" constant="6" id="8hW-MH-Psp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KfA-pP-f5o" secondAttribute="trailing" constant="16" id="Al0-NJ-R0F"/>
+                            <constraint firstItem="OTE-sT-1g5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ba8-zE-a7X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cTb-bF-ZDD" secondAttribute="trailing" constant="16" id="Dop-ej-j9Q"/>
+                            <constraint firstItem="cTb-bF-ZDD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="O5g-uB-ZFz"/>
+                            <constraint firstItem="vvC-dw-jIo" firstAttribute="leading" secondItem="cTb-bF-ZDD" secondAttribute="leading" id="RxC-mb-R6i"/>
+                            <constraint firstItem="qxE-lq-6mr" firstAttribute="top" secondItem="KfA-pP-f5o" secondAttribute="bottom" constant="6" id="Whs-h1-Yo4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vvC-dw-jIo" secondAttribute="trailing" constant="16" id="WnZ-Ht-XYT"/>
+                            <constraint firstItem="KfA-pP-f5o" firstAttribute="top" secondItem="vvC-dw-jIo" secondAttribute="bottom" constant="8" id="bw5-gg-PsD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OTE-sT-1g5" secondAttribute="trailing" constant="16" id="h2l-5J-RVY"/>
+                            <constraint firstItem="PMk-Ld-rXO" firstAttribute="top" secondItem="0te-cU-i09" secondAttribute="bottom" constant="6" id="iE2-6g-VAJ"/>
+                            <constraint firstItem="EiL-JC-K3Y" firstAttribute="top" secondItem="OTE-sT-1g5" secondAttribute="bottom" constant="6" id="m8X-bb-3Hi"/>
+                            <constraint firstItem="0te-cU-i09" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="qoH-Tu-dWn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qxE-lq-6mr" secondAttribute="trailing" constant="16" id="rYN-xG-8vm"/>
+                            <constraint firstItem="vvC-dw-jIo" firstAttribute="top" secondItem="cTb-bF-ZDD" secondAttribute="bottom" constant="6" id="xrd-Kd-hzU"/>
+                            <constraint firstItem="KfA-pP-f5o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yiM-L9-Tdl"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="商品検索" id="UlZ-eD-F8z"/>
+                    <connections>
+                        <outlet property="itemCodeSearchBar" destination="0te-cU-i09" id="QsT-xe-iMQ"/>
+                        <outlet property="itemNumberSearchBar" destination="OTE-sT-1g5" id="i8C-bf-mYm"/>
+                        <outlet property="itemSegmentedControl" destination="KfA-pP-f5o" id="Bfc-d3-RNx"/>
+                        <outlet property="searchButton" destination="EiL-JC-K3Y" id="PRx-ix-EYs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="123.88392857142857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XdV-aY-PZq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZKH-Na-wNT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Haf-v5-LQG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FVS-m4-27e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rIh-bs-bRf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
