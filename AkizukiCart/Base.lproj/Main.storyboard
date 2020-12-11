@@ -118,6 +118,291 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="123.88392857142857"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="zCB-Cl-YqK">
+            <objects>
+                <viewController storyboardIdentifier="DetailView" id="9IU-yI-cKn" customClass="DetailViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dsS-2K-f8m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-Qy-tBk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fpn-VH-rfs">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNx-LI-VVC">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ＲａｓｐｂｅｒｒｙＰｉ３　Ｍｏｄｅｌ　Ｂ　（ラズベリーパイスリーモデルビー）　ｅｌｅｍｅｎｔ１４版" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3su-4a-otN">
+                                                        <rect key="frame" x="16" y="16" width="382" height="392.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1台　4,800円（税込）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3a-MV-6Km">
+                                                        <rect key="frame" x="16" y="416.5" width="382" height="20.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WO8-VO-bIM">
+                                                        <rect key="frame" x="16" y="453" width="382" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="3Km-ZJ-lYv"/>
+                                                        </constraints>
+                                                        <state key="normal" title="商品ページを見る">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="goItemButton:" destination="9IU-yI-cKn" eventType="touchUpInside" id="mfE-fD-Jsh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YMT-pO-jpN">
+                                                        <rect key="frame" x="24" y="519" width="366" height="94"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-Uh-Umr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="20.5"/>
+                                                                <string key="text">ESP-WROOM-02D
+</string>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4d3-ES-DWV">
+                                                                <rect key="frame" x="0.0" y="24.5" width="366" height="20.5"/>
+                                                                <string key="text">通販コード：M-13289
+</string>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMO-kc-2Lb">
+                                                                <rect key="frame" x="0.0" y="49" width="366" height="20.5"/>
+                                                                <string key="text">発売日：2018/04/24
+'</string>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Espressif Systems (Shanghai) Pte. Ltd." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yK8-yN-sh0">
+                                                                <rect key="frame" x="0.0" y="73.5" width="366" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjs-ax-Q5W">
+                                                        <rect key="frame" x="16" y="629" width="382" height="143"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hrs-4y-RNg">
+                                                                <rect key="frame" x="0.0" y="0.0" width="191" height="143"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="hrs-4y-RNg" secondAttribute="height" multiplier="4:3" id="oN4-jt-eiR"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GtQ-Vb-ShW">
+                                                                <rect key="frame" x="191" y="0.0" width="191" height="143"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入数量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tF2-9H-LoJ">
+                                                                        <rect key="frame" x="61" y="0.0" width="69.5" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999 点" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ff-3v-gdw">
+                                                                        <rect key="frame" x="52" y="32.5" width="87.5" height="33.5"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="GSd-26-1OK">
+                                                                        <rect key="frame" x="48.5" y="78.5" width="94" height="32"/>
+                                                                    </stepper>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計 100,000円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6Y-hP-HCF">
+                                                                        <rect key="frame" x="36.5" y="122.5" width="118.5" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="hrs-4y-RNg" firstAttribute="width" secondItem="Zjs-ax-Q5W" secondAttribute="width" multiplier="0.5" id="33D-HD-Zmd"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店舗在庫情報" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qou-V8-SEY">
+                                                        <rect key="frame" x="16" y="788" width="382" height="24"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NLb-c1-cFX" userLabel="店舗在庫情報コンテナ">
+                                                        <rect key="frame" x="24" y="820" width="366" height="98"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="85g-uV-12y" userLabel="秋葉原店在庫コンテナ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="45"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="秋葉原店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzI-1P-WGS">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0GR-3r-MXi">
+                                                                        <rect key="frame" x="91.5" y="0.0" width="274.5" height="45"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在庫 1,000個" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yq-To-0GA">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="274.5" height="20.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1F 28 【外】台車売場天面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-e7-bRA">
+                                                                                <rect key="frame" x="0.0" y="24.5" width="274.5" height="20.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oqt-KV-zqD" userLabel="八潮店在庫コンテナ">
+                                                                <rect key="frame" x="0.0" y="53" width="366" height="45"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="八潮店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-Pq-ANh">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xpv-tB-Rw5">
+                                                                        <rect key="frame" x="91.5" y="0.0" width="274.5" height="45"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在庫 1,000個" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9q-ya-zP9">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="274.5" height="20.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="売場0101" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0m-OF-e12">
+                                                                                <rect key="frame" x="0.0" y="24.5" width="274.5" height="20.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="e5h-Pq-ANh" firstAttribute="width" secondItem="yzI-1P-WGS" secondAttribute="width" id="d0L-Hv-tNY"/>
+                                                            <constraint firstItem="yzI-1P-WGS" firstAttribute="width" secondItem="NLb-c1-cFX" secondAttribute="width" multiplier="0.25" id="yJR-en-KoI"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lda-HO-vib">
+                                                        <rect key="frame" x="16" y="934" width="165.5" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="fqb-te-BWM"/>
+                                                        </constraints>
+                                                        <state key="normal" title="キャンセル">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0Z-JL-NJI">
+                                                        <rect key="frame" x="232.5" y="934" width="165.5" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="1aH-u5-8ds"/>
+                                                        </constraints>
+                                                        <state key="normal" title="追加する">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Zjs-ax-Q5W" secondAttribute="trailing" constant="16" id="34s-xC-hsG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3su-4a-otN" secondAttribute="trailing" constant="16" id="3oJ-mj-ZDs"/>
+                                                    <constraint firstItem="3su-4a-otN" firstAttribute="leading" secondItem="gNx-LI-VVC" secondAttribute="leading" constant="16" id="B8V-Pf-K6d"/>
+                                                    <constraint firstItem="YMT-pO-jpN" firstAttribute="leading" secondItem="gNx-LI-VVC" secondAttribute="leading" constant="24" id="CFY-4v-zPg"/>
+                                                    <constraint firstAttribute="trailing" secondItem="T3a-MV-6Km" secondAttribute="trailing" constant="16" id="FD3-Ot-Obo"/>
+                                                    <constraint firstItem="YMT-pO-jpN" firstAttribute="top" secondItem="WO8-VO-bIM" secondAttribute="bottom" constant="16" id="FFO-PU-93o"/>
+                                                    <constraint firstAttribute="trailing" secondItem="l0Z-JL-NJI" secondAttribute="trailing" constant="16" id="FMR-8Z-3xf"/>
+                                                    <constraint firstItem="WO8-VO-bIM" firstAttribute="leading" secondItem="gNx-LI-VVC" secondAttribute="leading" constant="16" id="NUW-Z2-OzU"/>
+                                                    <constraint firstItem="3su-4a-otN" firstAttribute="top" secondItem="gNx-LI-VVC" secondAttribute="top" constant="16" id="QZC-Pl-a5A"/>
+                                                    <constraint firstAttribute="trailing" secondItem="NLb-c1-cFX" secondAttribute="trailing" constant="24" id="SWG-1u-1f4"/>
+                                                    <constraint firstItem="NLb-c1-cFX" firstAttribute="leading" secondItem="gNx-LI-VVC" secondAttribute="leading" constant="24" id="Vdm-Q5-182"/>
+                                                    <constraint firstItem="T3a-MV-6Km" firstAttribute="top" secondItem="3su-4a-otN" secondAttribute="bottom" constant="8" id="X5f-x4-W8J"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YMT-pO-jpN" secondAttribute="trailing" constant="24" id="Yf0-L2-KWZ"/>
+                                                    <constraint firstItem="l0Z-JL-NJI" firstAttribute="top" secondItem="NLb-c1-cFX" secondAttribute="bottom" constant="16" id="Yl6-ym-yjb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="l0Z-JL-NJI" secondAttribute="bottom" constant="16" id="Znm-0i-yY7"/>
+                                                    <constraint firstItem="NLb-c1-cFX" firstAttribute="top" secondItem="qou-V8-SEY" secondAttribute="bottom" constant="8" id="aUY-J6-WeA"/>
+                                                    <constraint firstItem="qou-V8-SEY" firstAttribute="leading" secondItem="gNx-LI-VVC" secondAttribute="leading" constant="16" id="aaq-tR-UcA"/>
+                                                    <constraint firstItem="T3a-MV-6Km" firstAttribute="leading" secondItem="3su-4a-otN" secondAttribute="leading" id="fDn-aO-lxo"/>
+                                                    <constraint firstItem="lda-HO-vib" firstAttribute="top" secondItem="NLb-c1-cFX" secondAttribute="bottom" constant="16" id="fkk-sM-c7s"/>
+                                                    <constraint firstItem="l0Z-JL-NJI" firstAttribute="width" secondItem="gNx-LI-VVC" secondAttribute="width" multiplier="0.4" id="gX6-bN-Nry"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WO8-VO-bIM" secondAttribute="trailing" constant="16" id="ilY-DF-aVH"/>
+                                                    <constraint firstItem="lda-HO-vib" firstAttribute="width" secondItem="gNx-LI-VVC" secondAttribute="width" multiplier="0.4" id="mAc-KU-b2i"/>
+                                                    <constraint firstAttribute="trailing" secondItem="qou-V8-SEY" secondAttribute="trailing" constant="16" id="mPv-vs-NiJ"/>
+                                                    <constraint firstItem="qou-V8-SEY" firstAttribute="top" secondItem="Zjs-ax-Q5W" secondAttribute="bottom" constant="16" id="pbs-1e-dxy"/>
+                                                    <constraint firstItem="Zjs-ax-Q5W" firstAttribute="top" secondItem="YMT-pO-jpN" secondAttribute="bottom" constant="16" id="rHi-FS-iHL"/>
+                                                    <constraint firstItem="WO8-VO-bIM" firstAttribute="top" secondItem="T3a-MV-6Km" secondAttribute="bottom" constant="16" id="rjb-2O-ljc"/>
+                                                    <constraint firstItem="lda-HO-vib" firstAttribute="leading" secondItem="gNx-LI-VVC" secondAttribute="leading" constant="16" id="wP2-Zd-RXq"/>
+                                                    <constraint firstItem="Zjs-ax-Q5W" firstAttribute="leading" secondItem="gNx-LI-VVC" secondAttribute="leading" constant="16" id="zGp-7s-fye"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Fpn-VH-rfs" firstAttribute="top" secondItem="g0w-Qy-tBk" secondAttribute="top" id="8K5-9a-nRa"/>
+                                    <constraint firstItem="Fpn-VH-rfs" firstAttribute="leading" secondItem="g0w-Qy-tBk" secondAttribute="leading" id="Ceb-Hv-V96"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fpn-VH-rfs" secondAttribute="bottom" id="PZf-jI-taY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fpn-VH-rfs" secondAttribute="trailing" id="ueE-jJ-IH7"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RWO-wI-hRl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g0w-Qy-tBk" firstAttribute="leading" secondItem="RWO-wI-hRl" secondAttribute="leading" id="4Hq-rN-t7U"/>
+                            <constraint firstItem="g0w-Qy-tBk" firstAttribute="top" secondItem="RWO-wI-hRl" secondAttribute="top" id="6de-Wt-efD"/>
+                            <constraint firstItem="RWO-wI-hRl" firstAttribute="trailing" secondItem="g0w-Qy-tBk" secondAttribute="trailing" id="WS6-wG-YMb"/>
+                            <constraint firstItem="g0w-Qy-tBk" firstAttribute="top" secondItem="RWO-wI-hRl" secondAttribute="top" id="arS-uT-s4f"/>
+                            <constraint firstItem="gNx-LI-VVC" firstAttribute="width" secondItem="dsS-2K-f8m" secondAttribute="width" id="b1w-R9-VxU"/>
+                            <constraint firstItem="g0w-Qy-tBk" firstAttribute="bottom" secondItem="RWO-wI-hRl" secondAttribute="bottom" id="idC-Or-owh"/>
+                            <constraint firstItem="RWO-wI-hRl" firstAttribute="bottom" secondItem="g0w-Qy-tBk" secondAttribute="bottom" id="skY-Ds-CZg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="l0Z-JL-NJI" id="ubB-k8-zec"/>
+                        <outlet property="akihabaraCountLabel" destination="0yq-To-0GA" id="MAM-ak-4G6"/>
+                        <outlet property="akihabaraPlaceLabel" destination="gbY-e7-bRA" id="cJJ-KJ-CGw"/>
+                        <outlet property="cancelButton" destination="lda-HO-vib" id="ly5-Sf-PkM"/>
+                        <outlet property="goItemButton" destination="WO8-VO-bIM" id="JgC-fG-iHY"/>
+                        <outlet property="idLabel" destination="4d3-ES-DWV" id="BmG-mg-9X5"/>
+                        <outlet property="manufacturerLabel" destination="yK8-yN-sh0" id="doE-2M-LM1"/>
+                        <outlet property="nameLabel" destination="3su-4a-otN" id="awr-4K-WGr"/>
+                        <outlet property="partNumberLabel" destination="Gf3-Uh-Umr" id="9Te-NZ-gj7"/>
+                        <outlet property="priceLabel" destination="T3a-MV-6Km" id="dnQ-Bb-bOD"/>
+                        <outlet property="productImageView" destination="hrs-4y-RNg" id="BwT-DI-d8p"/>
+                        <outlet property="releaseDateLabel" destination="aMO-kc-2Lb" id="UdA-4c-Itl"/>
+                        <outlet property="yashioCountLabel" destination="y9q-ya-zP9" id="gXS-Zh-bZ3"/>
+                        <outlet property="yashioPlaceLabel" destination="B0m-OF-e12" id="LCI-Kf-fbR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ub5-FB-Rj3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866.6666666666667" y="130.58035714285714"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="XdV-aY-PZq">
             <objects>
@@ -140,6 +425,12 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

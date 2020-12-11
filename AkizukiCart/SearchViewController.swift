@@ -110,6 +110,8 @@ class SearchViewController: UIViewController {
     @IBAction func searchButton(_ sender: UIButton) {
         // TODO: - 検索前にバリデーションする必要がある。場合によってはボタンを使えなくするなど。
         
+        selectedSearchBar?.resignFirstResponder()
+        
         // 先頭文字の取得
         let index = itemSegmentedControl.selectedSegmentIndex
         guard let itemID = itemSegmentedControl.titleForSegment(at: index) else {
@@ -131,7 +133,13 @@ class SearchViewController: UIViewController {
             HUD.hide { _ in
                 HUD.flash(.labeledSuccess(title: "見つかりました。", subtitle: parts.name), delay: 2.0)
             }
-            print(parts)
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+            
+            vc.parts = parts
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         } notfoundHandler: { failer in
             HUD.hide { _ in
                 HUD.flash(.labeledError(title: "該当する商品はありません", subtitle: failer.id), delay: 2.0)

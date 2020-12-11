@@ -17,6 +17,7 @@
 		BF39D4B82582FC040045026C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4B72582FC040045026C /* SearchViewController.swift */; };
 		BF39D4BB2583283B0045026C /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4BA2583283B0045026C /* Results.swift */; };
 		BF39D4C62583366C0045026C /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4C52583366C0045026C /* APIHandler.swift */; };
+		BF39D4C9258350790045026C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4C8258350790045026C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		BF39D4B72582FC040045026C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BF39D4BA2583283B0045026C /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		BF39D4C52583366C0045026C /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		BF39D4C8258350790045026C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				BF39D4AD258240250045026C /* LaunchScreen.storyboard */,
 				BF39D4B0258240250045026C /* Info.plist */,
 				BF39D4B72582FC040045026C /* SearchViewController.swift */,
+				BF39D4C8258350790045026C /* DetailViewController.swift */,
 			);
 			path = AkizukiCart;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				BF39D4C62583366C0045026C /* APIHandler.swift in Sources */,
 				BF39D4A5258240220045026C /* SceneDelegate.swift in Sources */,
 				BF39D4BB2583283B0045026C /* Results.swift in Sources */,
+				BF39D4C9258350790045026C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
