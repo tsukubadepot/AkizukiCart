@@ -72,6 +72,11 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // navigation controller がみえる
+        //print(parent)
+        // navigation controller を呼び出している View Controller
+        //print(presentingViewController)
+        
         nameLabel.text = parts.name
         priceLabel.text = "一個 \(parts.price.value) 円"
         partNumberLabel.text = parts.partNumber ?? ""
@@ -106,4 +111,17 @@ class DetailViewController: UIViewController {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
+    @IBAction func cancelButton(_ sender: UIButton) {
+        parent?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addPartsButton(_ sender: UIButton) {
+        let vc = presentingViewController as! ViewController
+        
+        // TODO: - すでに同じ部品が入っているときの処理
+        vc.parts.append(parts)
+        vc.listTableView.reloadData()
+        
+        parent?.dismiss(animated: true, completion: nil)
+    }
 }

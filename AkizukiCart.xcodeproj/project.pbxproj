@@ -18,6 +18,8 @@
 		BF39D4BB2583283B0045026C /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4BA2583283B0045026C /* Results.swift */; };
 		BF39D4C62583366C0045026C /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4C52583366C0045026C /* APIHandler.swift */; };
 		BF39D4C9258350790045026C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4C8258350790045026C /* DetailViewController.swift */; };
+		BF39D4DB258434E70045026C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4D9258434E70045026C /* ListTableViewCell.swift */; };
+		BF39D4DC258434E70045026C /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF39D4DA258434E70045026C /* ListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		BF39D4BA2583283B0045026C /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		BF39D4C52583366C0045026C /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		BF39D4C8258350790045026C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BF39D4D9258434E70045026C /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		BF39D4DA258434E70045026C /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,9 @@
 		BF39D4A1258240220045026C /* AkizukiCart */ = {
 			isa = PBXGroup;
 			children = (
+				BF39D4D8258434C50045026C /* List View Controller */,
+				BF39D4D7258434A60045026C /* Detail View Controller */,
+				BF39D4D62584348D0045026C /* Search View Controller */,
 				BF39D4C42583364F0045026C /* API Class */,
 				BF39D4A2258240220045026C /* AppDelegate.swift */,
 				BF39D4A4258240220045026C /* SceneDelegate.swift */,
@@ -88,8 +95,6 @@
 				BF39D4AB258240250045026C /* Assets.xcassets */,
 				BF39D4AD258240250045026C /* LaunchScreen.storyboard */,
 				BF39D4B0258240250045026C /* Info.plist */,
-				BF39D4B72582FC040045026C /* SearchViewController.swift */,
-				BF39D4C8258350790045026C /* DetailViewController.swift */,
 			);
 			path = AkizukiCart;
 			sourceTree = "<group>";
@@ -101,6 +106,31 @@
 				BF39D4C52583366C0045026C /* APIHandler.swift */,
 			);
 			path = "API Class";
+			sourceTree = "<group>";
+		};
+		BF39D4D62584348D0045026C /* Search View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF39D4B72582FC040045026C /* SearchViewController.swift */,
+			);
+			path = "Search View Controller";
+			sourceTree = "<group>";
+		};
+		BF39D4D7258434A60045026C /* Detail View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF39D4C8258350790045026C /* DetailViewController.swift */,
+			);
+			path = "Detail View Controller";
+			sourceTree = "<group>";
+		};
+		BF39D4D8258434C50045026C /* List View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF39D4D9258434E70045026C /* ListTableViewCell.swift */,
+				BF39D4DA258434E70045026C /* ListTableViewCell.xib */,
+			);
+			path = "List View Controller";
 			sourceTree = "<group>";
 		};
 		CAEF3C2ED694F253B8E3D325 /* Frameworks */ = {
@@ -171,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF39D4AF258240250045026C /* LaunchScreen.storyboard in Resources */,
+				BF39D4DC258434E70045026C /* ListTableViewCell.xib in Resources */,
 				BF39D4AC258240250045026C /* Assets.xcassets in Resources */,
 				BF39D4AA258240220045026C /* Main.storyboard in Resources */,
 			);
@@ -226,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF39D4A7258240220045026C /* ViewController.swift in Sources */,
+				BF39D4DB258434E70045026C /* ListTableViewCell.swift in Sources */,
 				BF39D4A3258240220045026C /* AppDelegate.swift in Sources */,
 				BF39D4B82582FC040045026C /* SearchViewController.swift in Sources */,
 				BF39D4C62583366C0045026C /* APIHandler.swift in Sources */,

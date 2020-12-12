@@ -102,9 +102,15 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let leftButton = UIBarButtonItem(title: "戻る", style:.plain, target: self, action: #selector(goBack))
+        navigationItem.leftBarButtonItem = leftButton
         //
         itemCodeSearchBar.inputAccessoryView = numPadAccessory
         itemNumberSearchBar.inputAccessoryView = numPadAccessory
+    }
+    
+    @objc func goBack() {
+        parent?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
