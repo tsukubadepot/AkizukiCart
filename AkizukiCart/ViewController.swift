@@ -67,6 +67,8 @@ extension ViewController: UITableViewDataSource {
         cell.nameLabel.text = parts[indexPath.row].name
         cell.countLabel.text = String(parts[indexPath.row].buyCount!)
         
+        cell.accessoryType = .disclosureIndicator
+        
         return cell
     }
 }
