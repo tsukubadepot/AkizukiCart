@@ -20,6 +20,10 @@ struct PartsInfo: Codable {
     let releaseDate, manufacturer, id: String
     let lastUpdate: String
     
+    // 購入予定数
+    // 本来の JSON にはないので Optional で定義
+    var buyCount: Int?
+    
     enum CodingKeys: String, CodingKey {
         case status
         case partNumber = "part_number"

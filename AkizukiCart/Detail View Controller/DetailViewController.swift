@@ -46,6 +46,19 @@ class DetailViewController: UIViewController {
         }
     }
     
+    /// 購入予定数ラベル
+    @IBOutlet weak var buyItemCount: UILabel!
+    /// 購入予定数変更用ステッパー
+    @IBOutlet weak var countStepper: UIStepper! {
+        didSet {
+            countStepper.stepValue = 1.0
+            countStepper.minimumValue = 0.0
+            countStepper.maximumValue = 1000.0
+        }
+    }
+    /// 合計金額ラベル
+    @IBOutlet weak var totalLabel: UILabel!
+    
     /// 秋葉原店商品在庫ラベル
     @IBOutlet weak var akihabaraCountLabel: UILabel!
     /// 秋葉原店売場ラベル
@@ -103,13 +116,29 @@ class DetailViewController: UIViewController {
         // 画像
         let imageURL = URL(string: "https://akizukidenshi.com/img/goods/L")!.appendingPathComponent(parts.id).appendingPathExtension("jpg")
         productImageView.af.setImage(withURL: imageURL)
+        
+        updateCountLabel()
     }
         
+    private func updateCountLabel() {
+        //
+        buyItemCount.text = "\(parts.buyCount!) 点"
+        totalLabel.text = "合計 \(parts.buyCount! * parts.price.value) 円"
+        countStepper.value = Double(parts.buyCount!)
+    }
+    
     @IBAction func goItemButton(_ sender: UIButton) {
         let url = URL(string: baseURL + parts.id)!
         
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
+    
+    @IBAction func countStepper(_ sender: UIStepper) {
+        parts.buyCount = Int(sender.value)
+        
+        updateCountLabel()
+    }
+    
     
     @IBAction func cancelButton(_ sender: UIButton) {
         parent?.dismiss(animated: true, completion: nil)

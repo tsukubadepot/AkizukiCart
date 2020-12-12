@@ -221,6 +221,9 @@
                                                                     </label>
                                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="GSd-26-1OK">
                                                                         <rect key="frame" x="48.5" y="78.5" width="94" height="32"/>
+                                                                        <connections>
+                                                                            <action selector="countStepper:" destination="9IU-yI-cKn" eventType="valueChanged" id="jSQ-Nw-CyH"/>
+                                                                        </connections>
                                                                     </stepper>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計 100,000円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6Y-hP-HCF">
                                                                         <rect key="frame" x="36.5" y="122.5" width="118.5" height="20.5"/>
@@ -392,7 +395,9 @@
                         <outlet property="addButton" destination="l0Z-JL-NJI" id="ubB-k8-zec"/>
                         <outlet property="akihabaraCountLabel" destination="0yq-To-0GA" id="MAM-ak-4G6"/>
                         <outlet property="akihabaraPlaceLabel" destination="gbY-e7-bRA" id="cJJ-KJ-CGw"/>
+                        <outlet property="buyItemCount" destination="6ff-3v-gdw" id="VRZ-hL-Ocw"/>
                         <outlet property="cancelButton" destination="lda-HO-vib" id="ly5-Sf-PkM"/>
+                        <outlet property="countStepper" destination="GSd-26-1OK" id="wrL-I9-5tv"/>
                         <outlet property="goItemButton" destination="WO8-VO-bIM" id="JgC-fG-iHY"/>
                         <outlet property="idLabel" destination="4d3-ES-DWV" id="BmG-mg-9X5"/>
                         <outlet property="manufacturerLabel" destination="yK8-yN-sh0" id="doE-2M-LM1"/>
@@ -401,6 +406,7 @@
                         <outlet property="priceLabel" destination="T3a-MV-6Km" id="dnQ-Bb-bOD"/>
                         <outlet property="productImageView" destination="hrs-4y-RNg" id="BwT-DI-d8p"/>
                         <outlet property="releaseDateLabel" destination="aMO-kc-2Lb" id="UdA-4c-Itl"/>
+                        <outlet property="totalLabel" destination="k6Y-hP-HCF" id="CW5-EI-bUt"/>
                         <outlet property="yashioCountLabel" destination="y9q-ya-zP9" id="gXS-Zh-bZ3"/>
                         <outlet property="yashioPlaceLabel" destination="B0m-OF-e12" id="LCI-Kf-fbR"/>
                     </connections>
@@ -465,7 +471,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countLabel" destination="9ds-LQ-iK4" id="8Fj-Fr-cHH"/>
                         <outlet property="listTableView" destination="ibZ-pz-D4k" id="EPe-9d-C1S"/>
+                        <outlet property="totalLabel" destination="owe-RZ-dyD" id="Tdd-G3-wOl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHZ-w2-26q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

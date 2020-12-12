@@ -66,6 +66,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="countLabel" destination="NCD-PB-b1M" id="xeA-Lt-3SL"/>
                 <outlet property="nameLabel" destination="zpA-gv-7AD" id="oLu-EI-zCJ"/>
                 <outlet property="productImageView" destination="a6V-wg-3Ps" id="Hft-d8-0Kf"/>
             </connections>

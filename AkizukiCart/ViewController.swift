@@ -9,7 +9,14 @@ import UIKit
 import AlamofireImage
 
 class ViewController: UIViewController {
-    var parts: [PartsInfo] = []
+    var parts: [PartsInfo] = [] {
+        didSet {
+            displayTotal()
+        }
+    }
+    
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
     
     @IBOutlet weak var listTableView: UITableView! {
         didSet {
@@ -23,8 +30,22 @@ class ViewController: UIViewController {
         
         let nib = UINib(nibName: String(describing: ListTableViewCell.self), bundle: nil)
         listTableView.register(nib, forCellReuseIdentifier: "Cell")
+        
+        displayTotal()
     }
-
+    
+    func displayTotal() {
+        let totalPrice = parts.reduce(0) {
+            $0 + $1.price.value * $1.buyCount!
+        }
+        
+        let totalItem = parts.reduce(0) {
+            $0 + $1.buyCount!
+        }
+        countLabel.text = "購入点数： " + String(parts.count) + " 商品　\(totalItem) 点"
+        totalLabel.text = "合計金額： \(totalPrice) 円"
+    }
+    
     @IBAction func addPartsButton(_ sender: UIBarButtonItem) {
         let vc = storyboard?.instantiateViewController(identifier: "nav")
         
@@ -44,6 +65,7 @@ extension ViewController: UITableViewDataSource {
         let imageURL = URL(string: "https://akizukidenshi.com/img/goods/L")!.appendingPathComponent(parts[indexPath.row].id).appendingPathExtension("jpg")
         cell.productImageView.af.setImage(withURL: imageURL)
         cell.nameLabel.text = parts[indexPath.row].name
+        cell.countLabel.text = String(parts[indexPath.row].buyCount!)
         
         return cell
     }

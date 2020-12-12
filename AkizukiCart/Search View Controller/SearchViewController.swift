@@ -144,6 +144,9 @@ class SearchViewController: UIViewController {
             
             vc.parts = parts
             
+            // 購入予定数のパーツ数
+            vc.parts.buyCount = Int(self.itemNumberSearchBar.text ?? "0") ?? 0
+            
             self.navigationController?.pushViewController(vc, animated: true)
             
         } notfoundHandler: { failer in
