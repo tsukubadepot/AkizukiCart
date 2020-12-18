@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         }
     }
     
+    let baseURL = "https://akizukidenshi.com/catalog/cart/cart.aspx"
+    
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
@@ -51,6 +53,25 @@ class ViewController: UIViewController {
         
         vc?.modalPresentationStyle = .overFullScreen
         present(vc!, animated: true, completion: nil)
+    }
+    
+    @IBAction func addCartButton(_ sender: UIBarButtonItem) {
+        var urlComponents = URLComponents(string: baseURL)!
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "quick", value: "True")
+            ]
+        
+        for (index, item) in parts.enumerated() {
+            urlComponents.queryItems?.append(contentsOf: [
+                URLQueryItem(name: "class1_\(index + 1)", value: String(item.id.prefix(1))),
+                URLQueryItem(name: "goods", value: String(item.id.suffix(5))),
+                URLQueryItem(name: "qty", value: String(item.buyCount!))
+            ])
+        }
+        let url = try! urlComponents.asURL()
+        print(url.description)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 

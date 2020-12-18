@@ -415,16 +415,16 @@
             </objects>
             <point key="canvasLocation" x="1866.6666666666667" y="130.58035714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--パーツリスト-->
         <scene sceneID="XNb-5K-yla">
             <objects>
-                <viewController id="ag2-9u-xOk" customClass="ViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="パーツリスト" id="ag2-9u-xOk" customClass="ViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MPW-9n-PCR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YP1-No-MWF">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="add" id="giO-WB-wf1">
                                         <connections>
@@ -432,7 +432,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BNt-GH-zeY"/>
-                                    <barButtonItem systemItem="action" id="nf4-Cy-Kg9"/>
+                                    <barButtonItem systemItem="action" id="nf4-Cy-Kg9">
+                                        <connections>
+                                            <action selector="addCartButton:" destination="ag2-9u-xOk" id="V5r-ZI-ryy"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-LQ-iK4">
@@ -448,14 +452,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ibZ-pz-D4k">
-                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m0B-yB-N5o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ibZ-pz-D4k" firstAttribute="top" secondItem="owe-RZ-dyD" secondAttribute="bottom" id="2gR-AX-JBo"/>
+                            <constraint firstItem="ibZ-pz-D4k" firstAttribute="top" secondItem="owe-RZ-dyD" secondAttribute="bottom" constant="8" id="2gR-AX-JBo"/>
                             <constraint firstItem="owe-RZ-dyD" firstAttribute="leading" secondItem="m0B-yB-N5o" secondAttribute="leading" constant="16" id="2u4-NO-XBy"/>
                             <constraint firstItem="9ds-LQ-iK4" firstAttribute="leading" secondItem="m0B-yB-N5o" secondAttribute="leading" constant="16" id="5nI-1c-EhV"/>
                             <constraint firstItem="9ds-LQ-iK4" firstAttribute="top" secondItem="m0B-yB-N5o" secondAttribute="top" id="9oo-cs-alc"/>
@@ -470,6 +474,7 @@
                             <constraint firstItem="m0B-yB-N5o" firstAttribute="trailing" secondItem="owe-RZ-dyD" secondAttribute="trailing" constant="16" id="vzI-tb-Ej3"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="countLabel" destination="9ds-LQ-iK4" id="8Fj-Fr-cHH"/>
                         <outlet property="listTableView" destination="ibZ-pz-D4k" id="EPe-9d-C1S"/>
