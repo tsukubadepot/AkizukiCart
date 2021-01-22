@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+                
         let nib = UINib(nibName: String(describing: ListTableViewCell.self), bundle: nil)
         listTableView.register(nib, forCellReuseIdentifier: "Cell")
         
@@ -86,6 +86,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(#function, partxbox.count)
         return partxbox.count
     }
     

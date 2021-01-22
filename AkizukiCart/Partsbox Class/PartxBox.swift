@@ -14,13 +14,22 @@ final class PartxBox {
     
     private init () {}
     
-    private var parts: [PartsInfo] = [] {
-        didSet {
+    private var parts: [PartsInfo]  {
+        get {
+            UserDefaults.standard.decodedObject([PartsInfo].self, forKey: "parts") ?? []
+        }
+        
+        set {
+            // 保存前のパーツ数を記録しておく
+            let oldCount = parts.count
+            
+            UserDefaults.standard.setEncoded(newValue, forKey: "parts")
+            
             // パーツ数が増えたかどうかをフラグとして渡す
-            updateHandler?(parts.count > oldValue.count)
+            updateHandler?(newValue.count > oldCount)
         }
     }
-    
+
     /// パーツボックス内のパーツ数
     var count: Int {
         parts.count
