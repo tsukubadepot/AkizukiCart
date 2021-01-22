@@ -33,6 +33,7 @@ struct PartsInfo: Codable {
         case releaseDate = "release_date"
         case manufacturer, id
         case lastUpdate = "last_update"
+        case buyCount
     }
 }
 
