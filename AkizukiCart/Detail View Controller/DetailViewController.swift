@@ -118,6 +118,13 @@ class DetailViewController: UIViewController {
         productImageView.af.setImage(withURL: imageURL)
         
         updateCountLabel()
+        
+        // 呼び出し元によって、ボタンの名称を「追加」か「更新」に変更。
+        if parent is UINavigationController {
+            addButton.setTitle("追加する", for: .normal)
+        } else {
+            addButton.setTitle("更新する", for: .normal)
+        }
     }
         
     private func updateCountLabel() {
@@ -141,16 +148,33 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func cancelButton(_ sender: UIButton) {
-        parent?.dismiss(animated: true, completion: nil)
+        if parent is UINavigationController {
+            parent?.dismiss(animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func addPartsButton(_ sender: UIButton) {
         let vc = presentingViewController as! ViewController
         
-        // TODO: - すでに同じ部品が入っているときの処理
-        vc.parts.append(parts)
-        vc.listTableView.reloadData()
+        if parent is UINavigationController {
+            // 新しく部品を追加する
+            // TODO: - すでに同じ部品が入っているときの処理
+            vc.parts.append(parts)
+            vc.listTableView.reloadData()
         
-        parent?.dismiss(animated: true, completion: nil)
+            parent?.dismiss(animated: true, completion: nil)
+        } else {
+            if let indexPath = vc.listTableView.indexPathForSelectedRow {
+                // パーツボックスを更新
+                vc.parts[indexPath.row] = parts
+                vc.listTableView.reloadData()
+                
+                // TODO: - ゼロだった時の処理。削除?
+            }
+            
+            dismiss(animated: true, completion: nil)
+        }
     }
 }

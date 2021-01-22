@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var listTableView: UITableView! {
         didSet {
             listTableView.dataSource = self
+            listTableView.delegate = self
         }
     }
     
@@ -91,5 +92,17 @@ extension ViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         
         return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //tableView.deselectRow(at: indexPath, animated: true)
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        
+        vc.parts = parts[indexPath.row]
+        
+        present(vc, animated: true, completion: nil)
     }
 }
