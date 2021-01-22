@@ -11,9 +11,8 @@ import AlamofireImage
 // メインインタフェース
 
 class ViewController: UIViewController {
-
     // パーツボックスのインスタンス
-    var partxbox = PartxBox.shared
+    var partsBox = PartxBox.shared
     
     let baseURL = "https://akizukidenshi.com/catalog/cart/cart.aspx"
     
@@ -24,6 +23,7 @@ class ViewController: UIViewController {
         didSet {
             listTableView.dataSource = self
             listTableView.delegate = self
+            listTableView.rowHeight = 82
         }
     }
     
@@ -33,11 +33,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-                
+        
         let nib = UINib(nibName: String(describing: ListTableViewCell.self), bundle: nil)
         listTableView.register(nib, forCellReuseIdentifier: "Cell")
         
-        partxbox.updateHandler = {
+        partsBox.updateHandler = {
             self.displayTotal()
             
             // 自動更新させる
@@ -52,10 +52,10 @@ class ViewController: UIViewController {
     }
     
     func displayTotal() {
-        let totalPrice = partxbox.totalPrice
-        let totalItem = partxbox.totalItems
+        let totalPrice = partsBox.totalPrice
+        let totalItem = partsBox.totalItems
         
-        countLabel.text = "購入点数： " + String(partxbox.count) + " 商品　\(totalItem) 点"
+        countLabel.text = "購入点数： " + String(partsBox.count) + " 商品　\(totalItem) 点"
         // TODO: 商品価格は整形して表示させる
         totalLabel.text = "合計金額： \(totalPrice) 円"
     }
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
             URLQueryItem(name: "quick", value: "True")
         ]
         
-        for (index, item) in partxbox.enumerated() {
+        for (index, item) in partsBox.enumerated() {
             urlComponents.queryItems?.append(contentsOf: [
                 URLQueryItem(name: "class1_\(index + 1)", value: String(item.id.prefix(1))),
                 URLQueryItem(name: "goods", value: String(item.id.suffix(5))),
@@ -90,18 +90,19 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(#function, partxbox.count)
-        return partxbox.count
+        return partsBox.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListTableViewCell
         
-        let imageURL = URL(string: "https://akizukidenshi.com/img/goods/L")!.appendingPathComponent(partxbox[indexPath.row].id).appendingPathExtension("jpg")
+        let imageURL = URL(string: "https://akizukidenshi.com/img/goods/L")!.appendingPathComponent(partsBox[indexPath.row].id).appendingPathExtension("jpg")
         
         cell.productImageView.af.setImage(withURL: imageURL)
-        cell.nameLabel.text = partxbox[indexPath.row].name
-        cell.countLabel.text = String(partxbox[indexPath.row].buyCount!)
+        cell.nameLabel.text = partsBox[indexPath.row].name
+        cell.countLabel.text = String(partsBox[indexPath.row].buyCount!)
+        
+        cell.backgroundColor = partsBox[indexPath.row].purchased! ? .gray : .systemBackground
         
         cell.accessoryType = .disclosureIndicator
         
@@ -115,21 +116,43 @@ extension ViewController: UITableViewDelegate {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
         
-        vc.parts = partxbox[indexPath.row]
+        vc.parts = partsBox[indexPath.row]
         
         present(vc, animated: true, completion: nil)
     }
     
+    /// 編集許可
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    /// セルの削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // 自動更新を抑制する
             autoReload = false
-            partxbox.deleteParts(index: indexPath.row)
+            partsBox.deleteParts(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+    
+    /// 右スワイプ処理
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action: UIContextualAction
+        
+        if partsBox[indexPath.row].purchased! {
+            action = UIContextualAction(style: .normal, title: "購入取消") { (action, view, handler) in
+                self.partsBox.setPurchased(index: indexPath.row, flag: false)
+                handler(true)
+            }
+        } else {
+            action = UIContextualAction(style: .normal, title: "購入済み") { (action, view, handler) in
+                self.partsBox.setPurchased(index: indexPath.row, flag: true)
+                handler(true)
+            }
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+    
 }

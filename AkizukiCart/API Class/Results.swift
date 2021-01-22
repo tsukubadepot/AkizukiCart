@@ -23,6 +23,7 @@ struct PartsInfo: Codable {
     // 購入予定数
     // 本来の JSON にはないので Optional で定義
     var buyCount: Int?
+    var purchased: Bool?
     
     enum CodingKeys: String, CodingKey {
         case status
@@ -34,6 +35,7 @@ struct PartsInfo: Codable {
         case manufacturer, id
         case lastUpdate = "last_update"
         case buyCount
+        case purchased
     }
 }
 

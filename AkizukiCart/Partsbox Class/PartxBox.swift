@@ -74,6 +74,10 @@ final class PartxBox {
         parts.remove(at: index)
     }
     
+    func setPurchased(index: Int, flag: Bool) {
+        parts[index].purchased = flag
+    }
+    
     /// パーツボックスの更新
     /// - Parameter updateParts: 追加するパーツ
     /// - Returns: false: 更新すべきパーツが存在しない場合, true: 更新に成功した場合
