@@ -6,14 +6,18 @@
 //
 import Foundation
 
-final class Parts {
-    static var shared = Parts()
+// PartsBox class
+// Singleton として実装
+
+final class PartxBox {
+    static var shared = PartxBox()
     
     private init () {}
     
     private var parts: [PartsInfo] = [] {
         didSet {
-            updateHandler?()
+            // パーツ数が増えたかどうかをフラグとして渡す
+            updateHandler?(parts.count > oldValue.count)
         }
     }
     
@@ -37,7 +41,7 @@ final class Parts {
     }
     
     /// パーツを更新した時に実行させたい処理
-    var updateHandler: (() -> ())?
+    var updateHandler: ((Bool) -> ())?
     
     /// 同じ品番のパーツを持っているかチェック
     /// - Parameter newParts: 追加したいパーツ
@@ -50,6 +54,18 @@ final class Parts {
     /// - Parameter newParts: 追加したいパーツ
     func addNewParts(newParts: PartsInfo) {
         parts.append(newParts)
+    }
+    
+    /// パーツの削除
+    /// - Parameter deleteParts: 削除したいパーツ
+    func deleteParts(deleteParts: PartsInfo) {
+        parts.removeAll { $0.partNumber == deleteParts.partNumber }
+    }
+    
+    /// パーツの削除
+    /// - Parameter index: インデックス
+    func deleteParts(index: Int) {
+        parts.remove(at: index)
     }
     
     /// パーツボックスの更新

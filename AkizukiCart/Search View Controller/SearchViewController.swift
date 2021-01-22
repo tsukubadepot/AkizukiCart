@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import PKHUD
 
+// 商品の検索
 class SearchViewController: UIViewController {
     @IBOutlet weak var itemSegmentedControl: UISegmentedControl! {
         didSet {
@@ -136,6 +137,18 @@ class SearchViewController: UIViewController {
         HUD.show(.labeledProgress(title: "商品検索中", subtitle: searchItem))
         
         APIHandler.searchItems(searchItem + ".json") { parts in
+            // パーツボックス内に同じパーツが存在するか否かチェックする
+            let partsbox = PartxBox.shared
+        
+            // すでにパーツボックス内にパーツが存在した場合にはエラー表示
+            if partsbox.hasSameParts(newParts: parts) {
+                HUD.hide { _ in
+                    HUD.flash(.labeledError(title: "すでに登録済みのパーツです。", subtitle: parts.name), delay: 2.0)
+                }
+                
+                return
+            }
+            
             HUD.hide { _ in
                 HUD.flash(.labeledSuccess(title: "見つかりました。", subtitle: parts.name), delay: 2.0)
             }

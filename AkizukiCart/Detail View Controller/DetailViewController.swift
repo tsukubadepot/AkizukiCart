@@ -8,11 +8,12 @@
 import UIKit
 import AlamofireImage
 
+// 個別部品の追加・変更
+
 class DetailViewController: UIViewController {
     // MARK: - Local properties
     var parts: PartsInfo!
     let baseURL = "https://akizukidenshi.com/catalog/g/g"
-    
     
     // MARK: - UI Parts
     /// 商品名ラベル
@@ -85,11 +86,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // navigation controller がみえる
-        //print(parent)
-        // navigation controller を呼び出している View Controller
-        //print(presentingViewController)
-        
         nameLabel.text = parts.name
         priceLabel.text = "一個 \(parts.price.value) 円"
         partNumberLabel.text = parts.partNumber ?? ""
@@ -112,7 +108,7 @@ class DetailViewController: UIViewController {
             yashioCountLabel.text = "在庫： \(parts.stores[yashioIndex].count) 個"
             yashioPlaceLabel.text = parts.stores[yashioIndex].place
         }
-
+        
         // 画像
         let imageURL = URL(string: "https://akizukidenshi.com/img/goods/L")!.appendingPathComponent(parts.id).appendingPathExtension("jpg")
         productImageView.af.setImage(withURL: imageURL)
@@ -126,10 +122,11 @@ class DetailViewController: UIViewController {
             addButton.setTitle("更新する", for: .normal)
         }
     }
-        
+    
     private func updateCountLabel() {
         //
         buyItemCount.text = "\(parts.buyCount!) 点"
+        // TODO: curreny の処理
         totalLabel.text = "合計 \(parts.buyCount! * parts.price.value) 円"
         countStepper.value = Double(parts.buyCount!)
     }
@@ -146,7 +143,6 @@ class DetailViewController: UIViewController {
         updateCountLabel()
     }
     
-    
     @IBAction func cancelButton(_ sender: UIButton) {
         if parent is UINavigationController {
             parent?.dismiss(animated: true, completion: nil)
@@ -156,25 +152,39 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func addPartsButton(_ sender: UIButton) {
-        let vc = presentingViewController as! ViewController
+        let partsbox = PartxBox.shared
         
-        if parent is UINavigationController {
+        // 呼び出し元に応じて処理を変更する
+        if self.parent is UINavigationController {
             // 新しく部品を追加する
-            // TODO: - すでに同じ部品が入っているときの処理
-            vc.parts.append(parts)
-            vc.listTableView.reloadData()
-        
+            // TODO: - すでに同じ部品が入っているときの処理 -> 検索段階で処理させる
+            partsbox.addNewParts(newParts: parts)
+            
             parent?.dismiss(animated: true, completion: nil)
         } else {
-            if let indexPath = vc.listTableView.indexPathForSelectedRow {
-                // パーツボックスを更新
-                vc.parts[indexPath.row] = parts
-                vc.listTableView.reloadData()
+            // パーツ数がゼロの場合、削除するか
+            if parts.buyCount == 0 {
+                let deleteItem = UIAlertAction(title: "削除する", style: .destructive) { _ in
+                    partsbox.deleteParts(deleteParts: self.parts)
+                    self.dismiss(animated: true, completion: nil)
+                }
                 
-                // TODO: - ゼロだった時の処理。削除?
+                let cancelItem = UIAlertAction(title: "キャンセル", style: .cancel) { _ in
+                    return
+                }
+                
+                let alertAction = UIAlertController(title: "パーツの削除", message: "パーツボックスから削除しますか？", preferredStyle: .alert)
+                
+                alertAction.addAction(deleteItem)
+                alertAction.addAction(cancelItem)
+                
+                present(alertAction, animated: true, completion: nil)
+            } else {
+                
+                partsbox.updateParts(updateParts: parts)
+                
+                dismiss(animated: true, completion: nil)
             }
-            
-            dismiss(animated: true, completion: nil)
         }
     }
 }
