@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         }
     }
     
+    /// tableView を自動でリロードさせるためのフラグ
+    var autoReload = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -34,13 +37,14 @@ class ViewController: UIViewController {
         let nib = UINib(nibName: String(describing: ListTableViewCell.self), bundle: nil)
         listTableView.register(nib, forCellReuseIdentifier: "Cell")
         
-        partxbox.updateHandler = { addflag in
+        partxbox.updateHandler = {
             self.displayTotal()
             
-            // パーツ数が増えた時だけリロード
-            // 削除時は逐次アニメーションさせる
-            if addflag {
+            // 自動更新させる
+            if self.autoReload {
                 self.listTableView.reloadData()
+            } else {
+                self.autoReload = true
             }
         }
         
@@ -122,6 +126,8 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            // 自動更新を抑制する
+            autoReload = false
             partxbox.deleteParts(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }

@@ -20,13 +20,10 @@ final class PartxBox {
         }
         
         set {
-            // 保存前のパーツ数を記録しておく
-            let oldCount = parts.count
-            
             UserDefaults.standard.setEncoded(newValue, forKey: "parts")
             
             // パーツ数が増えたかどうかをフラグとして渡す
-            updateHandler?(newValue.count > oldCount)
+            updateHandler?()
         }
     }
 
@@ -50,7 +47,7 @@ final class PartxBox {
     }
     
     /// パーツを更新した時に実行させたい処理
-    var updateHandler: ((Bool) -> ())?
+    var updateHandler: (() -> ())?
     
     /// 同じ品番のパーツを持っているかチェック
     /// - Parameter newParts: 追加したいパーツ
