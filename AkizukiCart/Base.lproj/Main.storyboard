@@ -471,6 +471,9 @@
                                     <segment title="秋葉原店"/>
                                     <segment title="八潮店"/>
                                 </segments>
+                                <connections>
+                                    <action selector="shopPlaceSegment:" destination="ag2-9u-xOk" eventType="valueChanged" id="yzQ-IX-wEY"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m0B-yB-N5o"/>
@@ -505,6 +508,7 @@
                     <connections>
                         <outlet property="countLabel" destination="9ds-LQ-iK4" id="8Fj-Fr-cHH"/>
                         <outlet property="listTableView" destination="ibZ-pz-D4k" id="EPe-9d-C1S"/>
+                        <outlet property="shopSegment" destination="BHR-d6-g5N" id="jqC-ca-ybH"/>
                         <outlet property="totalLabel" destination="owe-RZ-dyD" id="Tdd-G3-wOl"/>
                     </connections>
                 </viewController>
@@ -520,6 +524,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Haf-v5-LQG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="systemTealColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
