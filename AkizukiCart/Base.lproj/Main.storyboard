@@ -111,7 +111,7 @@
                         <outlet property="itemCodeSearchBar" destination="0te-cU-i09" id="QsT-xe-iMQ"/>
                         <outlet property="itemNumberSearchBar" destination="OTE-sT-1g5" id="i8C-bf-mYm"/>
                         <outlet property="itemSegmentedControl" destination="KfA-pP-f5o" id="Bfc-d3-RNx"/>
-                        <outlet property="searchButton" destination="EiL-JC-K3Y" id="PRx-ix-EYs"/>
+                        <outlet property="searchButton" destination="EiL-JC-K3Y" id="Nis-kT-NWT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

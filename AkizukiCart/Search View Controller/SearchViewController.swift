@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import PKHUD
+import Combine
 
 // 商品の検索
 class SearchViewController: UIViewController {
@@ -26,6 +27,11 @@ class SearchViewController: UIViewController {
     
     /// 注意促進用の背景色
     var causionColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.2)
+    
+    /// 入力バリデーション
+    @Published var isItemOk = false
+    @Published var isCountOk = false
+    private var subscriptions = Set<AnyCancellable>()
     
     // 5桁の数値
     @IBOutlet weak var itemCodeSearchBar: UISearchBar! {
@@ -108,6 +114,16 @@ class SearchViewController: UIViewController {
         //
         itemCodeSearchBar.inputAccessoryView = numPadAccessory
         itemNumberSearchBar.inputAccessoryView = numPadAccessory
+        
+        // 入力ボタンのバリデーション
+        // 購入数とアイテム番号の両方が入力されていた場合に、ボタンを有効にする
+        $isCountOk
+            .combineLatest($isItemOk)
+            .sink { count, item in
+                self.searchButton.isEnabled = count && item
+                self.searchButton.layer.opacity = (count && item) ? 1.0 : 0.5
+            }
+            .store(in: &subscriptions)
     }
     
     @objc func goBack() {
@@ -212,8 +228,10 @@ extension SearchViewController: UISearchBarDelegate {
         // 入力数値数が足りない場合には、背景色を赤くする
         if searchBar.text?.count != 5 {
             searchBar.searchTextField.backgroundColor = causionColor
+            isCountOk = false
         } else {
             searchBar.searchTextField.backgroundColor = .systemGray5
+            isCountOk = true
         }
     }
     
@@ -221,8 +239,10 @@ extension SearchViewController: UISearchBarDelegate {
     private func validateItemCount(_ searchBar: UISearchBar, count: Int) {
         if searchBar.text?.count == count {
             searchBar.searchTextField.backgroundColor = causionColor
+            isItemOk = false
         } else {
             searchBar.searchTextField.backgroundColor = .systemGray5
+            isItemOk = true
         }
     }
 }
