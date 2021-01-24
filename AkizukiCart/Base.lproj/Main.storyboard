@@ -24,19 +24,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アルファベット" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvC-dw-jIo">
-                                <rect key="frame" x="16" y="144" width="382" height="21"/>
+                                <rect key="frame" x="16" y="154" width="382" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数字5桁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxE-lq-6mr">
-                                <rect key="frame" x="16" y="210" width="382" height="21"/>
+                                <rect key="frame" x="16" y="230" width="382" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KfA-pP-f5o">
-                                <rect key="frame" x="16" y="173" width="382" height="32"/>
+                                <rect key="frame" x="16" y="183" width="382" height="32"/>
                                 <segments>
                                     <segment title="M"/>
                                     <segment title="K"/>
@@ -50,17 +50,17 @@
                                 </segments>
                             </segmentedControl>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0te-cU-i09">
-                                <rect key="frame" x="16" y="237" width="382" height="56"/>
+                                <rect key="frame" x="16" y="257" width="382" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMk-Ld-rXO">
-                                <rect key="frame" x="16" y="299" width="382" height="21"/>
+                                <rect key="frame" x="16" y="329" width="382" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiL-JC-K3Y">
-                                <rect key="frame" x="16" y="388" width="382" height="50"/>
+                                <rect key="frame" x="16" y="418" width="382" height="50"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jMX-MJ-t3v"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OTE-sT-1g5">
-                                <rect key="frame" x="16" y="326" width="382" height="56"/>
+                                <rect key="frame" x="16" y="356" width="382" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -94,15 +94,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cTb-bF-ZDD" secondAttribute="trailing" constant="16" id="Dop-ej-j9Q"/>
                             <constraint firstItem="cTb-bF-ZDD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="O5g-uB-ZFz"/>
                             <constraint firstItem="vvC-dw-jIo" firstAttribute="leading" secondItem="cTb-bF-ZDD" secondAttribute="leading" id="RxC-mb-R6i"/>
-                            <constraint firstItem="qxE-lq-6mr" firstAttribute="top" secondItem="KfA-pP-f5o" secondAttribute="bottom" constant="6" id="Whs-h1-Yo4"/>
+                            <constraint firstItem="qxE-lq-6mr" firstAttribute="top" secondItem="KfA-pP-f5o" secondAttribute="bottom" constant="16" id="Whs-h1-Yo4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vvC-dw-jIo" secondAttribute="trailing" constant="16" id="WnZ-Ht-XYT"/>
                             <constraint firstItem="KfA-pP-f5o" firstAttribute="top" secondItem="vvC-dw-jIo" secondAttribute="bottom" constant="8" id="bw5-gg-PsD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OTE-sT-1g5" secondAttribute="trailing" constant="16" id="h2l-5J-RVY"/>
-                            <constraint firstItem="PMk-Ld-rXO" firstAttribute="top" secondItem="0te-cU-i09" secondAttribute="bottom" constant="6" id="iE2-6g-VAJ"/>
+                            <constraint firstItem="PMk-Ld-rXO" firstAttribute="top" secondItem="0te-cU-i09" secondAttribute="bottom" constant="16" id="iE2-6g-VAJ"/>
                             <constraint firstItem="EiL-JC-K3Y" firstAttribute="top" secondItem="OTE-sT-1g5" secondAttribute="bottom" constant="6" id="m8X-bb-3Hi"/>
                             <constraint firstItem="0te-cU-i09" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="qoH-Tu-dWn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qxE-lq-6mr" secondAttribute="trailing" constant="16" id="rYN-xG-8vm"/>
-                            <constraint firstItem="vvC-dw-jIo" firstAttribute="top" secondItem="cTb-bF-ZDD" secondAttribute="bottom" constant="6" id="xrd-Kd-hzU"/>
+                            <constraint firstItem="vvC-dw-jIo" firstAttribute="top" secondItem="cTb-bF-ZDD" secondAttribute="bottom" constant="16" id="xrd-Kd-hzU"/>
                             <constraint firstItem="KfA-pP-f5o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yiM-L9-Tdl"/>
                         </constraints>
                     </view>
@@ -425,23 +425,26 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zP7-K2-kd1" userLabel="Top View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YP1-No-MWF">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem systemItem="add" id="giO-WB-wf1">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="addPartsButton:" destination="ag2-9u-xOk" id="GhL-kJ-LNc"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BNt-GH-zeY"/>
                                     <barButtonItem systemItem="action" id="nf4-Cy-Kg9">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="addCartButton:" destination="ag2-9u-xOk" id="V5r-ZI-ryy"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" systemColor="systemGreenColor"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ds-LQ-iK4">
                                 <rect key="frame" x="16" y="44" width="382" height="20.5"/>
@@ -524,8 +527,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Haf-v5-LQG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" systemColor="systemTealColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="systemGreenColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -540,6 +546,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
