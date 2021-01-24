@@ -17,20 +17,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a6V-wg-3Ps">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a6V-wg-3Ps" userLabel="商品画像">
                         <rect key="frame" x="16" y="6" width="88" height="66"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="66" id="I3c-Ov-bNG"/>
                             <constraint firstAttribute="width" constant="88" id="I3q-U2-efr"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ＲａｓｐｂｅｒｒｙＰｉ３　Ｍｏｄｅｌ　Ｂ　（ラズベリーパイスリーモデルビー）　ｅｌｅｍｅｎｔ１４版" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zpA-gv-7AD">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ＲａｓｐｂｅｒｒｙＰｉ３　Ｍｏｄｅｌ　Ｂ　（ラズベリーパイスリーモデルビー）　ｅｌｅｍｅｎｔ１４版" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zpA-gv-7AD" userLabel="商品ラベル">
                         <rect key="frame" x="110" y="6" width="123" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="66" id="Sj6-w9-dMt"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ofI-sn-rwV">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ofI-sn-rwV" userLabel="購入数 Stack">
                         <rect key="frame" x="239" y="6" width="65" height="57"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCD-PB-b1M">
@@ -62,7 +65,6 @@
                     <constraint firstItem="ofI-sn-rwV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="8K5-6j-KEH"/>
                     <constraint firstItem="ofI-sn-rwV" firstAttribute="leading" secondItem="zpA-gv-7AD" secondAttribute="trailing" constant="6" id="A0q-Fe-uXb"/>
                     <constraint firstItem="1fc-om-Y0S" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="FW8-qm-wUo"/>
-                    <constraint firstItem="zpA-gv-7AD" firstAttribute="bottom" secondItem="a6V-wg-3Ps" secondAttribute="bottom" id="JDk-Ez-mpk"/>
                     <constraint firstAttribute="bottom" secondItem="ofI-sn-rwV" secondAttribute="bottom" constant="6" id="KJx-LF-LZt"/>
                     <constraint firstItem="zpA-gv-7AD" firstAttribute="top" secondItem="a6V-wg-3Ps" secondAttribute="top" id="M2V-Dv-RZ3"/>
                     <constraint firstItem="1fc-om-Y0S" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="OYS-bC-pmq"/>
