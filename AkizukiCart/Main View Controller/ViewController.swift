@@ -99,6 +99,7 @@ extension ViewController: UITableViewDataSource {
         let imageURL = URL(string: "https://akizukidenshi.com/img/goods/L")!.appendingPathComponent(partsBox[indexPath.row].id).appendingPathExtension("jpg")
         
         cell.productImageView.af.setImage(withURL: imageURL)
+        // 商品ラベルの高さ Constraint は height <= 66 にして上揃えに設定している
         cell.nameLabel.text = partsBox[indexPath.row].name
         cell.countLabel.text = String(partsBox[indexPath.row].buyCount!)
         
