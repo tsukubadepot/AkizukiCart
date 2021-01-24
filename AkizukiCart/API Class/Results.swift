@@ -17,7 +17,9 @@ struct PartsInfo: Codable {
     let stores: [Store]
     let name: String
     let price: Price
-    let releaseDate, manufacturer, id: String
+    let releaseDate: String
+    let manufacturer: String?
+    let id: String
     let lastUpdate: String
     
     // 購入予定数
@@ -64,7 +66,7 @@ struct Status: Codable {
 
 // MARK: Store
 struct Store: Codable {
-    let count: Int
+    let count: Int?
     let place, name: String
 }
 
