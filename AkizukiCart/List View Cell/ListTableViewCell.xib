@@ -50,15 +50,24 @@
                             <constraint firstAttribute="width" constant="65" id="vw3-mh-f4t"/>
                         </constraints>
                     </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased" translatesAutoresizingMaskIntoConstraints="NO" id="1fc-om-Y0S" userLabel="済みラベル">
+                        <rect key="frame" x="96" y="2.5" width="128" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="1fc-om-Y0S" secondAttribute="height" multiplier="30:15" id="eLk-gH-wdW"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="a6V-wg-3Ps" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="6Qh-0y-Eug"/>
                     <constraint firstItem="ofI-sn-rwV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="8K5-6j-KEH"/>
                     <constraint firstItem="ofI-sn-rwV" firstAttribute="leading" secondItem="zpA-gv-7AD" secondAttribute="trailing" constant="6" id="A0q-Fe-uXb"/>
+                    <constraint firstItem="1fc-om-Y0S" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="FW8-qm-wUo"/>
                     <constraint firstItem="zpA-gv-7AD" firstAttribute="bottom" secondItem="a6V-wg-3Ps" secondAttribute="bottom" id="JDk-Ez-mpk"/>
                     <constraint firstAttribute="bottom" secondItem="ofI-sn-rwV" secondAttribute="bottom" constant="6" id="KJx-LF-LZt"/>
                     <constraint firstItem="zpA-gv-7AD" firstAttribute="top" secondItem="a6V-wg-3Ps" secondAttribute="top" id="M2V-Dv-RZ3"/>
+                    <constraint firstItem="1fc-om-Y0S" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="OYS-bC-pmq"/>
                     <constraint firstItem="a6V-wg-3Ps" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="Xt0-Sk-So6"/>
+                    <constraint firstItem="1fc-om-Y0S" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="im5-fG-48B"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ofI-sn-rwV" secondAttribute="trailing" id="onZ-5v-1Jz"/>
                     <constraint firstItem="zpA-gv-7AD" firstAttribute="leading" secondItem="a6V-wg-3Ps" secondAttribute="trailing" constant="6" id="t1Z-bY-2j5"/>
                     <constraint firstAttribute="bottom" secondItem="a6V-wg-3Ps" secondAttribute="bottom" constant="6" id="y98-oy-e4B"/>
@@ -69,8 +78,12 @@
                 <outlet property="countLabel" destination="NCD-PB-b1M" id="xeA-Lt-3SL"/>
                 <outlet property="nameLabel" destination="zpA-gv-7AD" id="oLu-EI-zCJ"/>
                 <outlet property="productImageView" destination="a6V-wg-3Ps" id="Hft-d8-0Kf"/>
+                <outlet property="purchasedImage" destination="1fc-om-Y0S" id="MON-gZ-Obv"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="107.14285714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="purchased" width="85.040000915527344" height="34.020000457763672"/>
+    </resources>
 </document>

@@ -103,6 +103,7 @@ extension ViewController: UITableViewDataSource {
         cell.countLabel.text = String(partsBox[indexPath.row].buyCount!)
         
         cell.backgroundColor = partsBox[indexPath.row].purchased! ? .gray : .systemBackground
+        cell.purchasedImage.isHidden = !(partsBox[indexPath.row].purchased!)
         
         cell.accessoryType = .disclosureIndicator
         
