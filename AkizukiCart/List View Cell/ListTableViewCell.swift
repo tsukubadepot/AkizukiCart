@@ -20,6 +20,7 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var purchasedImage: UIImageView!
+    @IBOutlet weak var place: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -18,12 +18,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var shopSegment: UISegmentedControl!
     
     @IBOutlet weak var listTableView: UITableView! {
         didSet {
             listTableView.dataSource = self
             listTableView.delegate = self
-            listTableView.rowHeight = 82
+            //listTableView.rowHeight = 111//82
         }
     }
     
@@ -58,6 +59,10 @@ class ViewController: UIViewController {
         countLabel.text = "購入点数： " + String(partsBox.count) + " 商品　\(totalItem) 点"
         // TODO: 商品価格は整形して表示させる
         totalLabel.text = "合計金額： \(totalPrice) 円"
+    }
+    
+    @IBAction func shopPlaceSegment(_ sender: UISegmentedControl) {
+        listTableView.reloadData()
     }
     
     @IBAction func addPartsButton(_ sender: UIBarButtonItem) {
@@ -107,6 +112,26 @@ extension ViewController: UITableViewDataSource {
         cell.purchasedImage.isHidden = !(partsBox[indexPath.row].purchased!)
         
         cell.accessoryType = .disclosureIndicator
+        
+        // TODO: - 在庫情報は detailedViewController とリファクタする必要がある
+        //
+        if shopSegment.selectedSegmentIndex == 0 {
+            if let akihabaraIndex = partsBox[indexPath.row].stores.firstIndex(where: { store -> Bool in
+                store.name.contains("秋葉原")
+            }) {
+                // TODO: - 在庫店員問い合わせについて
+                // TODO: - 在庫情報が取れない時（null)
+                //akihabaraCountLabel.text = "在庫： \(parts.stores[akihabaraIndex].count ?? 0) 個"
+                cell.place.text = partsBox[indexPath.row].stores[akihabaraIndex].place
+            }
+        } else {
+            if let yashioIndex = partsBox[indexPath.row].stores.firstIndex(where: { store -> Bool in
+                store.name.contains("八潮")
+            }) {
+                //yashioCountLabel.text = "在庫： \(parts.stores[yashioIndex].count ?? 0) 個"
+                cell.place.text = partsBox[indexPath.row].stores[yashioIndex].place 
+            }
+        }
         
         return cell
     }

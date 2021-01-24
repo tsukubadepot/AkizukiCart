@@ -11,36 +11,36 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ListTableViewCell" customModule="AkizukiCart" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a6V-wg-3Ps" userLabel="商品画像">
-                        <rect key="frame" x="16" y="6" width="88" height="66"/>
+                        <rect key="frame" x="16" y="11" width="88" height="66"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="66" id="I3c-Ov-bNG"/>
                             <constraint firstAttribute="width" constant="88" id="I3q-U2-efr"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ＲａｓｐｂｅｒｒｙＰｉ３　Ｍｏｄｅｌ　Ｂ　（ラズベリーパイスリーモデルビー）　ｅｌｅｍｅｎｔ１４版" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zpA-gv-7AD" userLabel="商品ラベル">
-                        <rect key="frame" x="110" y="6" width="123" height="66"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ＲａｓｐｂｅｒｒｙＰｉ３　Ｍｏｄｅｌ　Ｂ　（ラズベリーパイスリーモデルビー）　ｅｌｅｍｅｎｔ１４版" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zpA-gv-7AD" userLabel="商品ラベル">
+                        <rect key="frame" x="110" y="11" width="123" height="66"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ofI-sn-rwV" userLabel="購入数 Stack">
-                        <rect key="frame" x="239" y="6" width="65" height="57"/>
+                        <rect key="frame" x="239" y="32" width="65" height="47.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCD-PB-b1M">
-                                <rect key="frame" x="0.0" y="0.0" width="65" height="33.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <rect key="frame" x="0.0" y="0.0" width="65" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="セット" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lk-fF-rpq">
-                                <rect key="frame" x="0.0" y="36.5" width="65" height="20.5"/>
+                                <rect key="frame" x="0.0" y="27" width="65" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,36 +51,45 @@
                         </constraints>
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased" translatesAutoresizingMaskIntoConstraints="NO" id="1fc-om-Y0S" userLabel="済みラベル">
-                        <rect key="frame" x="96" y="2.5" width="128" height="64"/>
+                        <rect key="frame" x="96" y="23.5" width="128" height="64"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="1fc-om-Y0S" secondAttribute="height" multiplier="30:15" id="eLk-gH-wdW"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="売り場" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bi-ej-bdK">
+                        <rect key="frame" x="110" y="81" width="194" height="19"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="a6V-wg-3Ps" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="6Qh-0y-Eug"/>
-                    <constraint firstItem="ofI-sn-rwV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="8K5-6j-KEH"/>
                     <constraint firstItem="ofI-sn-rwV" firstAttribute="leading" secondItem="zpA-gv-7AD" secondAttribute="trailing" constant="6" id="A0q-Fe-uXb"/>
                     <constraint firstItem="1fc-om-Y0S" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="FW8-qm-wUo"/>
-                    <constraint firstAttribute="bottom" secondItem="ofI-sn-rwV" secondAttribute="bottom" constant="6" id="KJx-LF-LZt"/>
                     <constraint firstItem="zpA-gv-7AD" firstAttribute="top" secondItem="a6V-wg-3Ps" secondAttribute="top" id="M2V-Dv-RZ3"/>
+                    <constraint firstItem="0Bi-ej-bdK" firstAttribute="leading" secondItem="zpA-gv-7AD" secondAttribute="leading" id="NrZ-qB-Vuz"/>
                     <constraint firstItem="1fc-om-Y0S" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="OYS-bC-pmq"/>
                     <constraint firstItem="zpA-gv-7AD" firstAttribute="height" relation="lessThanOrEqual" secondItem="a6V-wg-3Ps" secondAttribute="height" id="TMV-xn-xrg"/>
-                    <constraint firstItem="a6V-wg-3Ps" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="Xt0-Sk-So6"/>
+                    <constraint firstItem="a6V-wg-3Ps" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Xt0-Sk-So6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0Bi-ej-bdK" secondAttribute="trailing" id="Yns-GG-sFc"/>
                     <constraint firstItem="1fc-om-Y0S" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="im5-fG-48B"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ofI-sn-rwV" secondAttribute="trailing" id="onZ-5v-1Jz"/>
                     <constraint firstItem="zpA-gv-7AD" firstAttribute="leading" secondItem="a6V-wg-3Ps" secondAttribute="trailing" constant="6" id="t1Z-bY-2j5"/>
-                    <constraint firstAttribute="bottom" secondItem="a6V-wg-3Ps" secondAttribute="bottom" constant="6" id="y98-oy-e4B"/>
+                    <constraint firstItem="ofI-sn-rwV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tcD-FN-zB0"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="0Bi-ej-bdK" secondAttribute="bottom" id="vJq-YM-ApU"/>
+                    <constraint firstItem="0Bi-ej-bdK" firstAttribute="top" secondItem="a6V-wg-3Ps" secondAttribute="bottom" constant="4" id="y98-oy-e4B"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="countLabel" destination="NCD-PB-b1M" id="xeA-Lt-3SL"/>
                 <outlet property="nameLabel" destination="zpA-gv-7AD" id="oLu-EI-zCJ"/>
+                <outlet property="place" destination="0Bi-ej-bdK" id="Ffz-Ev-k4i"/>
                 <outlet property="productImageView" destination="a6V-wg-3Ps" id="Hft-d8-0Kf"/>
                 <outlet property="purchasedImage" destination="1fc-om-Y0S" id="MON-gZ-Obv"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="107.14285714285714"/>
+            <point key="canvasLocation" x="137.68115942028987" y="116.85267857142857"/>
         </tableViewCell>
     </objects>
     <resources>
