@@ -65,8 +65,23 @@ struct Status: Codable {
 }
 
 // MARK: Store
+// 売り場情報が取れない場合の処理
 struct Store: Codable {
     let count: Int?
-    let place, name: String
+    var place: String {
+        if _place.isEmpty {
+            return "売場：店員さんにお問い合わせください。"
+        } else {
+            return _place
+        }
+    }
+    let name: String
+    
+    private let _place: String
+    
+    enum CodingKeys: String, CodingKey {
+        case _place = "place"
+        case count
+        case name
+    }
 }
-
