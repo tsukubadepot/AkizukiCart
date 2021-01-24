@@ -98,14 +98,15 @@ class DetailViewController: UIViewController {
             store.name.contains("秋葉原")
         }) {
             // TODO: - 在庫店員問い合わせについて
-            akihabaraCountLabel.text = "在庫： \(parts.stores[akihabaraIndex].count) 個"
+            // TODO: - 在庫情報が取れない時（null)
+            akihabaraCountLabel.text = "在庫： \(parts.stores[akihabaraIndex].count ?? 0) 個"
             akihabaraPlaceLabel.text = parts.stores[akihabaraIndex].place
         }
         
         if let yashioIndex = parts.stores.firstIndex(where: { store -> Bool in
             store.name.contains("八潮")
         }) {
-            yashioCountLabel.text = "在庫： \(parts.stores[yashioIndex].count) 個"
+            yashioCountLabel.text = "在庫： \(parts.stores[yashioIndex].count ?? 0) 個"
             yashioPlaceLabel.text = parts.stores[yashioIndex].place
         }
         
