@@ -53,12 +53,14 @@ class ViewController: UIViewController {
     }
     
     func displayTotal() {
-        let totalPrice = partsBox.totalPrice
-        let totalItem = partsBox.totalItems
-        
+        let totalItem = partsBox.totalItems        
         countLabel.text = "購入点数： " + String(partsBox.count) + " 商品　\(totalItem) 点"
-        // TODO: 商品価格は整形して表示させる
-        totalLabel.text = "合計金額： \(totalPrice) 円"
+
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currencyPlural
+        formatter.locale = Locale(identifier: "ja_JP")
+        let totalPrice = formatter.string(from: partsBox.totalPrice as NSNumber)
+        totalLabel.text = "合計金額： \(totalPrice!)"
     }
     
     @IBAction func shopPlaceSegment(_ sender: UISegmentedControl) {
