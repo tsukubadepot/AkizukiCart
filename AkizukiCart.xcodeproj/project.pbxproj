@@ -23,6 +23,7 @@
 		BF39D4DB258434E70045026C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4D9258434E70045026C /* ListTableViewCell.swift */; };
 		BF39D4DC258434E70045026C /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF39D4DA258434E70045026C /* ListTableViewCell.xib */; };
 		BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */; };
+		BF9D7DBB25C2E9FE00FC463B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		BF39D4D9258434E70045026C /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		BF39D4DA258434E70045026C /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
+		BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		BF39D4A1258240220045026C /* AkizukiCart */ = {
 			isa = PBXGroup;
 			children = (
+				BF9D7DB925C2E9E700FC463B /* About View Controller */,
 				BF1CF71025BB4285007C3592 /* Main View Controller */,
 				BF39D4D62584348D0045026C /* Search View Controller */,
 				BF39D4D7258434A60045026C /* Detail View Controller */,
@@ -164,6 +167,14 @@
 				BF39D4DA258434E70045026C /* ListTableViewCell.xib */,
 			);
 			path = "List View Cell";
+			sourceTree = "<group>";
+		};
+		BF9D7DB925C2E9E700FC463B /* About View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */,
+			);
+			path = "About View Controller";
 			sourceTree = "<group>";
 		};
 		CAEF3C2ED694F253B8E3D325 /* Frameworks */ = {
@@ -299,6 +310,7 @@
 				BF39D4C62583366C0045026C /* APIHandler.swift in Sources */,
 				BF39D4A5258240220045026C /* SceneDelegate.swift in Sources */,
 				BF39D4BB2583283B0045026C /* Results.swift in Sources */,
+				BF9D7DBB25C2E9FE00FC463B /* AboutViewController.swift in Sources */,
 				BF39D4C9258350790045026C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
