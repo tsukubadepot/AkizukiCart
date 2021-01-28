@@ -38,16 +38,7 @@ class ViewController: UIViewController {
         let nib = UINib(nibName: String(describing: ListTableViewCell.self), bundle: nil)
         listTableView.register(nib, forCellReuseIdentifier: "Cell")
         
-        partsBox.updateHandler = {
-            self.displayTotal()
-            
-            // 自動更新させる
-            if self.autoReload {
-                self.listTableView.reloadData()
-            } else {
-                self.autoReload = true
-            }
-        }
+        partsBox.updateDelegate = self
         
         displayTotal()
     }
@@ -203,4 +194,17 @@ extension ViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [action])
     }
     
+}
+
+extension ViewController: PartsBoxDelegate {
+    func updateHandler() {
+        self.displayTotal()
+        
+        // 自動更新させる
+        if self.autoReload {
+            self.listTableView.reloadData()
+        } else {
+            self.autoReload = true
+        }
+    }
 }

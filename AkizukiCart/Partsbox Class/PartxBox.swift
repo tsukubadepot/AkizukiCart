@@ -9,10 +9,17 @@ import Foundation
 // PartsBox class
 // Singleton として実装
 
+protocol PartsBoxDelegate: AnyObject {
+    func updateHandler()
+}
+
 final class PartxBox {
     static var shared = PartxBox()
     
     private init () {}
+    
+    // Delegate
+    weak var updateDelegate: PartsBoxDelegate?
     
     private var parts: [PartsInfo]  {
         get {
@@ -22,8 +29,7 @@ final class PartxBox {
         set {
             UserDefaults.standard.setEncoded(newValue, forKey: "parts")
             
-            // パーツ数が増えたかどうかをフラグとして渡す
-            updateHandler?()
+            updateDelegate?.updateHandler()
         }
     }
 
