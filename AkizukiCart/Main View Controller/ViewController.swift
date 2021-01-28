@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 // メインインタフェース
 
@@ -91,38 +90,8 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListTableViewCell
         
-        let imageURL = URL(string: "https://akizukidenshi.com/img/goods/L")!.appendingPathComponent(partsBox[indexPath.row].id).appendingPathExtension("jpg")
-        
-        cell.productImageView.af.setImage(withURL: imageURL)
-        // 商品ラベルの高さ Constraint は height <= 66 にして上揃えに設定している
-        cell.nameLabel.text = partsBox[indexPath.row].name
-        cell.countLabel.text = String(partsBox[indexPath.row].buyCount!)
-        
-        cell.backgroundColor = partsBox[indexPath.row].purchased! ? .gray : .systemBackground
-        cell.purchasedImage.isHidden = !(partsBox[indexPath.row].purchased!)
-        
-        cell.accessoryType = .disclosureIndicator
-        
-        // TODO: - 在庫情報は detailedViewController とリファクタする必要がある
-        //
-        if shopSegment.selectedSegmentIndex == 0 {
-            if let akihabaraIndex = partsBox[indexPath.row].stores.firstIndex(where: { store -> Bool in
-                store.name.contains("秋葉原")
-            }) {
-                // TODO: - 在庫店員問い合わせについて
-                // TODO: - 在庫情報が取れない時（null)
-                //akihabaraCountLabel.text = "在庫： \(parts.stores[akihabaraIndex].count ?? 0) 個"
-                cell.place.text = partsBox[indexPath.row].stores[akihabaraIndex].place
-            }
-        } else {
-            if let yashioIndex = partsBox[indexPath.row].stores.firstIndex(where: { store -> Bool in
-                store.name.contains("八潮")
-            }) {
-                //yashioCountLabel.text = "在庫： \(parts.stores[yashioIndex].count ?? 0) 個"
-                cell.place.text = partsBox[indexPath.row].stores[yashioIndex].place 
-            }
-        }
-        
+        cell.setup(parts: partsBox[indexPath.row], shopIndex: shopSegment.selectedSegmentIndex)
+                
         return cell
     }
 }
@@ -193,7 +162,6 @@ extension ViewController: UITableViewDelegate {
         
         return UISwipeActionsConfiguration(actions: [action])
     }
-    
 }
 
 extension ViewController: PartsBoxDelegate {
