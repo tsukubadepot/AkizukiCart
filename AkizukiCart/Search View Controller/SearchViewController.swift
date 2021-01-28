@@ -160,7 +160,7 @@ class SearchViewController: UIViewController {
         
         APIHandler.searchItems(searchItem + ".json") { parts in
             // パーツボックス内に同じパーツが存在するか否かチェックする
-            let partsbox = PartxBox.shared
+            let partsbox = PartsBox.shared
         
             // すでにパーツボックス内にパーツが存在した場合にはエラー表示
             if partsbox.hasSameParts(newParts: parts) {

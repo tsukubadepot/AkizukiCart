@@ -155,7 +155,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func addPartsButton(_ sender: UIButton) {
-        let partsbox = PartxBox.shared
+        let partsbox = PartsBox.shared
         
         // 呼び出し元に応じて処理を変更する
         if self.parent is UINavigationController {

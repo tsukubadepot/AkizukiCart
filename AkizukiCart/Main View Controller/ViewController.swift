@@ -12,7 +12,7 @@ import AlamofireImage
 
 class ViewController: UIViewController {
     // パーツボックスのインスタンス
-    var partsBox = PartxBox.shared
+    var partsBox = PartsBox.shared
     
     let baseURL = "https://akizukidenshi.com/catalog/cart/cart.aspx"
     

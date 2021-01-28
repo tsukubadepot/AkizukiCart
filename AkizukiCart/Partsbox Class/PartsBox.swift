@@ -13,8 +13,8 @@ protocol PartsBoxDelegate: AnyObject {
     func updateHandler()
 }
 
-final class PartxBox {
-    static var shared = PartxBox()
+final class PartsBox {
+    static var shared = PartsBox()
     
     private init () {}
     

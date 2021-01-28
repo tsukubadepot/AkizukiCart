@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		66776B175395163F20B9A57C /* Pods_AkizukiCart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5BF42A7B12A6FB54465CB8 /* Pods_AkizukiCart.framework */; };
-		BF1CF70825BB20D3007C3592 /* PartxBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CF70725BB20D3007C3592 /* PartxBox.swift */; };
+		BF1CF70825BB20D3007C3592 /* PartsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CF70725BB20D3007C3592 /* PartsBox.swift */; };
 		BF1CF70D25BB37BF007C3592 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1CF70C25BB37BF007C3592 /* UserDefaultExtension.swift */; };
 		BF39D4A3258240220045026C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4A2258240220045026C /* AppDelegate.swift */; };
 		BF39D4A5258240220045026C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4A4258240220045026C /* SceneDelegate.swift */; };
@@ -30,7 +30,7 @@
 		4AE62E21588A4C51E71B2763 /* Pods-AkizukiCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkizukiCart.release.xcconfig"; path = "Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart.release.xcconfig"; sourceTree = "<group>"; };
 		5C5BF42A7B12A6FB54465CB8 /* Pods_AkizukiCart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AkizukiCart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B907D6B6BE75658F5F1B5C11 /* Pods-AkizukiCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkizukiCart.debug.xcconfig"; path = "Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart.debug.xcconfig"; sourceTree = "<group>"; };
-		BF1CF70725BB20D3007C3592 /* PartxBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartxBox.swift; sourceTree = "<group>"; };
+		BF1CF70725BB20D3007C3592 /* PartsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsBox.swift; sourceTree = "<group>"; };
 		BF1CF70C25BB37BF007C3592 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
 		BF39D49F258240220045026C /* AkizukiCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AkizukiCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF39D4A2258240220045026C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		BF1CF70625BB20B3007C3592 /* Partsbox Class */ = {
 			isa = PBXGroup;
 			children = (
-				BF1CF70725BB20D3007C3592 /* PartxBox.swift */,
+				BF1CF70725BB20D3007C3592 /* PartsBox.swift */,
 			);
 			path = "Partsbox Class";
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 			files = (
 				BF1CF70D25BB37BF007C3592 /* UserDefaultExtension.swift in Sources */,
 				BF39D4A7258240220045026C /* ViewController.swift in Sources */,
-				BF1CF70825BB20D3007C3592 /* PartxBox.swift in Sources */,
+				BF1CF70825BB20D3007C3592 /* PartsBox.swift in Sources */,
 				BF39D4DB258434E70045026C /* ListTableViewCell.swift in Sources */,
 				BF39D4A3258240220045026C /* AppDelegate.swift in Sources */,
 				BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */,
