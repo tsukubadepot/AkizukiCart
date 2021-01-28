@@ -214,6 +214,7 @@
 				BF39D49C258240220045026C /* Frameworks */,
 				BF39D49D258240220045026C /* Resources */,
 				1A8D0AC382FF70856CAACB8C /* [CP] Embed Pods Frameworks */,
+				BF9D7DEA25C33B2800FC463B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -288,6 +289,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BF9D7DEA25C33B2800FC463B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Set the build number to the count of Git commits\n# https://qiita.com/4q_sano/items/ef60d824c7105a139ef8\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 		C5FA5804F96681C1ACC5141B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -480,6 +498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 872HCG8AJ3;
 				INFOPLIST_FILE = AkizukiCart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -501,6 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 872HCG8AJ3;
 				INFOPLIST_FILE = AkizukiCart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
