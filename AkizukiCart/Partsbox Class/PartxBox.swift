@@ -52,9 +52,6 @@ final class PartxBox {
         }
     }
     
-    /// パーツを更新した時に実行させたい処理
-    var updateHandler: (() -> ())?
-    
     /// 同じ品番のパーツを持っているかチェック
     /// - Parameter newParts: 追加したいパーツ
     /// - Returns: すでにパーツボックスに存在する場合には true。存在しない場合には false
