@@ -14,7 +14,7 @@ protocol PartsBoxDelegate: AnyObject {
 }
 
 final class PartsBox {
-    static var shared = PartsBox()
+    static let shared = PartsBox()
     
     private init () {}
     
