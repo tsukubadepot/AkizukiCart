@@ -490,7 +490,7 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="questionmark.square.fill" catalog="system" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <segue destination="Iee-4F-Lb1" kind="presentation" modalPresentationStyle="fullScreen" id="hfT-Nd-Agx"/>
@@ -660,8 +660,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="icon" width="512" height="512"/>
+        <image name="questionmark.square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
