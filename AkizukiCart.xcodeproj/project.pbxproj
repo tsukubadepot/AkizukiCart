@@ -24,6 +24,9 @@
 		BF39D4DC258434E70045026C /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF39D4DA258434E70045026C /* ListTableViewCell.xib */; };
 		BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */; };
 		BF9D7DBB25C2E9FE00FC463B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */; };
+		BF9D7DDA25C3245B00FC463B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DD825C3245B00FC463B /* HistoryTableViewCell.swift */; };
+		BF9D7DDB25C3245B00FC463B /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF9D7DD925C3245B00FC463B /* HistoryTableViewCell.xib */; };
+		BF9D7DDF25C329E500FC463B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DDE25C329E500FC463B /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		BF39D4DA258434E70045026C /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		BF9D7DD825C3245B00FC463B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		BF9D7DD925C3245B00FC463B /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		BF9D7DDE25C329E500FC463B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 		BF39D4A1258240220045026C /* AkizukiCart */ = {
 			isa = PBXGroup;
 			children = (
+				BF9D7DDD25C329CA00FC463B /* History View Controller */,
 				BF9D7DB925C2E9E700FC463B /* About View Controller */,
 				BF1CF71025BB4285007C3592 /* Main View Controller */,
 				BF39D4D62584348D0045026C /* Search View Controller */,
@@ -165,6 +172,8 @@
 			children = (
 				BF39D4D9258434E70045026C /* ListTableViewCell.swift */,
 				BF39D4DA258434E70045026C /* ListTableViewCell.xib */,
+				BF9D7DD825C3245B00FC463B /* HistoryTableViewCell.swift */,
+				BF9D7DD925C3245B00FC463B /* HistoryTableViewCell.xib */,
 			);
 			path = "List View Cell";
 			sourceTree = "<group>";
@@ -175,6 +184,14 @@
 				BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */,
 			);
 			path = "About View Controller";
+			sourceTree = "<group>";
+		};
+		BF9D7DDD25C329CA00FC463B /* History View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D7DDE25C329E500FC463B /* HistoryViewController.swift */,
+			);
+			path = "History View Controller";
 			sourceTree = "<group>";
 		};
 		CAEF3C2ED694F253B8E3D325 /* Frameworks */ = {
@@ -245,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF39D4AF258240250045026C /* LaunchScreen.storyboard in Resources */,
+				BF9D7DDB25C3245B00FC463B /* HistoryTableViewCell.xib in Resources */,
 				BF39D4DC258434E70045026C /* ListTableViewCell.xib in Resources */,
 				BF39D4AC258240250045026C /* Assets.xcassets in Resources */,
 				BF39D4AA258240220045026C /* Main.storyboard in Resources */,
@@ -302,8 +320,10 @@
 			files = (
 				BF1CF70D25BB37BF007C3592 /* UserDefaultExtension.swift in Sources */,
 				BF39D4A7258240220045026C /* ViewController.swift in Sources */,
+				BF9D7DDA25C3245B00FC463B /* HistoryTableViewCell.swift in Sources */,
 				BF1CF70825BB20D3007C3592 /* PartsBox.swift in Sources */,
 				BF39D4DB258434E70045026C /* ListTableViewCell.swift in Sources */,
+				BF9D7DDF25C329E500FC463B /* HistoryViewController.swift in Sources */,
 				BF39D4A3258240220045026C /* AppDelegate.swift in Sources */,
 				BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */,
 				BF39D4B82582FC040045026C /* SearchViewController.swift in Sources */,
@@ -466,7 +486,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = TsukubaDepot.net.AkizukiCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -487,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = TsukubaDepot.net.AkizukiCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

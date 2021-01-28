@@ -61,6 +61,13 @@ class ViewController: UIViewController {
         present(vc!, animated: true, completion: nil)
     }
     
+    @IBAction func historyButton(_ sender: UIBarButtonItem) {
+        let vc = storyboard?.instantiateViewController(identifier: "history")
+        
+        //vc?.modalPresentationStyle = .overFullScreen
+        present(vc!, animated: true, completion: nil)
+    }
+    
     @IBAction func addCartButton(_ sender: UIBarButtonItem) {
         var urlComponents = URLComponents(string: baseURL)!
         

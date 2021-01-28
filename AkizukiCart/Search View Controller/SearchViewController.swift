@@ -137,8 +137,6 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
-        // TODO: - 検索前にバリデーションする必要がある。場合によってはボタンを使えなくするなど。
-        
         selectedSearchBar?.resignFirstResponder()
         
         // 先頭文字の取得
@@ -165,7 +163,7 @@ class SearchViewController: UIViewController {
             // すでにパーツボックス内にパーツが存在した場合にはエラー表示
             if partsbox.hasSameParts(newParts: parts) {
                 HUD.hide { _ in
-                    HUD.flash(.labeledError(title: "すでに登録済みのパーツです。", subtitle: parts.name), delay: 2.0)
+                    HUD.flash(.labeledError(title: "既にパーツボックスに入っています。", subtitle: nil), delay: 2.0)
                 }
                 
                 return
@@ -181,6 +179,13 @@ class SearchViewController: UIViewController {
             
             // 購入予定数のパーツ数
             vc.parts.buyCount = Int(self.itemNumberSearchBar.text ?? "0") ?? 0
+            
+            // 検索履歴に追加する
+            let partsHistory = PartsHistory.shared
+            
+            if !partsHistory.hasSameParts(newParts: parts) {
+                partsHistory.addNewParts(newParts: parts)
+            }
             
             self.navigationController?.pushViewController(vc, animated: true)
             

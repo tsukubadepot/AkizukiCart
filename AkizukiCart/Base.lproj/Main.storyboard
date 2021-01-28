@@ -441,6 +441,13 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BNt-GH-zeY"/>
+                                    <barButtonItem systemItem="bookmarks" id="kUh-lk-91t">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="historyButton:" destination="ag2-9u-xOk" id="C6Y-Yp-Aqi"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="I1O-eB-c77"/>
                                     <barButtonItem systemItem="action" id="nf4-Cy-Kg9">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -631,6 +638,37 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
         </scene>
+        <!--検索履歴-->
+        <scene sceneID="DjG-7G-vNm">
+            <objects>
+                <viewController id="jO0-nH-6x3" customClass="HistoryViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ken-MS-rBI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-tG-2fw">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iZF-YR-rut"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bnR-tG-2fw" firstAttribute="top" secondItem="iZF-YR-rut" secondAttribute="top" id="D4f-1U-Kav"/>
+                            <constraint firstItem="iZF-YR-rut" firstAttribute="bottom" secondItem="bnR-tG-2fw" secondAttribute="bottom" id="Db2-TJ-hNt"/>
+                            <constraint firstItem="bnR-tG-2fw" firstAttribute="leading" secondItem="iZF-YR-rut" secondAttribute="leading" id="OgA-il-avn"/>
+                            <constraint firstItem="iZF-YR-rut" firstAttribute="trailing" secondItem="bnR-tG-2fw" secondAttribute="trailing" id="e0f-p1-BeE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="検索履歴" id="HH6-gZ-LqE"/>
+                    <connections>
+                        <outlet property="historyTableView" destination="bnR-tG-2fw" id="Wm6-eh-Set"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kMy-9h-5p7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="851.78571428571422"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dyJ-el-4o1">
             <objects>
@@ -656,7 +694,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldR-R2-tZn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.91304347826099" y="-585.26785714285711"/>
+            <point key="canvasLocation" x="1048" y="-585"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tq3-Fo-QfX">
+            <objects>
+                <navigationController storyboardIdentifier="history" automaticallyAdjustsScrollViewInsets="NO" id="VuW-fM-1lN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aQK-Hp-VLt">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="systemTealColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jO0-nH-6x3" kind="relationship" relationship="rootViewController" id="n4n-4N-39Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohj-zv-iyC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="851.78571428571422"/>
         </scene>
     </scenes>
     <resources>
