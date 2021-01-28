@@ -13,21 +13,40 @@ protocol PartsBoxDelegate: AnyObject {
     func updateHandler()
 }
 
-final class PartsBox {
+final class PartsBox: PartsBoxBase {
     static let shared = PartsBox()
     
-    private init () {}
+    private init() {
+        super.init(key: "parts")
+    }
+}
+
+final class PartsHistory: PartsBoxBase {
+    static let shared = PartsHistory()
+    
+    private init() {
+        super.init(key: "history")
+    }
+    
+}
+
+class PartsBoxBase {    
+    private var key:String
+    
+    init (key:String) {
+        self.key = key
+    }
     
     // Delegate
     weak var updateDelegate: PartsBoxDelegate?
     
     private var parts: [PartsInfo]  {
         get {
-            UserDefaults.standard.decodedObject([PartsInfo].self, forKey: "parts") ?? []
+            UserDefaults.standard.decodedObject([PartsInfo].self, forKey: key) ?? []
         }
         
         set {
-            UserDefaults.standard.setEncoded(newValue, forKey: "parts")
+            UserDefaults.standard.setEncoded(newValue, forKey: key)
             
             updateDelegate?.updateHandler()
         }
