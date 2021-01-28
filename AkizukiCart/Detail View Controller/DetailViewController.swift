@@ -87,7 +87,9 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         nameLabel.text = parts.name
-        priceLabel.text = "一個 \(parts.price.value) 円"
+        
+        let price = NumberFormatter().convertToJPY(value: parts.price.value) ?? "(価格不明)"
+        priceLabel.text = "一個 \(price)"
         partNumberLabel.text = parts.partNumber ?? ""
         idLabel.text = "通販コード:　" + parts.id
         releaseDateLabel.text = "販売日: " + parts.releaseDate
@@ -127,8 +129,8 @@ class DetailViewController: UIViewController {
     private func updateCountLabel() {
         //
         buyItemCount.text = "\(parts.buyCount!) 点"
-        // TODO: curreny の処理
-        totalLabel.text = "合計 \(parts.buyCount! * parts.price.value) 円"
+        let price = NumberFormatter().convertToJPY(value: parts.price.value * parts.buyCount!) ?? "(価格不明)"
+        totalLabel.text = "合計 \(price)"
         countStepper.value = Double(parts.buyCount!)
     }
     

@@ -22,6 +22,7 @@
 		BF39D4C9258350790045026C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4C8258350790045026C /* DetailViewController.swift */; };
 		BF39D4DB258434E70045026C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4D9258434E70045026C /* ListTableViewCell.swift */; };
 		BF39D4DC258434E70045026C /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF39D4DA258434E70045026C /* ListTableViewCell.xib */; };
+		BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		BF39D4C8258350790045026C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BF39D4D9258434E70045026C /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		BF39D4DA258434E70045026C /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1CF70C25BB37BF007C3592 /* UserDefaultExtension.swift */,
+				BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				BF1CF70825BB20D3007C3592 /* PartxBox.swift in Sources */,
 				BF39D4DB258434E70045026C /* ListTableViewCell.swift in Sources */,
 				BF39D4A3258240220045026C /* AppDelegate.swift in Sources */,
+				BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */,
 				BF39D4B82582FC040045026C /* SearchViewController.swift in Sources */,
 				BF39D4C62583366C0045026C /* APIHandler.swift in Sources */,
 				BF39D4A5258240220045026C /* SceneDelegate.swift in Sources */,

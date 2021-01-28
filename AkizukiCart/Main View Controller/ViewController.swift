@@ -56,11 +56,8 @@ class ViewController: UIViewController {
         let totalItem = partsBox.totalItems        
         countLabel.text = "購入点数： " + String(partsBox.count) + " 商品　\(totalItem) 点"
 
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currencyPlural
-        formatter.locale = Locale(identifier: "ja_JP")
-        let totalPrice = formatter.string(from: partsBox.totalPrice as NSNumber)
-        totalLabel.text = "合計金額： \(totalPrice!)"
+        let totalPrice = NumberFormatter().convertToJPY(value: partsBox.totalPrice) ?? "(価格不明)"
+        totalLabel.text = "合計金額： \(totalPrice)"
     }
     
     @IBAction func shopPlaceSegment(_ sender: UISegmentedControl) {
