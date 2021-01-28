@@ -33,6 +33,12 @@ class SearchViewController: UIViewController {
     @Published var isCountOk = false
     private var subscriptions = Set<AnyCancellable>()
     
+    // アイテムの選択
+    @IBAction func itemSelected(_ sender: UISegmentedControl) {
+        let fb = UIImpactFeedbackGenerator(style: .heavy)
+        fb.impactOccurred()
+    }
+    
     // 5桁の数値
     @IBOutlet weak var itemCodeSearchBar: UISearchBar! {
         didSet {

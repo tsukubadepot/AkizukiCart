@@ -49,6 +49,9 @@
                                     <segment title="C"/>
                                     <segment title="T"/>
                                 </segments>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="oce-K5-1BN"/>
+                                </connections>
                             </segmentedControl>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0te-cU-i09">
                                 <rect key="frame" x="16" y="257" width="382" height="56"/>

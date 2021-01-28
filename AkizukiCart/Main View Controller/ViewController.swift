@@ -159,21 +159,43 @@ extension ViewController: UITableViewDelegate {
             autoReload = false
             partsBox.deleteParts(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            let fb = UIImpactFeedbackGenerator(style: .heavy)
+            fb.impactOccurred()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let fb = UIImpactFeedbackGenerator(style: .heavy)
+        fb.impactOccurred()
+        
+        // 左スワイプ時に ImpactFeedbackGenerator を使い、Delete は標準を使うため nil を返す
+        return nil
     }
     
     /// 右スワイプ処理
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action: UIContextualAction
         
+        let fb = UIImpactFeedbackGenerator(style: .heavy)
+        fb.impactOccurred()
+        
         if partsBox[indexPath.row].purchased! {
             action = UIContextualAction(style: .normal, title: "購入取消") { (action, view, handler) in
                 self.partsBox.setPurchased(index: indexPath.row, flag: false)
+                
+                let fb = UIImpactFeedbackGenerator(style: .heavy)
+                fb.impactOccurred()
+
                 handler(true)
             }
         } else {
             action = UIContextualAction(style: .normal, title: "購入済み") { (action, view, handler) in
                 self.partsBox.setPurchased(index: indexPath.row, flag: true)
+                
+                let fb = UIImpactFeedbackGenerator(style: .heavy)
+                fb.impactOccurred()
+
                 handler(true)
             }
         }
