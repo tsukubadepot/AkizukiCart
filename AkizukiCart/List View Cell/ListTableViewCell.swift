@@ -44,6 +44,7 @@ class ListTableViewCell: UITableViewCell {
         countLabel.text = String(parts.buyCount!)
         
         backgroundColor = parts.purchased! ? .gray : .systemBackground
+        productImageView.layer.opacity = parts.purchased! ? 0.2 : 1.0
         purchasedImage.isHidden = !(parts.purchased!)
         
         accessoryType = .disclosureIndicator
