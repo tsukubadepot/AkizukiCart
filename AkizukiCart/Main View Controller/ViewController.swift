@@ -55,17 +55,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addPartsButton(_ sender: UIBarButtonItem) {
-        let vc = storyboard?.instantiateViewController(identifier: "nav")
+        guard let vc = storyboard?.instantiateViewController(identifier: "nav") else {
+            fatalError(#function)
+        }
         
-        vc?.modalPresentationStyle = .overFullScreen
-        present(vc!, animated: true, completion: nil)
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func historyButton(_ sender: UIBarButtonItem) {
-        let vc = storyboard?.instantiateViewController(identifier: "history")
+        guard let vc = storyboard?.instantiateViewController(identifier: "history") else {
+            fatalError(#function)
+        }
         
-        //vc?.modalPresentationStyle = .overFullScreen
-        present(vc!, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func addCartButton(_ sender: UIBarButtonItem) {
@@ -110,6 +113,7 @@ extension ViewController: UITableViewDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
         
         vc.parts = partsBox[indexPath.row]
+        vc.delegate = self
         
         present(vc, animated: true, completion: nil)
     }
@@ -181,5 +185,42 @@ extension ViewController: PartsBoxDelegate {
         } else {
             self.autoReload = true
         }
+    }
+}
+
+extension ViewController: DetailViewControllerDelegate {
+    func didUpdateCartsButtonTapped(_ detailedView: DetailViewController, parts: PartsInfo) {
+        // パーツ数がゼロの場合、削除するか
+        if parts.buyCount == 0 {
+            let deleteItem = UIAlertAction(title: "削除する", style: .destructive) { _ in
+                self.partsBox.deleteParts(deleteParts: parts)
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+            let cancelItem = UIAlertAction(title: "キャンセル", style: .cancel) { _ in
+                return
+            }
+            
+            let alertAction = UIAlertController(title: "パーツの削除", message: "パーツボックスから削除しますか？", preferredStyle: .alert)
+            
+            alertAction.addAction(deleteItem)
+            alertAction.addAction(cancelItem)
+
+            // alertAction は detailedView 上に表示させる
+            detailedView.present(alertAction, animated: true, completion: nil)
+        } else {
+            
+            partsBox.updateParts(updateParts: parts)
+            
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func didCancelButtonTapped(_ detailedView: DetailViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func titleOfSelectButton(_ detailedView: DetailViewController) -> String {
+        return "更新する"
     }
 }

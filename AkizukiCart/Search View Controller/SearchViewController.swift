@@ -176,6 +176,7 @@ class SearchViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
             
             vc.parts = parts
+            vc.delegate = self
             
             // 購入予定数のパーツ数
             vc.parts.buyCount = Int(self.itemNumberSearchBar.text ?? "0") ?? 0
@@ -255,5 +256,23 @@ extension SearchViewController: UISearchBarDelegate {
             searchBar.searchTextField.backgroundColor = .systemGray5
             isItemOk = true
         }
+    }
+}
+
+extension SearchViewController: DetailViewControllerDelegate {
+    func didUpdateCartsButtonTapped(_ detailedView: DetailViewController, parts: PartsInfo) {
+        let partsBox = PartsBox.shared
+        
+        partsBox.addNewParts(newParts: parts)
+        // Navigation Controller を dismiss
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func didCancelButtonTapped(_ detailedView: DetailViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func titleOfSelectButton(_ detailedView: DetailViewController) -> String {
+        return "追加する"
     }
 }

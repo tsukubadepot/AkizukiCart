@@ -10,10 +10,30 @@ import AlamofireImage
 
 // 個別部品の追加・変更
 
+/// DetailViewController Delegate
+protocol DetailViewControllerDelegate: AnyObject {
+    /// 商品更新・追加ボタンがタップされた場合
+    /// - Parameters:
+    ///   - detailedView: 呼び出し元のインスタンス
+    ///   - parts: 追加したいパーツの情報
+    func didUpdateCartsButtonTapped(_ detailedView: DetailViewController, parts: PartsInfo)
+    
+    /// 商品更新・追加がキャンセルされた場合
+    /// - Parameter detailedView: 呼び出し元のインスタンス
+    func didCancelButtonTapped(_ detailedView: DetailViewController)
+    
+    /// 商品更新・選択ボタンのタイトル名
+    /// - Parameter detailedView: 呼び出し元のインスタンス
+    func titleOfSelectButton(_ detailedView: DetailViewController) -> String
+}
+
 class DetailViewController: UIViewController {
     // MARK: - Local properties
     var parts: PartsInfo!
     let baseURL = "https://akizukidenshi.com/catalog/g/g"
+
+    // MARK: delegate
+    weak var delegate: DetailViewControllerDelegate?
     
     // MARK: - UI Parts
     /// 商品名ラベル
@@ -119,11 +139,12 @@ class DetailViewController: UIViewController {
         updateCountLabel()
         
         // 呼び出し元によって、ボタンの名称を「追加」か「更新」に変更。
-        if parent is UINavigationController {
-            addButton.setTitle("追加する", for: .normal)
-        } else {
-            addButton.setTitle("更新する", for: .normal)
+        guard let title = delegate?.titleOfSelectButton(self) else {
+            // delegate が実装されている限り、ここに到達するかのうせいは低い
+            fatalError()
         }
+
+        addButton.setTitle(title, for: .normal)
     }
     
     private func updateCountLabel() {
@@ -147,47 +168,10 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
-        if parent is UINavigationController {
-            parent?.dismiss(animated: true, completion: nil)
-        } else {
-            dismiss(animated: true, completion: nil)
-        }
+        delegate?.didCancelButtonTapped(self)
     }
     
     @IBAction func addPartsButton(_ sender: UIButton) {
-        let partsbox = PartsBox.shared
-        
-        // 呼び出し元に応じて処理を変更する
-        if self.parent is UINavigationController {
-            // 新しく部品を追加する
-            // TODO: - すでに同じ部品が入っているときの処理 -> 検索段階で処理させる
-            partsbox.addNewParts(newParts: parts)
-            
-            parent?.dismiss(animated: true, completion: nil)
-        } else {
-            // パーツ数がゼロの場合、削除するか
-            if parts.buyCount == 0 {
-                let deleteItem = UIAlertAction(title: "削除する", style: .destructive) { _ in
-                    partsbox.deleteParts(deleteParts: self.parts)
-                    self.dismiss(animated: true, completion: nil)
-                }
-                
-                let cancelItem = UIAlertAction(title: "キャンセル", style: .cancel) { _ in
-                    return
-                }
-                
-                let alertAction = UIAlertController(title: "パーツの削除", message: "パーツボックスから削除しますか？", preferredStyle: .alert)
-                
-                alertAction.addAction(deleteItem)
-                alertAction.addAction(cancelItem)
-                
-                present(alertAction, animated: true, completion: nil)
-            } else {
-                
-                partsbox.updateParts(updateParts: parts)
-                
-                dismiss(animated: true, completion: nil)
-            }
-        }
+        delegate?.didUpdateCartsButtonTapped(self, parts: parts)
     }
 }
