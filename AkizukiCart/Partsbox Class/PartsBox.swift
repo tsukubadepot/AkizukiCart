@@ -60,14 +60,14 @@ class PartsBoxBase {
     /// パーツボックス内の合計金額
     var totalPrice: Int {
         parts.reduce(0) {
-            $0 + $1.price.value * $1.buyCount!
+            $0 + $1.price.value * $1.buyCount
         }
     }
     
     /// パーツボックス内の合計商品数
     var totalItems: Int {
         parts.reduce(0) {
-            $0 + $1.buyCount!
+            $0 + $1.buyCount
         }
     }
     

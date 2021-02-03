@@ -82,7 +82,7 @@ class ViewController: UIViewController {
             urlComponents.queryItems?.append(contentsOf: [
                 URLQueryItem(name: "class1_\(index + 1)", value: String(item.id.prefix(1))),
                 URLQueryItem(name: "goods", value: String(item.id.suffix(5))),
-                URLQueryItem(name: "qty", value: String(item.buyCount!))
+                URLQueryItem(name: "qty", value: String(item.buyCount))
             ])
         }
         
@@ -151,7 +151,7 @@ extension ViewController: UITableViewDelegate {
         let fb = UIImpactFeedbackGenerator(style: .heavy)
         fb.impactOccurred()
         
-        if partsBox[indexPath.row].purchased! {
+        if partsBox[indexPath.row].purchased {
             action = UIContextualAction(style: .normal, title: "購入取消") { (action, view, handler) in
                 self.partsBox.setPurchased(index: indexPath.row, flag: false)
                 

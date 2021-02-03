@@ -41,11 +41,11 @@ class ListTableViewCell: UITableViewCell {
         productImageView.af.setImage(withURL: imageURL)
         // 商品ラベルの高さ Constraint は height <= 66 にして上揃えに設定している
         nameLabel.text = parts.name
-        countLabel.text = String(parts.buyCount!)
+        countLabel.text = String(parts.buyCount)
         
-        backgroundColor = parts.purchased! ? .gray : .systemBackground
-        productImageView.layer.opacity = parts.purchased! ? 0.2 : 1.0
-        purchasedImage.isHidden = !(parts.purchased!)
+        backgroundColor = parts.purchased ? .gray : .systemBackground
+        productImageView.layer.opacity = parts.purchased ? 0.2 : 1.0
+        purchasedImage.isHidden = !(parts.purchased)
         
         accessoryType = .disclosureIndicator
         

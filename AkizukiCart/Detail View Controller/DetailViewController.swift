@@ -149,10 +149,10 @@ class DetailViewController: UIViewController {
     
     private func updateCountLabel() {
         //
-        buyItemCount.text = "\(parts.buyCount!) 点"
-        let price = NumberFormatter().convertToJPY(value: parts.price.value * parts.buyCount!) ?? "(価格不明)"
+        buyItemCount.text = "\(parts.buyCount) 点"
+        let price = NumberFormatter().convertToJPY(value: parts.price.value * parts.buyCount) ?? "(価格不明)"
         totalLabel.text = "合計 \(price)"
-        countStepper.value = Double(parts.buyCount!)
+        countStepper.value = Double(parts.buyCount)
     }
     
     @IBAction func goItemButton(_ sender: UIButton) {
