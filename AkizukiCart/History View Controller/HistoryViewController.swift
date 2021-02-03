@@ -10,7 +10,8 @@ import PKHUD
 
 class HistoryViewController: UIViewController {
     var partsHistory = PartsHistory.shared
-    
+    var partsBox = PartsBox.shared
+
     @IBOutlet weak var historyTableView: UITableView! {
         didSet {
             historyTableView.dataSource = self
@@ -52,33 +53,49 @@ extension HistoryViewController: UITableViewDataSource {
     }
 }
 
-extension HistoryViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let partsBox = PartsBox.shared
-        
-        if partsBox.hasSameParts(newParts: partsHistory[indexPath.row]) {
+extension HistoryViewController: DetailViewControllerDelegate {
+    func didUpdateCartsButtonTapped(_ detailedView: DetailViewController, parts: PartsInfo) {
+        if partsBox.hasSameParts(newParts: parts) {
             HUD.flash(.label("既にパーツボックスに入っています"), delay: 2.0)
         } else {
             let alertController = UIAlertController(title: "パーツの追加", message: "選択したパーツを追加しますか", preferredStyle: .alert)
             let doAction = UIAlertAction(title: "追加する", style: .destructive) { _ in
                 
+                self.partsBox.addNewParts(newParts: parts)
                 
-                var addParts = self.partsHistory[indexPath.row]
-                // TODO: とりあえず追加個数は 1 にする
-                addParts.buyCount = 1
-                partsBox.addNewParts(newParts: addParts)
-                
-                HUD.flash(.labeledSuccess(title: "追加しました。", subtitle: addParts.name), delay: 2.0)
+                HUD.flash(.labeledSuccess(title: "追加しました。", subtitle: parts.name), delay: 2.0) { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             
             alertController.addAction(doAction)
             alertController.addAction(cancelAction)
             
-            present(alertController, animated: true, completion: nil)
+            detailedView.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    func didCancelButtonTapped(_ detailedView: DetailViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func titleOfSelectButton(_ detailedView: DetailViewController) -> String {
+        return "商品追加"
+    }
+}
+
+extension HistoryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        
+        //vc.parts = partsBox[indexPath.row]
+        vc.parts = partsHistory[indexPath.row]
+        vc.delegate = self
+        
+        present(vc, animated: true, completion: nil)
     }
     
     /// 編集許可
