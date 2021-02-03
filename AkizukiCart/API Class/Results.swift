@@ -24,9 +24,28 @@ struct PartsInfo: Codable {
     
     // 購入予定数
     // 本来の JSON にはないのでデフォルト値を入れておく
-    // CodingKeys には入れないこと
-    var buyCount = 0
-    var purchased = false
+    // UserDefaults でシリアライズする時のために Computed Property にする
+    var buyCount: Int  {
+        get {
+            return _buyCount ?? 0
+        }
+        set {
+            _buyCount = newValue
+        }
+    }
+    
+    var purchased: Bool {
+        get {
+            return _purchased ?? false
+        }
+        
+        set {
+            _purchased = newValue
+        }
+    }
+    
+    private var _buyCount: Int?
+    private var _purchased: Bool?
     
     enum CodingKeys: String, CodingKey {
         case status
@@ -37,6 +56,8 @@ struct PartsInfo: Codable {
         case releaseDate = "release_date"
         case manufacturer, id
         case lastUpdate = "last_update"
+        case _buyCount = "buyCount"
+        case _purchased = "purchased"
     }
 }
 
