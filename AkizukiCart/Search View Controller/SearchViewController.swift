@@ -40,12 +40,13 @@ class SearchViewController: UIViewController {
     }
     
     // 5桁の数値
-    @IBOutlet weak var itemCodeSearchBar: UISearchBar! {
+    @IBOutlet weak var itemCodeSearchBar: ItemNumberSearchBar! {
         didSet {
             itemCodeSearchBar.keyboardType = .numberPad
             itemCodeSearchBar.placeholder = "5桁の数値を入力"
             itemCodeSearchBar.searchTextField.backgroundColor = causionColor
             itemCodeSearchBar.delegate = self
+            itemCodeSearchBar.pastedTextDelegate = self
         }
     }
     
@@ -130,7 +131,9 @@ class SearchViewController: UIViewController {
                 self.searchButton.layer.opacity = (count && item) ? 1.0 : 0.5
             }
             .store(in: &subscriptions)
+
     }
+
     
     @objc func goBack() {
         parent?.dismiss(animated: true, completion: nil)
@@ -238,7 +241,15 @@ extension SearchViewController: UISearchBarDelegate {
     /// 入力文字数の確認
     private func validateCodeCount(_ searchBar: UISearchBar) {
         // 入力数値数が足りない場合には、背景色を赤くする
-        if searchBar.text?.count != 5 {
+        let text = searchBar.text ?? ""
+        
+        print(text)
+        if text.allSatisfy({ $0.isNumber }) == false {
+            HUD.flash(.labeledError(title: "数値を入力してください。", subtitle: nil), delay: 1.0)
+            searchBar.searchTextField.backgroundColor = causionColor
+            searchBar.text = ""
+            isCountOk = false
+        } else if text.count != 5 || text.allSatisfy({ $0.isNumber }) == false {
             searchBar.searchTextField.backgroundColor = causionColor
             isCountOk = false
         } else {
@@ -249,13 +260,52 @@ extension SearchViewController: UISearchBarDelegate {
     
     /// 入力文字数の確認
     private func validateItemCount(_ searchBar: UISearchBar, count: Int) {
-        if searchBar.text?.count == count {
+        let text = searchBar.text ?? ""
+        
+        if text.allSatisfy({ $0.isNumber }) == false {
+            HUD.flash(.labeledError(title: "数値を入力してください。", subtitle: nil), delay: 1.0)
+            searchBar.searchTextField.backgroundColor = causionColor
+            searchBar.text = ""
+            isItemOk = false
+        } else if searchBar.text?.count == count {
             searchBar.searchTextField.backgroundColor = causionColor
             isItemOk = false
         } else {
             searchBar.searchTextField.backgroundColor = .systemGray5
             isItemOk = true
         }
+    }
+}
+
+extension SearchViewController: ItemNumberSearchBarDelegate {
+    func itemNumberSearchBarDidPasteText(_ searchBar: ItemNumberSearchBar, textDidPasted text: String?) {
+        guard let text = text else {
+            HUD.flash(.labeledError(title: "通販コードが含まれていません。", subtitle: nil), delay: 1.0)
+            searchBar.text = ""
+            validateCodeCount(searchBar)
+            return
+        }
+        
+        // 通販コードを分解する
+        let prefix = Character(text.first!.description)
+        let number = text.suffix(5).description
+
+        // 万が一アルファベットが規定値以外の場合
+        let partNumber = "MKPBRSICT"
+        guard let index = partNumber.firstIndex(of: prefix) else {
+            return
+        }
+        
+        // 商品番号をコピーする
+        itemCodeSearchBar.text = number
+        validateCodeCount(searchBar)
+        
+        // スライダの位置を移動する
+        // String.index を partNumber の index に変換する
+        itemSegmentedControl.selectedSegmentIndex = index.utf16Offset(in: partNumber)
+        
+        HUD.flash(.label("通販コードが見つかりました。"), delay: 1.0)
+        
     }
 }
 
