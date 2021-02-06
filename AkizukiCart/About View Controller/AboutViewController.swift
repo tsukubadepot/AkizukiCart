@@ -23,6 +23,7 @@ class AboutViewController:UIViewController {
     
     var columns = [
         ["このアプリケーションについて", "https://www.tsukubadepot.net/archives/750"],
+        ["最新バージョンの機能について", "https://www.tsukubadepot.net/archives/805"],
         ["プライバシーポリシー", "https://www.tsukubadepot.net/archives/767"],
         ["お問い合わせ", "https://www.tsukubadepot.net/archives/764"],
     ]
