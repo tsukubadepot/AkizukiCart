@@ -27,6 +27,8 @@
 		BF9D7DDA25C3245B00FC463B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DD825C3245B00FC463B /* HistoryTableViewCell.swift */; };
 		BF9D7DDB25C3245B00FC463B /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF9D7DD925C3245B00FC463B /* HistoryTableViewCell.xib */; };
 		BF9D7DDF25C329E500FC463B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DDE25C329E500FC463B /* HistoryViewController.swift */; };
+		BFFA43BB25CE29C7006A844C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA43BA25CE29C7006A844C /* StringExtension.swift */; };
+		BFFA43BE25CE2A9F006A844C /* ItemNumberSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA43BD25CE2A9F006A844C /* ItemNumberSearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		BF9D7DD825C3245B00FC463B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		BF9D7DD925C3245B00FC463B /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		BF9D7DDE25C329E500FC463B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		BFFA43BA25CE29C7006A844C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		BFFA43BD25CE2A9F006A844C /* ItemNumberSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNumberSearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			children = (
 				BF1CF70C25BB37BF007C3592 /* UserDefaultExtension.swift */,
 				BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */,
+				BFFA43BA25CE29C7006A844C /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				BF39D4B72582FC040045026C /* SearchViewController.swift */,
+				BFFA43BD25CE2A9F006A844C /* ItemNumberSearchBar.swift */,
 			);
 			path = "Search View Controller";
 			sourceTree = "<group>";
@@ -338,10 +344,12 @@
 			files = (
 				BF1CF70D25BB37BF007C3592 /* UserDefaultExtension.swift in Sources */,
 				BF39D4A7258240220045026C /* ViewController.swift in Sources */,
+				BFFA43BB25CE29C7006A844C /* StringExtension.swift in Sources */,
 				BF9D7DDA25C3245B00FC463B /* HistoryTableViewCell.swift in Sources */,
 				BF1CF70825BB20D3007C3592 /* PartsBox.swift in Sources */,
 				BF39D4DB258434E70045026C /* ListTableViewCell.swift in Sources */,
 				BF9D7DDF25C329E500FC463B /* HistoryViewController.swift in Sources */,
+				BFFA43BE25CE2A9F006A844C /* ItemNumberSearchBar.swift in Sources */,
 				BF39D4A3258240220045026C /* AppDelegate.swift in Sources */,
 				BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */,
 				BF39D4B82582FC040045026C /* SearchViewController.swift in Sources */,
@@ -505,7 +513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TsukubaDepot.net.AkizukiCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -527,7 +535,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TsukubaDepot.net.AkizukiCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
