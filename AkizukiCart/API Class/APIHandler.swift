@@ -15,7 +15,7 @@ class APIHandler {
     ///   - successHandler: 検索成功時の処理ハンドラ
     ///   - notfoundHandler: 該当商品が見つからない場合の処理ハンドラ
     ///   - errorHadler: 例外処理（ネットワークエラーなど）の処理ハンドラ
-    static func searchItems(_ item: String, successHandler: @escaping (PartsInfo) -> Void, notfoundHandler: @escaping (FailureResult) -> Void, errorHadler: @escaping (Error) -> Void) {
+    static func searchItem(_ item: String, successHandler: @escaping (PartsInfo) -> Void, notfoundHandler: @escaping (FailureResult) -> Void, errorHadler: @escaping (Error) -> Void) {
         let searchURL = URL(string: "https://akizuki-api.appspot.com/component")!.appendingPathComponent(item)
         
         AF.request(searchURL).responseJSON { result in
