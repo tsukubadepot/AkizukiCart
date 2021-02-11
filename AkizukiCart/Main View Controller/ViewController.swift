@@ -64,11 +64,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func historyButton(_ sender: UIBarButtonItem) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "history") else {
-            fatalError(#function)
+        guard let vc = storyboard?.instantiateViewController(identifier: "histryViewController") as? HistoryViewController else {
+                    fatalError(#function)
         }
         
-        present(vc, animated: true, completion: nil)
+        let nc = UINavigationController(rootViewController: vc)
+        
+        nc.navigationBar.barTintColor = #colorLiteral(red: 0.3921568627, green: 0.8235294118, blue: 1, alpha: 1)
+        nc.navigationBar.tintColor = .white
+        nc.navigationBar.titleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+
+        present(nc, animated: true, completion: nil)
     }
     
     @IBAction func addCartButton(_ sender: UIBarButtonItem) {

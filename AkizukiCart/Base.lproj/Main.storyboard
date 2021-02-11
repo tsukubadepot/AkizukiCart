@@ -721,13 +721,13 @@
         <!--検索履歴-->
         <scene sceneID="DjG-7G-vNm">
             <objects>
-                <viewController id="jO0-nH-6x3" customClass="HistoryViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="histryViewController" id="jO0-nH-6x3" customClass="HistoryViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ken-MS-rBI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-tG-2fw">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -747,7 +747,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMy-9h-5p7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="851.78571428571422"/>
+            <point key="canvasLocation" x="112" y="852"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dyJ-el-4o1">
@@ -775,29 +775,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldR-R2-tZn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048" y="-585"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="tq3-Fo-QfX">
-            <objects>
-                <navigationController storyboardIdentifier="history" automaticallyAdjustsScrollViewInsets="NO" id="VuW-fM-1lN" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aQK-Hp-VLt">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" systemColor="systemTealColor"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="jO0-nH-6x3" kind="relationship" relationship="rootViewController" id="n4n-4N-39Q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohj-zv-iyC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="851.78571428571422"/>
         </scene>
     </scenes>
     <resources>
