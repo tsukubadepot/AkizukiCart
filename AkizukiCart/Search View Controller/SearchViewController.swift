@@ -159,7 +159,7 @@ class SearchViewController: UIViewController {
 
         HUD.show(.labeledProgress(title: "商品検索中", subtitle: searchItem))
         
-        APIHandler.searchItems(searchItem + ".json") { parts in
+        APIHandler.searchItem(searchItem + ".json") { parts in
             // パーツボックス内に同じパーツが存在するか否かチェックする
             let partsbox = PartsBox.shared
         
