@@ -80,6 +80,16 @@
                                 <rect key="frame" x="16" y="356" width="382" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRy-Gx-2Hj">
+                                <rect key="frame" x="336" y="106" width="62" height="30"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <state key="normal" title="一括入力">
+                                    <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="batchInputButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="meb-ca-JDS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -88,6 +98,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PMk-Ld-rXO" secondAttribute="trailing" constant="16" id="1hz-Kb-Pky"/>
                             <constraint firstItem="EiL-JC-K3Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2CK-ON-Lav"/>
                             <constraint firstItem="PMk-Ld-rXO" firstAttribute="leading" secondItem="0te-cU-i09" secondAttribute="leading" id="2CN-yt-sdH"/>
+                            <constraint firstItem="eRy-Gx-2Hj" firstAttribute="centerY" secondItem="cTb-bF-ZDD" secondAttribute="centerY" id="30C-7U-mJH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EiL-JC-K3Y" secondAttribute="trailing" constant="16" id="3Uk-OU-Rjo"/>
                             <constraint firstItem="0te-cU-i09" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4MU-nL-cem"/>
                             <constraint firstItem="0te-cU-i09" firstAttribute="top" secondItem="qxE-lq-6mr" secondAttribute="bottom" constant="6" id="51o-Gf-eh7"/>
@@ -96,6 +107,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KfA-pP-f5o" secondAttribute="trailing" constant="16" id="Al0-NJ-R0F"/>
                             <constraint firstItem="OTE-sT-1g5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ba8-zE-a7X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cTb-bF-ZDD" secondAttribute="trailing" constant="16" id="Dop-ej-j9Q"/>
+                            <constraint firstItem="eRy-Gx-2Hj" firstAttribute="height" secondItem="cTb-bF-ZDD" secondAttribute="height" multiplier="0.882353" id="GzV-6H-mC4"/>
                             <constraint firstItem="cTb-bF-ZDD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="O5g-uB-ZFz"/>
                             <constraint firstItem="vvC-dw-jIo" firstAttribute="leading" secondItem="cTb-bF-ZDD" secondAttribute="leading" id="RxC-mb-R6i"/>
                             <constraint firstItem="qxE-lq-6mr" firstAttribute="top" secondItem="KfA-pP-f5o" secondAttribute="bottom" constant="16" id="Whs-h1-Yo4"/>
@@ -104,6 +116,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OTE-sT-1g5" secondAttribute="trailing" constant="16" id="h2l-5J-RVY"/>
                             <constraint firstItem="PMk-Ld-rXO" firstAttribute="top" secondItem="0te-cU-i09" secondAttribute="bottom" constant="16" id="iE2-6g-VAJ"/>
                             <constraint firstItem="EiL-JC-K3Y" firstAttribute="top" secondItem="OTE-sT-1g5" secondAttribute="bottom" constant="6" id="m8X-bb-3Hi"/>
+                            <constraint firstItem="eRy-Gx-2Hj" firstAttribute="trailing" secondItem="cTb-bF-ZDD" secondAttribute="trailing" id="mva-hs-Scw"/>
                             <constraint firstItem="0te-cU-i09" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="qoH-Tu-dWn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qxE-lq-6mr" secondAttribute="trailing" constant="16" id="rYN-xG-8vm"/>
                             <constraint firstItem="vvC-dw-jIo" firstAttribute="top" secondItem="cTb-bF-ZDD" secondAttribute="bottom" constant="16" id="xrd-Kd-hzU"/>
@@ -112,6 +125,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="商品検索" id="UlZ-eD-F8z"/>
                     <connections>
+                        <outlet property="batchInputButton" destination="eRy-Gx-2Hj" id="bfy-Nh-EF4"/>
                         <outlet property="itemCodeSearchBar" destination="0te-cU-i09" id="QsT-xe-iMQ"/>
                         <outlet property="itemNumberSearchBar" destination="OTE-sT-1g5" id="i8C-bf-mYm"/>
                         <outlet property="itemSegmentedControl" destination="KfA-pP-f5o" id="Bfc-d3-RNx"/>
@@ -121,6 +135,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="123.88392857142857"/>
+        </scene>
+        <!--Batch Input View Controller-->
+        <scene sceneID="LLP-i0-Rcz">
+            <objects>
+                <viewController storyboardIdentifier="batchInputView" id="XxX-Mt-bbE" customClass="BatchInputViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lgC-bO-JDL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7X-fi-dFJ">
+                                <rect key="frame" x="16" y="812" width="382" height="50"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qBM-Rb-yqW"/>
+                                </constraints>
+                                <state key="normal" title="検索実行">
+                                    <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="avk-uz-8dw">
+                                <rect key="frame" x="16" y="60" width="382" height="703"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UsB-Ah-QQi">
+                                <rect key="frame" x="16" y="800" width="382" height="4"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pa-67-Z5v">
+                                <rect key="frame" x="186" y="771" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="CAb-0d-qiL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MZZ-Kk-aJF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UsB-Ah-QQi" firstAttribute="top" secondItem="0pa-67-Z5v" secondAttribute="bottom" constant="8" id="26P-GE-odC"/>
+                            <constraint firstItem="MZZ-Kk-aJF" firstAttribute="bottom" secondItem="W7X-fi-dFJ" secondAttribute="bottom" id="9YN-iZ-kBC"/>
+                            <constraint firstItem="MZZ-Kk-aJF" firstAttribute="trailing" secondItem="W7X-fi-dFJ" secondAttribute="trailing" constant="16" id="Afc-bD-uYc"/>
+                            <constraint firstItem="avk-uz-8dw" firstAttribute="leading" secondItem="MZZ-Kk-aJF" secondAttribute="leading" constant="16" id="G7P-gO-kaP"/>
+                            <constraint firstItem="UsB-Ah-QQi" firstAttribute="leading" secondItem="MZZ-Kk-aJF" secondAttribute="leading" constant="16" id="PVh-qh-DAp"/>
+                            <constraint firstItem="avk-uz-8dw" firstAttribute="top" secondItem="MZZ-Kk-aJF" secondAttribute="top" constant="16" id="Vnl-27-Hpb"/>
+                            <constraint firstItem="W7X-fi-dFJ" firstAttribute="top" secondItem="UsB-Ah-QQi" secondAttribute="bottom" constant="8" id="Xxy-Ci-qr8"/>
+                            <constraint firstItem="W7X-fi-dFJ" firstAttribute="leading" secondItem="MZZ-Kk-aJF" secondAttribute="leading" constant="16" id="aq3-op-QHp"/>
+                            <constraint firstItem="MZZ-Kk-aJF" firstAttribute="trailing" secondItem="avk-uz-8dw" secondAttribute="trailing" constant="16" id="fwx-59-Csc"/>
+                            <constraint firstItem="0pa-67-Z5v" firstAttribute="top" secondItem="avk-uz-8dw" secondAttribute="bottom" constant="8" id="iDM-eh-vWc"/>
+                            <constraint firstItem="0pa-67-Z5v" firstAttribute="centerX" secondItem="lgC-bO-JDL" secondAttribute="centerX" id="iDq-Mg-xtn"/>
+                            <constraint firstItem="MZZ-Kk-aJF" firstAttribute="trailing" secondItem="UsB-Ah-QQi" secondAttribute="trailing" constant="16" id="oMb-mT-zMF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inputTextView" destination="avk-uz-8dw" id="qNE-oe-BO0"/>
+                        <outlet property="progressLabel" destination="0pa-67-Z5v" id="e19-K9-har"/>
+                        <outlet property="progressView" destination="UsB-Ah-QQi" id="uJz-LV-joe"/>
+                        <outlet property="searchButton" destination="W7X-fi-dFJ" id="hiQ-JD-E9x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s3q-bV-BKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1811.594202898551" y="123.88392857142857"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="zCB-Cl-YqK">
@@ -417,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ub5-FB-Rj3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="124"/>
+            <point key="canvasLocation" x="2613" y="-585"/>
         </scene>
         <!--パーツリスト-->
         <scene sceneID="XNb-5K-yla">
@@ -723,8 +803,14 @@
     <resources>
         <image name="icon" width="512" height="512"/>
         <image name="questionmark.square.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
