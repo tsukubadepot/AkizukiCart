@@ -87,6 +87,12 @@ class PartsBoxBase {
         parts.append(newParts)
     }
     
+    /// 複数パーツの追加。
+    /// - Parameter newPartsArray: 追加したいパーツの配列
+    func addNewParts(newPartsArray: [PartsInfo]) {
+        parts.append(contentsOf: newPartsArray)
+    }
+    
     /// パーツの削除
     /// - Parameter deleteParts: 削除したいパーツ
     func deleteParts(deleteParts: PartsInfo) {
