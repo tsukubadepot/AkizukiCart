@@ -22,6 +22,11 @@
 		BF39D4C9258350790045026C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4C8258350790045026C /* DetailViewController.swift */; };
 		BF39D4DB258434E70045026C /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4D9258434E70045026C /* ListTableViewCell.swift */; };
 		BF39D4DC258434E70045026C /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF39D4DA258434E70045026C /* ListTableViewCell.xib */; };
+		BF95FED825D3689E00B315C6 /* SearhItemModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FED725D3689E00B315C6 /* SearhItemModelTests.swift */; };
+		BF95FEE225D4B4E600B315C6 /* SearchItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FEE125D4B4E600B315C6 /* SearchItemModel.swift */; };
+		BF95FEE825D4D21800B315C6 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FEE725D4D21800B315C6 /* ArrayExtension.swift */; };
+		BF95FEEF25D51E6200B315C6 /* BatchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FEEE25D51E6200B315C6 /* BatchInputViewController.swift */; };
+		BF95FEFD25D63E6D00B315C6 /* BatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FEFC25D63E6D00B315C6 /* BatchListViewController.swift */; };
 		BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */; };
 		BF9D7DBB25C2E9FE00FC463B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */; };
 		BF9D7DDA25C3245B00FC463B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DD825C3245B00FC463B /* HistoryTableViewCell.swift */; };
@@ -30,6 +35,16 @@
 		BFFA43BB25CE29C7006A844C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA43BA25CE29C7006A844C /* StringExtension.swift */; };
 		BFFA43BE25CE2A9F006A844C /* ItemNumberSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA43BD25CE2A9F006A844C /* ItemNumberSearchBar.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF95FEDA25D3689E00B315C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF39D497258240220045026C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF39D49E258240220045026C;
+			remoteInfo = AkizukiCart;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4AE62E21588A4C51E71B2763 /* Pods-AkizukiCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkizukiCart.release.xcconfig"; path = "Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +66,13 @@
 		BF39D4C8258350790045026C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BF39D4D9258434E70045026C /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		BF39D4DA258434E70045026C /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		BF95FED525D3689E00B315C6 /* AkizukiCartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AkizukiCartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF95FED725D3689E00B315C6 /* SearhItemModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearhItemModelTests.swift; sourceTree = "<group>"; };
+		BF95FED925D3689E00B315C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF95FEE125D4B4E600B315C6 /* SearchItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemModel.swift; sourceTree = "<group>"; };
+		BF95FEE725D4D21800B315C6 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		BF95FEEE25D51E6200B315C6 /* BatchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchInputViewController.swift; sourceTree = "<group>"; };
+		BF95FEFC25D63E6D00B315C6 /* BatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchListViewController.swift; sourceTree = "<group>"; };
 		BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BF9D7DD825C3245B00FC463B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -66,6 +88,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				66776B175395163F20B9A57C /* Pods_AkizukiCart.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF95FED225D3689E00B315C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +124,7 @@
 				BF1CF70C25BB37BF007C3592 /* UserDefaultExtension.swift */,
 				BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */,
 				BFFA43BA25CE29C7006A844C /* StringExtension.swift */,
+				BF95FEE725D4D21800B315C6 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -111,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				BF39D4A1258240220045026C /* AkizukiCart */,
+				BF95FED625D3689E00B315C6 /* AkizukiCartTests */,
 				BF39D4A0258240220045026C /* Products */,
 				B30E563AE9921732E81EDB9C /* Pods */,
 				CAEF3C2ED694F253B8E3D325 /* Frameworks */,
@@ -121,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				BF39D49F258240220045026C /* AkizukiCart.app */,
+				BF95FED525D3689E00B315C6 /* AkizukiCartTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,8 +191,11 @@
 		BF39D4D62584348D0045026C /* Search View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BF39D4B72582FC040045026C /* SearchViewController.swift */,
 				BFFA43BD25CE2A9F006A844C /* ItemNumberSearchBar.swift */,
+				BF95FEEE25D51E6200B315C6 /* BatchInputViewController.swift */,
+				BF95FEE125D4B4E600B315C6 /* SearchItemModel.swift */,
+				BF39D4B72582FC040045026C /* SearchViewController.swift */,
+				BF95FEFC25D63E6D00B315C6 /* BatchListViewController.swift */,
 			);
 			path = "Search View Controller";
 			sourceTree = "<group>";
@@ -182,6 +217,15 @@
 				BF9D7DD925C3245B00FC463B /* HistoryTableViewCell.xib */,
 			);
 			path = "List View Cell";
+			sourceTree = "<group>";
+		};
+		BF95FED625D3689E00B315C6 /* AkizukiCartTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF95FED725D3689E00B315C6 /* SearhItemModelTests.swift */,
+				BF95FED925D3689E00B315C6 /* Info.plist */,
+			);
+			path = AkizukiCartTests;
 			sourceTree = "<group>";
 		};
 		BF9D7DB925C2E9E700FC463B /* About View Controller */ = {
@@ -231,17 +275,39 @@
 			productReference = BF39D49F258240220045026C /* AkizukiCart.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BF95FED425D3689E00B315C6 /* AkizukiCartTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF95FEDE25D3689E00B315C6 /* Build configuration list for PBXNativeTarget "AkizukiCartTests" */;
+			buildPhases = (
+				BF95FED125D3689E00B315C6 /* Sources */,
+				BF95FED225D3689E00B315C6 /* Frameworks */,
+				BF95FED325D3689E00B315C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF95FEDB25D3689E00B315C6 /* PBXTargetDependency */,
+			);
+			name = AkizukiCartTests;
+			productName = AkizukiCartTests;
+			productReference = BF95FED525D3689E00B315C6 /* AkizukiCartTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		BF39D497258240220045026C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					BF39D49E258240220045026C = {
 						CreatedOnToolsVersion = 12.2;
+					};
+					BF95FED425D3689E00B315C6 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BF39D49E258240220045026C;
 					};
 				};
 			};
@@ -259,6 +325,7 @@
 			projectRoot = "";
 			targets = (
 				BF39D49E258240220045026C /* AkizukiCart */,
+				BF95FED425D3689E00B315C6 /* AkizukiCartTests */,
 			);
 		};
 /* End PBXProject section */
@@ -273,6 +340,13 @@
 				BF39D4DC258434E70045026C /* ListTableViewCell.xib in Resources */,
 				BF39D4AC258240250045026C /* Assets.xcassets in Resources */,
 				BF39D4AA258240220045026C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF95FED325D3689E00B315C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +417,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1CF70D25BB37BF007C3592 /* UserDefaultExtension.swift in Sources */,
+				BF95FEE225D4B4E600B315C6 /* SearchItemModel.swift in Sources */,
 				BF39D4A7258240220045026C /* ViewController.swift in Sources */,
+				BF95FEE825D4D21800B315C6 /* ArrayExtension.swift in Sources */,
+				BF95FEEF25D51E6200B315C6 /* BatchInputViewController.swift in Sources */,
 				BFFA43BB25CE29C7006A844C /* StringExtension.swift in Sources */,
 				BF9D7DDA25C3245B00FC463B /* HistoryTableViewCell.swift in Sources */,
 				BF1CF70825BB20D3007C3592 /* PartsBox.swift in Sources */,
@@ -352,6 +429,7 @@
 				BFFA43BE25CE2A9F006A844C /* ItemNumberSearchBar.swift in Sources */,
 				BF39D4A3258240220045026C /* AppDelegate.swift in Sources */,
 				BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */,
+				BF95FEFD25D63E6D00B315C6 /* BatchListViewController.swift in Sources */,
 				BF39D4B82582FC040045026C /* SearchViewController.swift in Sources */,
 				BF39D4C62583366C0045026C /* APIHandler.swift in Sources */,
 				BF39D4A5258240220045026C /* SceneDelegate.swift in Sources */,
@@ -361,7 +439,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF95FED125D3689E00B315C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF95FED825D3689E00B315C6 /* SearhItemModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF95FEDB25D3689E00B315C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF39D49E258240220045026C /* AkizukiCart */;
+			targetProxy = BF95FEDA25D3689E00B315C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BF39D4A8258240220045026C /* Main.storyboard */ = {
@@ -513,7 +607,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TsukubaDepot.net.AkizukiCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -535,11 +629,53 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = TsukubaDepot.net.AkizukiCart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BF95FEDC25D3689E00B315C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 872HCG8AJ3;
+				INFOPLIST_FILE = AkizukiCartTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.tsukubadepot.AkizukiCartTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AkizukiCart.app/AkizukiCart";
+			};
+			name = Debug;
+		};
+		BF95FEDD25D3689E00B315C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 872HCG8AJ3;
+				INFOPLIST_FILE = AkizukiCartTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.tsukubadepot.AkizukiCartTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AkizukiCart.app/AkizukiCart";
 			};
 			name = Release;
 		};
@@ -560,6 +696,15 @@
 			buildConfigurations = (
 				BF39D4B4258240250045026C /* Debug */,
 				BF39D4B5258240250045026C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF95FEDE25D3689E00B315C6 /* Build configuration list for PBXNativeTarget "AkizukiCartTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF95FEDC25D3689E00B315C6 /* Debug */,
+				BF95FEDD25D3689E00B315C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,4 +9,5 @@ target 'AkizukiCart' do
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'PKHUD'
+  pod 'CombineCocoa'
 end

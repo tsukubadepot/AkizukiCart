@@ -30,7 +30,10 @@ final class PartsHistory: PartsBoxBase {
     
 }
 
-class PartsBoxBase {    
+class PartsBoxBase {
+    // just for IteratorProtocol
+    private var currentIndex = 0
+    
     private var key:String
     
     init (key:String) {
@@ -84,6 +87,12 @@ class PartsBoxBase {
         parts.append(newParts)
     }
     
+    /// 複数パーツの追加。
+    /// - Parameter newPartsArray: 追加したいパーツの配列
+    func addNewParts(newPartsArray: [PartsInfo]) {
+        parts.append(contentsOf: newPartsArray)
+    }
+    
     /// パーツの削除
     /// - Parameter deleteParts: 削除したいパーツ
     func deleteParts(deleteParts: PartsInfo) {
@@ -118,9 +127,40 @@ class PartsBoxBase {
     func enumerated() -> EnumeratedSequence<[PartsInfo]> {
         parts.enumerated()
     }
+}
+
+extension PartsBoxBase: IteratorProtocol {
+    func next() -> PartsInfo? {
+        defer {
+            currentIndex += 1
+        }
+        
+        if currentIndex >= count {
+           return nil
+        } else {
+            return parts[currentIndex]
+        }
+    }
+}
+
+extension PartsBoxBase: Collection, Sequence {
+    // Protocol Collection
+    typealias Element = PartsInfo
+    typealias Index = Int
     
-    // subscript
-    subscript(_ index: Int) -> PartsInfo {
-        return parts[index]
+    func index(after i: Index) -> Index {
+        return i + 1
+    }
+    
+    var startIndex: Index {
+        return 0
+    }
+    
+    var endIndex: Index {
+        return parts.count
+    }
+    
+    subscript(position: Index) -> PartsInfo {
+        return parts[position]
     }
 }

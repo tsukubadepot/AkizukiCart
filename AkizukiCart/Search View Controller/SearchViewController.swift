@@ -12,6 +12,14 @@ import Combine
 
 // 商品の検索
 class SearchViewController: UIViewController {
+    /// 一括入力ボタン
+    @IBOutlet weak var batchInputButton: UIButton! {
+        didSet {
+            batchInputButton.layer.cornerRadius = batchInputButton.frame.height / 10
+            batchInputButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        }
+    }
+    
     @IBOutlet weak var itemSegmentedControl: UISegmentedControl! {
         didSet {
             // color literal
@@ -134,6 +142,12 @@ class SearchViewController: UIViewController {
 
     }
 
+    /// 一括入力ボタン
+    @IBAction func batchInputButton(_ sender: UIButton) {
+        let batchInputViewController = storyboard?.instantiateViewController(withIdentifier: "batchInputView") as! BatchInputViewController
+        
+        navigationController?.pushViewController(batchInputViewController, animated: true)
+    }
     
     @objc func goBack() {
         parent?.dismiss(animated: true, completion: nil)
