@@ -24,9 +24,15 @@ class BatchListViewController: UIViewController {
     
     @IBOutlet weak var shopSegment: UISegmentedControl!
     
-    @IBOutlet weak var selectButton: UIButton!  {
+    @IBOutlet weak var selectButton: UIButton! {
         didSet {
             selectButton.layer.cornerRadius = selectButton.frame.height / 5
+        }
+    }
+    
+    @IBOutlet weak var cancelButton: UIButton! {
+        didSet {
+            cancelButton.layer.cornerRadius = cancelButton.frame.height / 5
         }
     }
     
@@ -61,6 +67,14 @@ class BatchListViewController: UIViewController {
         selectButton.tapPublisher
             .sink { _ in
                 // 押された時の処理
+                // 検索履歴への追加
+            }
+            .store(in: &subscription)
+        
+        cancelButton.tapPublisher
+            .sink { _ in
+                // ダイアログを出してもよいかも
+                self.dismiss(animated: true, completion: nil)
             }
             .store(in: &subscription)
         

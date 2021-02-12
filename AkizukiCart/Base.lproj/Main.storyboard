@@ -211,7 +211,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoB-YA-9WB">
-                                <rect key="frame" x="16" y="812" width="382" height="50"/>
+                                <rect key="frame" x="108" y="812" width="290" height="50"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Nif-V8-L7y"/>
@@ -251,10 +251,21 @@
                                     <constraint firstItem="9Zg-vW-sML" firstAttribute="leading" secondItem="5tG-Mi-IEx" secondAttribute="leading" constant="16" id="zDN-43-lVc"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ZL-Cl-pMN">
+                                <rect key="frame" x="16" y="812" width="76" height="50"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8yS-oE-bBg"/>
+                                </constraints>
+                                <state key="normal" title="追加中止">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="244-zT-Q5I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5ZL-Cl-pMN" firstAttribute="bottom" secondItem="244-zT-Q5I" secondAttribute="bottom" id="1LE-fX-OY8"/>
                             <constraint firstItem="5tG-Mi-IEx" firstAttribute="leading" secondItem="244-zT-Q5I" secondAttribute="leading" id="2kc-kB-Exc"/>
                             <constraint firstItem="244-zT-Q5I" firstAttribute="trailing" secondItem="hoJ-Rh-Ier" secondAttribute="trailing" id="4WC-Vv-e51"/>
                             <constraint firstItem="244-zT-Q5I" firstAttribute="trailing" secondItem="IoB-YA-9WB" secondAttribute="trailing" constant="16" id="5ue-c1-P63"/>
@@ -262,13 +273,16 @@
                             <constraint firstItem="hoJ-Rh-Ier" firstAttribute="leading" secondItem="244-zT-Q5I" secondAttribute="leading" id="DPH-Sv-yCY"/>
                             <constraint firstItem="244-zT-Q5I" firstAttribute="bottom" secondItem="IoB-YA-9WB" secondAttribute="bottom" id="EeT-rf-YlU"/>
                             <constraint firstItem="5tG-Mi-IEx" firstAttribute="top" secondItem="244-zT-Q5I" secondAttribute="top" id="R6e-Xu-bTe"/>
-                            <constraint firstItem="IoB-YA-9WB" firstAttribute="leading" secondItem="244-zT-Q5I" secondAttribute="leading" constant="16" id="Sw5-xC-0rK"/>
+                            <constraint firstItem="5ZL-Cl-pMN" firstAttribute="leading" secondItem="244-zT-Q5I" secondAttribute="leading" constant="16" id="be0-Uz-jp7"/>
                             <constraint firstItem="hoJ-Rh-Ier" firstAttribute="top" secondItem="5tG-Mi-IEx" secondAttribute="bottom" id="cpP-DZ-Rlh"/>
+                            <constraint firstItem="IoB-YA-9WB" firstAttribute="leading" secondItem="5ZL-Cl-pMN" secondAttribute="trailing" constant="16" id="d6a-EG-2Cg"/>
                             <constraint firstItem="244-zT-Q5I" firstAttribute="trailing" secondItem="5tG-Mi-IEx" secondAttribute="trailing" id="e8u-Mz-G0x"/>
+                            <constraint firstItem="IoB-YA-9WB" firstAttribute="width" secondItem="dCG-O0-FZG" secondAttribute="width" multiplier="0.7" id="f9x-df-UBA"/>
                             <constraint firstItem="9Zg-vW-sML" firstAttribute="width" secondItem="dCG-O0-FZG" secondAttribute="width" multiplier="0.3" id="sFa-Kr-mHh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="5ZL-Cl-pMN" id="SXE-pN-aCR"/>
                         <outlet property="listTableView" destination="hoJ-Rh-Ier" id="8zx-uH-PJP"/>
                         <outlet property="selectButton" destination="IoB-YA-9WB" id="vpg-11-XSn"/>
                         <outlet property="shopSegment" destination="9dG-b0-sly" id="mNM-6z-8ZG"/>
