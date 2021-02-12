@@ -119,6 +119,7 @@ class BatchInputViewController: UIViewController {
         HUD.show(.labeledProgress(title: "検索実行中", subtitle: nil))
         
         searchItemModel.search {
+            // TODO: 検索したパーツが実は全てパーツボックスに入っている場合はどのようにメッセージを出せば良いのか要検討
             let result = searchItemModel
                 .getItemsFromSearchResult()
                 .filter { parts in
