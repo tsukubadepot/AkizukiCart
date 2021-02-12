@@ -17,6 +17,7 @@ class BatchInputViewController: UIViewController {
             inputTextView.layer.borderWidth = 1
             inputTextView.layer.borderColor = UIColor.gray.cgColor
             inputTextView.keyboardDismissMode = .onDrag
+            inputTextView.keyboardType = .alphabet
         }
     }
     
