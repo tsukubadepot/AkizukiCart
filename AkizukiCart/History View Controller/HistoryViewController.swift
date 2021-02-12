@@ -13,12 +13,14 @@ class HistoryViewController: UIViewController {
     var partsBox = PartsBox.shared
 
     /// 登録されたパーツ履歴を、通板番号のアルファベット別に辞書として再登録する
-    var sortedPartsHistory: [String:[PartsInfo]] {
-        return Dictionary(grouping: partsHistory) { aaa in
-            return String(aaa.id.first!)
+    var sortedPartsHistory: [String:[PartsInfo]] = [:]
+
+    private func getSortedPartsHistory() -> [String:[PartsInfo]] {
+        return Dictionary(grouping: partsHistory) { item in
+            return String(item.id.first!)
         }
     }
-    
+
     /// 通販番号アルファベットのうち、履歴にあるものだけ選択し、ソートする
     var selectedSectionLabel: [String] {
         return sortedPartsHistory.keys.sorted()
@@ -50,6 +52,8 @@ class HistoryViewController: UIViewController {
         
         let leftButton = UIBarButtonItem(title: "戻る", style:.plain, target: self, action: #selector(goBack))
         navigationItem.leftBarButtonItem = leftButton
+        
+        sortedPartsHistory = getSortedPartsHistory()
     }
     
     @objc func goBack() {
@@ -167,7 +171,9 @@ extension HistoryViewController: UITableViewDelegate {
             // 自動更新を抑制する
             autoReload = false
             partsHistory.deleteParts(deleteParts: selectedPartsInSection[indexPath.row])
-            
+            // ソートしなおす
+            sortedPartsHistory = getSortedPartsHistory()
+
             // MARK: セクション内のセルが 0 になる時には、そのセクションも消さなければならない
             // UITableView をセクション表示している場合には、そのセクションの最後のセルを消す場合にはセクションごと消去する必要がある
             if sortedPartsHistory[selectedTable, default: []].count == 0 {
