@@ -23,7 +23,7 @@ class AboutViewController:UIViewController {
     
     var columns = [
         ["このアプリケーションについて", "https://www.tsukubadepot.net/archives/750"],
-        ["最新バージョンの機能について", "https://www.tsukubadepot.net/archives/805"],
+        ["最新バージョンの機能について", "https://www.tsukubadepot.net/archives/829"],
         ["プライバシーポリシー", "https://www.tsukubadepot.net/archives/767"],
         ["お問い合わせ", "https://www.tsukubadepot.net/archives/764"],
     ]
@@ -58,11 +58,7 @@ extension AboutViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        if indexPath.row > 3 {
-            return
-        }
-        
+                
         let url = URL(string: columns[indexPath.row][1])!
         
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
