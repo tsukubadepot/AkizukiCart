@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="123.88392857142857"/>
         </scene>
-        <!--Batch Input View Controller-->
+        <!--一括入力画面-->
         <scene sceneID="LLP-i0-Rcz">
             <objects>
-                <viewController storyboardIdentifier="batchInputView" id="XxX-Mt-bbE" customClass="BatchInputViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="batchInputView" title="一括入力画面" id="XxX-Mt-bbE" customClass="BatchInputViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lgC-bO-JDL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +151,7 @@
                                     <constraint firstAttribute="height" constant="50" id="qBM-Rb-yqW"/>
                                 </constraints>
                                 <state key="normal" title="検索実行">
-                                    <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="avk-uz-8dw">
@@ -201,6 +201,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3q-bV-BKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1811.594202898551" y="123.88392857142857"/>
+        </scene>
+        <!--一括入力結果出力画面-->
+        <scene sceneID="xvP-vC-Q1J">
+            <objects>
+                <viewController storyboardIdentifier="BatchListViewController" title="一括入力結果出力画面" id="VPe-Lc-TXG" customClass="BatchListViewController" customModule="AkizukiCart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dCG-O0-FZG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoB-YA-9WB">
+                                <rect key="frame" x="16" y="812" width="382" height="50"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Nif-V8-L7y"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hoJ-Rh-Ier">
+                                <rect key="frame" x="0.0" y="88" width="414" height="708"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tG-Mi-IEx" userLabel="Header">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店舗在庫位置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zg-vW-sML">
+                                        <rect key="frame" x="16" y="11.5" width="124" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9dG-b0-sly">
+                                        <rect key="frame" x="148" y="6.5" width="250" height="32"/>
+                                        <segments>
+                                            <segment title="秋葉原店"/>
+                                            <segment title="八潮店"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstItem="9dG-b0-sly" firstAttribute="centerY" secondItem="5tG-Mi-IEx" secondAttribute="centerY" id="7M7-hB-Mec"/>
+                                    <constraint firstAttribute="height" constant="44" id="RcT-AE-n1c"/>
+                                    <constraint firstItem="9Zg-vW-sML" firstAttribute="centerY" secondItem="5tG-Mi-IEx" secondAttribute="centerY" id="Wey-KS-T8c"/>
+                                    <constraint firstAttribute="trailing" secondItem="9dG-b0-sly" secondAttribute="trailing" constant="16" id="h2t-Zt-Pl5"/>
+                                    <constraint firstItem="9dG-b0-sly" firstAttribute="leading" secondItem="9Zg-vW-sML" secondAttribute="trailing" constant="8" id="l0L-63-CU8"/>
+                                    <constraint firstItem="9Zg-vW-sML" firstAttribute="leading" secondItem="5tG-Mi-IEx" secondAttribute="leading" constant="16" id="zDN-43-lVc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="244-zT-Q5I"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5tG-Mi-IEx" firstAttribute="leading" secondItem="244-zT-Q5I" secondAttribute="leading" id="2kc-kB-Exc"/>
+                            <constraint firstItem="244-zT-Q5I" firstAttribute="trailing" secondItem="hoJ-Rh-Ier" secondAttribute="trailing" id="4WC-Vv-e51"/>
+                            <constraint firstItem="244-zT-Q5I" firstAttribute="trailing" secondItem="IoB-YA-9WB" secondAttribute="trailing" constant="16" id="5ue-c1-P63"/>
+                            <constraint firstItem="IoB-YA-9WB" firstAttribute="top" secondItem="hoJ-Rh-Ier" secondAttribute="bottom" constant="16" id="9bO-Rx-zvz"/>
+                            <constraint firstItem="hoJ-Rh-Ier" firstAttribute="leading" secondItem="244-zT-Q5I" secondAttribute="leading" id="DPH-Sv-yCY"/>
+                            <constraint firstItem="244-zT-Q5I" firstAttribute="bottom" secondItem="IoB-YA-9WB" secondAttribute="bottom" id="EeT-rf-YlU"/>
+                            <constraint firstItem="5tG-Mi-IEx" firstAttribute="top" secondItem="244-zT-Q5I" secondAttribute="top" id="R6e-Xu-bTe"/>
+                            <constraint firstItem="IoB-YA-9WB" firstAttribute="leading" secondItem="244-zT-Q5I" secondAttribute="leading" constant="16" id="Sw5-xC-0rK"/>
+                            <constraint firstItem="hoJ-Rh-Ier" firstAttribute="top" secondItem="5tG-Mi-IEx" secondAttribute="bottom" id="cpP-DZ-Rlh"/>
+                            <constraint firstItem="244-zT-Q5I" firstAttribute="trailing" secondItem="5tG-Mi-IEx" secondAttribute="trailing" id="e8u-Mz-G0x"/>
+                            <constraint firstItem="9Zg-vW-sML" firstAttribute="width" secondItem="dCG-O0-FZG" secondAttribute="width" multiplier="0.3" id="sFa-Kr-mHh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="listTableView" destination="hoJ-Rh-Ier" id="8zx-uH-PJP"/>
+                        <outlet property="selectButton" destination="IoB-YA-9WB" id="vpg-11-XSn"/>
+                        <outlet property="shopSegment" destination="9dG-b0-sly" id="mNM-6z-8ZG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5t1-E3-k3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2605.7971014492755" y="124.55357142857142"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="zCB-Cl-YqK">

@@ -25,6 +25,8 @@
 		BF95FED825D3689E00B315C6 /* SearhItemModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FED725D3689E00B315C6 /* SearhItemModelTests.swift */; };
 		BF95FEE225D4B4E600B315C6 /* SearchItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FEE125D4B4E600B315C6 /* SearchItemModel.swift */; };
 		BF95FEE825D4D21800B315C6 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FEE725D4D21800B315C6 /* ArrayExtension.swift */; };
+		BF95FEEF25D51E6200B315C6 /* BatchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FEEE25D51E6200B315C6 /* BatchInputViewController.swift */; };
+		BF95FEFD25D63E6D00B315C6 /* BatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95FEFC25D63E6D00B315C6 /* BatchListViewController.swift */; };
 		BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */; };
 		BF9D7DBB25C2E9FE00FC463B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */; };
 		BF9D7DDA25C3245B00FC463B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DD825C3245B00FC463B /* HistoryTableViewCell.swift */; };
@@ -69,6 +71,8 @@
 		BF95FED925D3689E00B315C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF95FEE125D4B4E600B315C6 /* SearchItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemModel.swift; sourceTree = "<group>"; };
 		BF95FEE725D4D21800B315C6 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		BF95FEEE25D51E6200B315C6 /* BatchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchInputViewController.swift; sourceTree = "<group>"; };
+		BF95FEFC25D63E6D00B315C6 /* BatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchListViewController.swift; sourceTree = "<group>"; };
 		BF9D7DB625C2DC5100FC463B /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		BF9D7DBA25C2E9FE00FC463B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BF9D7DD825C3245B00FC463B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -187,9 +191,11 @@
 		BF39D4D62584348D0045026C /* Search View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BF39D4B72582FC040045026C /* SearchViewController.swift */,
 				BFFA43BD25CE2A9F006A844C /* ItemNumberSearchBar.swift */,
+				BF95FEEE25D51E6200B315C6 /* BatchInputViewController.swift */,
 				BF95FEE125D4B4E600B315C6 /* SearchItemModel.swift */,
+				BF39D4B72582FC040045026C /* SearchViewController.swift */,
+				BF95FEFC25D63E6D00B315C6 /* BatchListViewController.swift */,
 			);
 			path = "Search View Controller";
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				BF95FEE225D4B4E600B315C6 /* SearchItemModel.swift in Sources */,
 				BF39D4A7258240220045026C /* ViewController.swift in Sources */,
 				BF95FEE825D4D21800B315C6 /* ArrayExtension.swift in Sources */,
+				BF95FEEF25D51E6200B315C6 /* BatchInputViewController.swift in Sources */,
 				BFFA43BB25CE29C7006A844C /* StringExtension.swift in Sources */,
 				BF9D7DDA25C3245B00FC463B /* HistoryTableViewCell.swift in Sources */,
 				BF1CF70825BB20D3007C3592 /* PartsBox.swift in Sources */,
@@ -422,6 +429,7 @@
 				BFFA43BE25CE2A9F006A844C /* ItemNumberSearchBar.swift in Sources */,
 				BF39D4A3258240220045026C /* AppDelegate.swift in Sources */,
 				BF9D7DB725C2DC5100FC463B /* NumberFormatterExtension.swift in Sources */,
+				BF95FEFD25D63E6D00B315C6 /* BatchListViewController.swift in Sources */,
 				BF39D4B82582FC040045026C /* SearchViewController.swift in Sources */,
 				BF39D4C62583366C0045026C /* APIHandler.swift in Sources */,
 				BF39D4A5258240220045026C /* SceneDelegate.swift in Sources */,

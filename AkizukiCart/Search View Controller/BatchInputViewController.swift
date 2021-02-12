@@ -112,9 +112,14 @@ class BatchInputViewController: UIViewController {
         
         searchItemModel.search {
             let result = searchItemModel.getItemsFromSearchResult()
-            dump(result)
+
             HUD.hide { _ in
                 HUD.flash(.label("\(result.count)件の商品が見つかりました"), delay: 2.0)
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "BatchListViewController") as! BatchListViewController
+                vc.items = result
+                
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         } errorHandler: { error in
             HUD.hide { _ in
