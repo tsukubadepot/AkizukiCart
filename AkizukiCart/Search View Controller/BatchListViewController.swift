@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PKHUD
 import Combine
 import CombineCocoa
 
@@ -48,8 +49,9 @@ class BatchListViewController: UIViewController {
         // item 数が変化したらボタンの表示を変更する
         itemCount.sink { value in
             if value == 0 {
-                self.selectButton.setTitle("追加をキャンセル", for: .normal)
-                self.selectButton.backgroundColor = .systemRed
+                self.selectButton.setTitle("追加できるパーツはありません", for: .normal)
+                self.selectButton.isEnabled = false
+                self.selectButton.layer.opacity = 0.5
             } else {
                 self.selectButton.setTitle("\(value)件のパーツを追加する", for: .normal)
             }
@@ -67,7 +69,18 @@ class BatchListViewController: UIViewController {
         selectButton.tapPublisher
             .sink { _ in
                 // 押された時の処理
+                PartsBox.shared.addNewParts(newPartsArray: self.items)
                 // 検索履歴への追加
+                self.items.forEach { item in
+                    if PartsHistory.shared.hasSameParts(newParts: item) {
+                        return
+                    }
+                    PartsHistory.shared.addNewParts(newParts: item)
+                }
+                
+                HUD.flash(.label("パーツボックスに追加しました"), onView: nil, delay: 2.0) { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
             .store(in: &subscription)
         
