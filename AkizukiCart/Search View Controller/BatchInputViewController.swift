@@ -89,6 +89,14 @@ class BatchInputViewController: UIViewController {
             .store(in: &subscriptions)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Navigation Controller で遷移先から戻ってきた場合、値を元に戻す
+        progressView.progress = 0.0
+        progressLabel.text = ""
+    }
+    
     // 検索ボタンがタップされた時の処理
     private func searchButtonTapped() {
         let pattern = "[M,K,P,B,R,S,I,C,T]-\\d{5}"
