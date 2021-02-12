@@ -39,11 +39,7 @@ class APIHandler {
                 switch result.response!.statusCode {
                 case 200...299:
                     do {
-                        var parts = try JSONDecoder().decode(PartsInfo.self, from: result.data!)
-                        
-                        // 初期設定
-                        parts.buyCount = 0
-                        parts.purchased = false
+                        let parts = try JSONDecoder().decode(PartsInfo.self, from: result.data!)
                         
                         DispatchQueue.main.async {
                             successHandler(parts)

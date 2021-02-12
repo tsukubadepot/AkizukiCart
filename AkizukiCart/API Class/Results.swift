@@ -40,7 +40,7 @@ struct PartsInfo: Codable {
     // UserDefaults でシリアライズする時のために Computed Property にする
     var buyCount: Int  {
         get {
-            return _buyCount ?? 0
+            return _buyCount ?? 1
         }
         set {
             _buyCount = newValue
@@ -194,7 +194,7 @@ struct ComponentsPartsInfo: Codable {
     // UserDefaults でシリアライズする時のために Computed Property にする
     var buyCount: Int {
         get {
-            return _buyCount ?? 0
+            return _buyCount ?? 1
         }
         set {
             _buyCount = newValue
