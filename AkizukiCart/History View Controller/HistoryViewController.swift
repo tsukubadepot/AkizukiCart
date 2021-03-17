@@ -12,26 +12,6 @@ class HistoryViewController: UIViewController {
     var partsHistory = PartsHistory.shared
     var partsBox = PartsBox.shared
 
-    /// 登録されたパーツ履歴を、通板番号のアルファベット別に辞書として再登録する
-    var sortedPartsHistory: [String:[PartsInfo]] = [:]
-
-    private func getSortedPartsHistory() -> [String:[PartsInfo]] {
-        return Dictionary(grouping: partsHistory) { item in
-            return String(item.id.first!)
-        }
-    }
-
-    /// 通販番号アルファベットのうち、履歴にあるものだけ選択し、ソートする
-    var selectedSectionLabel: [String] {
-        return sortedPartsHistory.keys.sorted()
-    }
-    
-    var secTable = [
-        "B":"バッテリー関連", "C":"コネクタ関連", "I":"集積回路・半導体関連",
-        "K":"キット関連", "M":"モジュール・電源・測定器関連", "P":"パーツ一般",
-        "R":"抵抗関連", "S":"ストレージ関連", "T":"ツール関連"
-    ]
-    
     @IBOutlet weak var historyTableView: UITableView! {
         didSet {
             historyTableView.dataSource = self
@@ -52,8 +32,6 @@ class HistoryViewController: UIViewController {
         
         let leftButton = UIBarButtonItem(title: "戻る", style:.plain, target: self, action: #selector(goBack))
         navigationItem.leftBarButtonItem = leftButton
-        
-        sortedPartsHistory = getSortedPartsHistory()
     }
     
     @objc func goBack() {
@@ -62,47 +40,20 @@ class HistoryViewController: UIViewController {
 }
 
 extension HistoryViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // 検索履歴に登録された通販番号のアルファベットの数（= keys）の数を返す
-        return sortedPartsHistory.keys.count
-    }
-        
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        // セクションに該当するアルファベットの選択
-        let index = selectedSectionLabel[section]
-        
-        // アルファベットに対応する部品分類の選択
-        guard let headerName = secTable[index] else {
-            return nil
-        }
-        
-        return index + ":" + headerName
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // キー別（アルファベット別）に登録数を返す。optional 対策としてキーが存在しない場合には空配列を返す
-        return sortedPartsHistory[selectedSectionLabel[section], default: []].count
+        return partsHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HistoryTableViewCell
         
-        // 呼び出されたセクションに該当するパーツが存在しない場合は、デフォルトの UITableView を返す
-        let label = selectedSectionLabel[indexPath.section]
-        
-        guard let partsInSection = sortedPartsHistory[label] else {
-            return UITableViewCell()
-        }
-        
-        cell.setup(parts: partsInSection[indexPath.row])
+        cell.setup(parts: partsHistory[indexPath.row])
         
         return cell
 
     }
 }
 
-// パーツ履歴のセルをタップすると、そのパーツに関する情報が DetailViewController で表示される。
-// DetailViewController に関する Delegate の処理
 extension HistoryViewController: DetailViewControllerDelegate {
     /// パーツ追加のボタンが押された場合
     func didUpdateCartsButtonTapped(_ detailedView: DetailViewController, parts: PartsInfo) {
@@ -139,17 +90,11 @@ extension HistoryViewController: DetailViewControllerDelegate {
 extension HistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
-        // 呼び出されたセクションに該当するパーツが存在しない場合は早期リターン
-        let label = selectedSectionLabel[indexPath.section]
         
-        guard let partsInSection = sortedPartsHistory[label] else {
-            return
-        }
-
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
         
-        vc.parts = partsInSection[indexPath.row]
+        //vc.parts = partsBox[indexPath.row]
+        vc.parts = partsHistory[indexPath.row]
         vc.delegate = self
         
         present(vc, animated: true, completion: nil)
@@ -163,25 +108,10 @@ extension HistoryViewController: UITableViewDelegate {
     /// セルの削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let selectedTable = selectedSectionLabel[indexPath.section]
-            guard let selectedPartsInSection = sortedPartsHistory[selectedTable] else {
-                return
-            }
-            
             // 自動更新を抑制する
             autoReload = false
-            partsHistory.deleteParts(deleteParts: selectedPartsInSection[indexPath.row])
-            // ソートしなおす
-            sortedPartsHistory = getSortedPartsHistory()
-
-            // MARK: セクション内のセルが 0 になる時には、そのセクションも消さなければならない
-            // UITableView をセクション表示している場合には、そのセクションの最後のセルを消す場合にはセクションごと消去する必要がある
-            if sortedPartsHistory[selectedTable, default: []].count == 0 {
-                let indexSet = NSIndexSet(index: indexPath.section)
-                tableView.deleteSections(indexSet as IndexSet, with: .automatic)
-            } else {
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            }
+            partsHistory.deleteParts(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             
             let fb = UIImpactFeedbackGenerator(style: .heavy)
             fb.impactOccurred()

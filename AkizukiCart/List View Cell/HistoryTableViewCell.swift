@@ -8,14 +8,7 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-    @IBOutlet weak var productImageView: UIImageView! {
-        didSet {
-            productImageView.contentMode = .scaleAspectFill
-            productImageView.backgroundColor = .systemGray6
-            productImageView.layer.borderWidth = 1
-            productImageView.layer.borderColor = UIColor.gray.cgColor
-        }
-    }
+    @IBOutlet weak var productImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
     
