@@ -22,9 +22,9 @@ class APIHandler {
             if let error = result.error {
                 DispatchQueue.main.async {
                     errorHadler(error)
-                    
-                    return
                 }
+                
+                return
             }
             
             switch result.result {
