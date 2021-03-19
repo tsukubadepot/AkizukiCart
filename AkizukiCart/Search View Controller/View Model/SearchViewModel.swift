@@ -12,19 +12,25 @@ import RxCocoa
 struct SearchViewModelInput {
 }
 
-class SearchViewModel {
+protocol SearchViewModelProtocol {
+    var itemCodeTextObservable: Observable<String> { get }
+    var showErrorHUDObservable: Observable<String> { get }
+    var itemCodeTextIsOkObservable: Observable<Bool> { get }
+    var itemNumberTextObservable: Observable<String> { get }
+    var itemNumberTextIsOkObservable: Observable<Bool> { get }
+}
+
+class SearchViewModel: SearchViewModelProtocol {
     /// 数字5桁に表示するテキスト
-    var itemCodeTextObservable: Observable<String>
+    let itemCodeTextObservable: Observable<String>
     ///　HUDに表示する文字列
-    var showErrorHUDObservable: Observable<String>
+    let showErrorHUDObservable: Observable<String>
     /// 数字5桁が要件を満たしているか
-    var itemCodeTextIsOkObservable: Observable<Bool>
-    
+    let itemCodeTextIsOkObservable: Observable<Bool>
     /// 購入個数に表示するテキスト
-    var itemNumberTextObservable: Observable<String>
-    
+    let itemNumberTextObservable: Observable<String>
     /// 購入個数が要件を満たしているか
-    var itemNumberTextIsOkObservable: Observable<Bool>
+    let itemNumberTextIsOkObservable: Observable<Bool>
     
     private var disposeBag = DisposeBag()
     
@@ -41,20 +47,22 @@ class SearchViewModel {
         // 通販コード
         let itemCodeValidation = itemCodeTextObservable
             .flatMap { code -> Observable<Event<Void>> in
-                return model.validate(code: code).materialize()
+                return model.validateItemCode(code: code).materialize()
             }
             .share()
         
         // 購入数
         let itemCountValidation = itemNumberTextObservable
             .flatMap { count -> Observable<Event<Void>> in
-                return model.validate2(count: count).materialize()
+                return model.validateItemCount(count: count).materialize()
             }
             .share()
         
         // 通販コード、購入数のいずれかに不正な値が入ったときの処理
         self.showErrorHUDObservable = Observable
+            // Observable<> を 2 つまとめる
             .of(itemCodeValidation, itemCountValidation)
+            // うち最新の 1 つだけを取得する
             .merge()
             .flatMap { event -> Observable<String> in
                 switch event {
@@ -71,10 +79,10 @@ class SearchViewModel {
                 }
             }
         
+        // バリデーションに通過したかチェックし、対応す状態を送る
         self.itemCodeTextIsOkObservable = itemCodeValidation
             .flatMap { event -> Observable<Bool> in
                 switch event {
-                
                 case .error(let error as ValidationError):
                     switch error {
                     case .emptyCode, .invalidCodeFormat:
@@ -93,7 +101,6 @@ class SearchViewModel {
         self.itemNumberTextIsOkObservable = itemCountValidation
             .flatMap { event -> Observable<Bool> in
                 switch event {
-                
                 case .error(let error as ValidationError):
                     switch error {
                     case .emptyItemCount, .invalidItemCountFormat:
