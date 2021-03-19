@@ -34,8 +34,10 @@
 		BF9D7DDF25C329E500FC463B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D7DDE25C329E500FC463B /* HistoryViewController.swift */; };
 		BFEA2307260227CB00AD4182 /* PartsBoxSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEA2306260227CB00AD4182 /* PartsBoxSequence.swift */; };
 		BFEA230B2602293600AD4182 /* HistoryViewControllerNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEA230A2602293600AD4182 /* HistoryViewControllerNext.swift */; };
+		BFEA2364260432D700AD4182 /* APIHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEA2363260432D700AD4182 /* APIHandlerTests.swift */; };
 		BFFA43BB25CE29C7006A844C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA43BA25CE29C7006A844C /* StringExtension.swift */; };
 		BFFA43BE25CE2A9F006A844C /* ItemNumberSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFA43BD25CE2A9F006A844C /* ItemNumberSearchBar.swift */; };
+		E4148A5C7C5F657BAC91D775 /* Pods_AkizukiCart_AkizukiCartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8287AB2219EE01D794A51 /* Pods_AkizukiCart_AkizukiCartTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		4AE62E21588A4C51E71B2763 /* Pods-AkizukiCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkizukiCart.release.xcconfig"; path = "Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart.release.xcconfig"; sourceTree = "<group>"; };
 		5C5BF42A7B12A6FB54465CB8 /* Pods_AkizukiCart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AkizukiCart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		745E796A785E01C79F0C4794 /* Pods-AkizukiCart-AkizukiCartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkizukiCart-AkizukiCartTests.release.xcconfig"; path = "Target Support Files/Pods-AkizukiCart-AkizukiCartTests/Pods-AkizukiCart-AkizukiCartTests.release.xcconfig"; sourceTree = "<group>"; };
+		A3E8287AB2219EE01D794A51 /* Pods_AkizukiCart_AkizukiCartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AkizukiCart_AkizukiCartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B907D6B6BE75658F5F1B5C11 /* Pods-AkizukiCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkizukiCart.debug.xcconfig"; path = "Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart.debug.xcconfig"; sourceTree = "<group>"; };
 		BF1CF70725BB20D3007C3592 /* PartsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsBox.swift; sourceTree = "<group>"; };
 		BF1CF70C25BB37BF007C3592 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
@@ -82,8 +86,10 @@
 		BF9D7DDE25C329E500FC463B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BFEA2306260227CB00AD4182 /* PartsBoxSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsBoxSequence.swift; sourceTree = "<group>"; };
 		BFEA230A2602293600AD4182 /* HistoryViewControllerNext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewControllerNext.swift; sourceTree = "<group>"; };
+		BFEA2363260432D700AD4182 /* APIHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandlerTests.swift; sourceTree = "<group>"; };
 		BFFA43BA25CE29C7006A844C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		BFFA43BD25CE2A9F006A844C /* ItemNumberSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNumberSearchBar.swift; sourceTree = "<group>"; };
+		C308CABC6E556BC9527165EB /* Pods-AkizukiCart-AkizukiCartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AkizukiCart-AkizukiCartTests.debug.xcconfig"; path = "Target Support Files/Pods-AkizukiCart-AkizukiCartTests/Pods-AkizukiCart-AkizukiCartTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4148A5C7C5F657BAC91D775 /* Pods_AkizukiCart_AkizukiCartTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +117,8 @@
 			children = (
 				B907D6B6BE75658F5F1B5C11 /* Pods-AkizukiCart.debug.xcconfig */,
 				4AE62E21588A4C51E71B2763 /* Pods-AkizukiCart.release.xcconfig */,
+				C308CABC6E556BC9527165EB /* Pods-AkizukiCart-AkizukiCartTests.debug.xcconfig */,
+				745E796A785E01C79F0C4794 /* Pods-AkizukiCart-AkizukiCartTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -229,6 +238,7 @@
 			children = (
 				BF95FED725D3689E00B315C6 /* SearhItemModelTests.swift */,
 				BF95FED925D3689E00B315C6 /* Info.plist */,
+				BFEA2363260432D700AD4182 /* APIHandlerTests.swift */,
 			);
 			path = AkizukiCartTests;
 			sourceTree = "<group>";
@@ -254,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				5C5BF42A7B12A6FB54465CB8 /* Pods_AkizukiCart.framework */,
+				A3E8287AB2219EE01D794A51 /* Pods_AkizukiCart_AkizukiCartTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -285,9 +296,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF95FEDE25D3689E00B315C6 /* Build configuration list for PBXNativeTarget "AkizukiCartTests" */;
 			buildPhases = (
+				6528AE82FACC10F66BD5D5C8 /* [CP] Check Pods Manifest.lock */,
 				BF95FED125D3689E00B315C6 /* Sources */,
 				BF95FED225D3689E00B315C6 /* Frameworks */,
 				BF95FED325D3689E00B315C6 /* Resources */,
+				A230543BC37E276F0AE8A3C3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -376,6 +389,45 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AkizukiCart/Pods-AkizukiCart-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6528AE82FACC10F66BD5D5C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AkizukiCart-AkizukiCartTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A230543BC37E276F0AE8A3C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AkizukiCart-AkizukiCartTests/Pods-AkizukiCart-AkizukiCartTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AkizukiCart-AkizukiCartTests/Pods-AkizukiCart-AkizukiCartTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AkizukiCart-AkizukiCartTests/Pods-AkizukiCart-AkizukiCartTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BF9D7DEA25C33B2800FC463B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF95FED825D3689E00B315C6 /* SearhItemModelTests.swift in Sources */,
+				BFEA2364260432D700AD4182 /* APIHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +700,7 @@
 		};
 		BF95FEDC25D3689E00B315C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C308CABC6E556BC9527165EB /* Pods-AkizukiCart-AkizukiCartTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -668,6 +722,7 @@
 		};
 		BF95FEDD25D3689E00B315C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 745E796A785E01C79F0C4794 /* Pods-AkizukiCart-AkizukiCartTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

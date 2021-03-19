@@ -10,4 +10,12 @@ target 'AkizukiCart' do
   pod 'AlamofireImage'
   pod 'PKHUD'
   pod 'CombineCocoa'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  
+  # to check reactive function
+  target 'AkizukiCartTests' do
+    pod 'RxBlocking', '6.1.0'
+    pod 'RxTest', '6.1.0'
+  end
 end

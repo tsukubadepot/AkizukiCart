@@ -7,8 +7,25 @@
 
 import Foundation
 import Alamofire
+import RxSwift
+import RxRelay
 
-class APIHandler {
+// MARK: - ダウンロード状態
+enum DownloadState {
+    case loading
+    case finish(PartsInfo)
+    case failure(FailureResult)
+}
+
+// MARK: - Protocol
+protocol APIHandlerProtocol {
+    /// ダウンロード状態
+    var downloadStateObservable: Observable<DownloadState> { get }
+    /// 単品のダウンロード
+    func fetchItem(_ item: String)
+}
+
+class APIHandler: APIHandlerProtocol {
     /// 指定されたアイテム番号で商品を検索する
     /// - Parameters:
     ///   - item: ^[MKPBRSICT]-[0-9]{5}$.json 形式のアイテム番号
@@ -144,4 +161,74 @@ class APIHandler {
                 }
             }
     }
+    
+    // RxSwiftでリファクタリング
+    // ダウンロードの内部状態
+    private var downloadState: PublishSubject<DownloadState>
+    
+    // 外部に見せるダウンロード状態
+    var downloadStateObservable: Observable<DownloadState> {
+        return downloadState.asObservable()
+    }
+    
+    init() {
+        downloadState = PublishSubject<DownloadState>()
+    }
+    
+    /// 指定されたアイテム番号で商品を検索する
+    /// - Parameters:
+    ///   - item: ^[MKPBRSICT]-[0-9]{5}$.json 形式のアイテム番号
+    func fetchItem(_ item: String) {
+        let searchURL = URL(string: "https://akizuki-api.appspot.com/component")!.appendingPathComponent(item)
+        
+        // ダウンロード開始
+        downloadState.onNext(.loading)
+        
+        AF.request(searchURL).responseJSON { result in
+            if let error = result.error {
+                self.downloadState.onError(error)
+                
+                return
+            }
+            
+            switch result.result {
+            case .failure(let error):
+                // タイムアウトなど
+                self.downloadState.onError(error)
+                return
+                
+            case .success:
+                switch result.response!.statusCode {
+                case 200...299:
+                    do {
+                        let parts = try JSONDecoder().decode(PartsInfo.self, from: result.data!)
+                        
+                        // ダウンロードされたパーツ情報を流す
+                        self.downloadState.onNext(.finish(parts))
+                        self.downloadState.onCompleted()
+                        
+                    } catch {
+                        // デコード失敗
+                        self.downloadState.onError(error)
+                    }
+                    
+                case 400...499:
+                    do {
+                        let fail = try JSONDecoder().decode(FailureResult.self, from: result.data!)
+                        
+                        // 400系エラーに関する情報を流す
+                        self.downloadState.onNext(.failure(fail))
+                        self.downloadState.onCompleted()
+                    } catch {
+                        // デコード失敗
+                        self.downloadState.onError(error)
+                    }
+                    
+                default:
+                    fatalError()
+                }
+            }
+        }
+    }
+    
 }
