@@ -8,15 +8,19 @@
 import UIKit
 import Alamofire
 import PKHUD
-import Combine
 import RxSwift
 import RxCocoa
 
 // 商品の検索
 class SearchViewController: UIViewController {
-    //
+    // MARK: - Local Properties
+    /// Dispose Bag
     private var disposeBag = DisposeBag()
     
+    /// View Model
+    private var viewModel: SearchViewModel!
+
+    // MARK: - UI Setup
     /// 一括入力ボタン
     @IBOutlet weak var batchInputButton: UIButton! {
         didSet {
@@ -40,11 +44,6 @@ class SearchViewController: UIViewController {
     
     /// 注意促進用の背景色
     var causionColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.2)
-    
-    /// 入力バリデーション
-    @Published var isItemOk = false
-    @Published var isCountOk = false
-    private var subscriptions = Set<AnyCancellable>()
     
     // アイテムの選択
     @IBAction func itemSelected(_ sender: UISegmentedControl) {
@@ -91,21 +90,9 @@ class SearchViewController: UIViewController {
         guard let selectedSearchBar = selectedSearchBar else {
             return
         }
-        
-        selectedSearchBar.text? = currentText ?? ""
-        
-        switch selectedSearchBar {
-        case itemCodeSearchBar:
-            break
-            //validateCodeCount(selectedSearchBar)
 
-        case itemNumberSearchBar:
-            validateItemCount(selectedSearchBar, count: 0)
-        
-        default:
-            fatalError()
-        }
-        
+        selectedSearchBar.text? = currentText ?? ""
+
         closeKeyboard()
     }
     
@@ -125,9 +112,6 @@ class SearchViewController: UIViewController {
             searchButton.layer.cornerRadius = searchButton.frame.height / 5
         }
     }
-    
-    // TODO:
-    private var viewModel: SearchViewModel!
         
     // MARK: - life cycle
     override func viewDidLoad() {
@@ -138,44 +122,11 @@ class SearchViewController: UIViewController {
         //
         itemCodeSearchBar.inputAccessoryView = numPadAccessory
         itemNumberSearchBar.inputAccessoryView = numPadAccessory
-        
-        // View Model
-        viewModel = SearchViewModel(itemCode: itemCodeSearchBar.rx.text.asObservable())
-
-        // 通販コードのサーチバーに表示させる文字列
-        viewModel.itemCodeTextObservable
-            .bind(to: itemCodeSearchBar.rx.text)
-            .disposed(by: disposeBag)
-        
-        // 入力バリデーションでエラーがあった場合の HUD 表示
-        // Stream で文字列が流れてきた時のみ表示させる
-        viewModel.showErrorHUDObservable
-            .bind(to: Binder(self) { me, text in
-                HUD.flash(.labeledError(title: text, subtitle: nil), delay: 1.0)
-                me.itemCodeSearchBar.text = ""
-            })
-            .disposed(by: disposeBag)
-        
-        //combineする
-        // 通販コードのバリデーション
-        viewModel.itemCodeTextIsOkObservable
-            .bind(to: Binder(self) { me, flag in
-                me.itemCodeSearchBar.searchTextField.backgroundColor = flag ? .systemGray5 : me.causionColor
-            })
-            .disposed(by: disposeBag)
-        
-        // 入力ボタンのバリデーション
-        // 購入数とアイテム番号の両方が入力されていた場合に、ボタンを有効にする
-        $isCountOk
-            .combineLatest($isItemOk)
-            .sink { count, item in
-                self.searchButton.isEnabled = count && item
-                self.searchButton.layer.opacity = (count && item) ? 1.0 : 0.5
-            }
-            .store(in: &subscriptions)
-
+                
+        // View Model の設定
+        setupViewModel()
     }
-
+    
     /// 一括入力ボタン
     @IBAction func batchInputButton(_ sender: UIButton) {
         let batchInputViewController = storyboard?.instantiateViewController(withIdentifier: "batchInputView") as! BatchInputViewController
@@ -189,7 +140,7 @@ class SearchViewController: UIViewController {
     
     @IBAction func searchButton(_ sender: UIButton) {
         selectedSearchBar?.resignFirstResponder()
-        
+
         // 先頭文字の取得
         let index = itemSegmentedControl.selectedSegmentIndex
         guard let itemID = itemSegmentedControl.titleForSegment(at: index) else {
@@ -266,6 +217,59 @@ class SearchViewController: UIViewController {
     }
 }
 
+extension SearchViewController {
+    private func setupViewModel() {
+        // View Model
+        viewModel = SearchViewModel(
+            itemCode: itemCodeSearchBar.rx.text.asObservable(),
+            itemCount: itemNumberSearchBar.rx.text.asObservable()
+        )
+
+        // 通販コードのサーチバーに表示させる文字列
+        viewModel.itemCodeTextObservable
+            .bind(to: itemCodeSearchBar.rx.text)
+            .disposed(by: disposeBag)
+        
+        // 購入個数に表示させる文字列
+        viewModel.itemNumberTextObservable
+            .bind(to: itemNumberSearchBar.rx.text)
+            .disposed(by: disposeBag)
+        
+        // 入力バリデーションでエラーがあった場合の HUD 表示
+        // Stream で文字列が流れてきた時のみ表示させる
+        viewModel.showErrorHUDObservable
+            .bind(to: Binder(self) { me, text in
+                HUD.flash(.labeledError(title: text, subtitle: nil), delay: 1.0)
+                me.itemCodeSearchBar.text = ""
+            })
+            .disposed(by: disposeBag)
+        
+        // 通販コードのバリデーションを反映させる
+        viewModel.itemCodeTextIsOkObservable
+            .bind(to: Binder(self) { me, flag in
+                me.itemCodeSearchBar.searchTextField.backgroundColor = flag ? .systemGray5 : me.causionColor
+            })
+            .disposed(by: disposeBag)
+        
+        // 購入数のバリデーションを反映させる
+        viewModel.itemNumberTextIsOkObservable
+            .bind(to: Binder(self) { me, flag in
+                me.itemNumberSearchBar.searchTextField.backgroundColor = flag ? .systemGray5 : me.causionColor
+            })
+            .disposed(by: disposeBag)
+        
+        // 入力ボタンのバリデーション
+        // 購入数とアイテム番号の両方が入力されていた場合に、ボタンを有効にする
+        Observable
+            .combineLatest(viewModel.itemCodeTextIsOkObservable, viewModel.itemNumberTextIsOkObservable)
+            .bind { count, item in
+                self.searchButton.isEnabled = count && item
+                self.searchButton.layer.opacity = (count && item) ? 1.0 : 0.5
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
 // MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     /// 選択された SearchBar と現時点でのテキストを保存しておく
@@ -275,65 +279,6 @@ extension SearchViewController: UISearchBarDelegate {
         
         return true
     }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        switch searchBar {
-        // アイテム番号の入力チェック
-        case itemCodeSearchBar:
-//            // 最大5桁の数値
-//            searchBar.text = String(searchText.prefix(5))
-//            validateCodeCount(searchBar)
-            break
-        // アイテム個数のチェック
-        case itemNumberSearchBar:
-            if searchText.count > 0 && searchText.first == "0" {
-                searchBar.text = String(searchText.dropFirst())
-            }
-            
-            validateItemCount(searchBar, count: 0)
-        
-        default:
-            fatalError()
-        }
-    }
-    
-    /// 入力文字数の確認
-//    private func validateCodeCount(_ searchBar: UISearchBar) {
-//        // 入力数値数が足りない場合には、背景色を赤くする
-//        let text = searchBar.text ?? ""
-//
-//        print(text)
-//        if text.allSatisfy({ $0.isNumber }) == false {
-//            HUD.flash(.labeledError(title: "数値を入力してください。", subtitle: nil), delay: 1.0)
-//            searchBar.searchTextField.backgroundColor = causionColor
-//            searchBar.text = ""
-//            isCountOk = false
-//        } else if text.count != 5 || text.allSatisfy({ $0.isNumber }) == false {
-//            searchBar.searchTextField.backgroundColor = causionColor
-//            isCountOk = false
-//        } else {
-//            searchBar.searchTextField.backgroundColor = .systemGray5
-//            isCountOk = true
-//        }
-//    }
-    
-    /// 入力文字数の確認
-    private func validateItemCount(_ searchBar: UISearchBar, count: Int) {
-        let text = searchBar.text ?? ""
-        
-        if text.allSatisfy({ $0.isNumber }) == false {
-            HUD.flash(.labeledError(title: "数値を入力してください。", subtitle: nil), delay: 1.0)
-            searchBar.searchTextField.backgroundColor = causionColor
-            searchBar.text = ""
-            isItemOk = false
-        } else if searchBar.text?.count == count {
-            searchBar.searchTextField.backgroundColor = causionColor
-            isItemOk = false
-        } else {
-            searchBar.searchTextField.backgroundColor = .systemGray5
-            isItemOk = true
-        }
-    }
 }
 
 extension SearchViewController: ItemNumberSearchBarDelegate {
@@ -341,7 +286,6 @@ extension SearchViewController: ItemNumberSearchBarDelegate {
         guard let text = text else {
             HUD.flash(.labeledError(title: "通販コードが含まれていません。", subtitle: nil), delay: 1.0)
             searchBar.text = ""
-//            validateCodeCount(searchBar)
             return
         }
         
@@ -357,7 +301,6 @@ extension SearchViewController: ItemNumberSearchBarDelegate {
         
         // 商品番号をコピーする
         itemCodeSearchBar.text = number
-//        validateCodeCount(searchBar)
         
         // スライダの位置を移動する
         // String.index を partNumber の index に変換する
