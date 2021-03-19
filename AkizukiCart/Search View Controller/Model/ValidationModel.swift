@@ -8,21 +8,28 @@
 import Foundation
 import RxSwift
 
-
+/// バリデーションの状態
 enum ValidationError: Error {
     case invalidCodeFormat
     case invalidItemCountFormat
     case emptyCode
     case emptyItemCount
-    case emptyCodeAndItemCount
 }
 
-class ValidationModel {
+/// ValidationModel の Protocol
+protocol ValidationModelProtocol {
+    var itemCodeTextObservable: Observable<String> { get }
+    var itemNumberTextObservable: Observable<String> { get }
+    func validateItemCode(code: String) -> Observable<Void>
+    func validateItemCount(count: String) -> Observable<Void>
+}
+
+class ValidationModel: ValidationModelProtocol {
     /// 数字5桁に表示するテキスト
-    var itemCodeTextObservable: Observable<String>
+    let itemCodeTextObservable: Observable<String>
     
     /// 購入個数に表示するテキスト
-    var itemNumberTextObservable: Observable<String>
+    let itemNumberTextObservable: Observable<String>
         
     init(itemCode: Observable<String?>, itemNumber: Observable<String?>) {
         // 通販コードの数値は5桁で切り落とし
@@ -35,21 +42,21 @@ class ValidationModel {
         
         //　通販コードの文字数は0文字より多く、また先頭がゼロではない
         itemNumberTextObservable = itemNumber
-            .compactMap { $0 }
-            .skip(1)
-            .map { text in
-                if text.count > 0 && text.first == "0" {
-                     return String(text.dropFirst())
-                } else {
-                    return text
-                }
-            }
+                                    .compactMap { $0 }
+                                    .skip(1)
+                                    .map { text in
+                                        if text.count > 0 && text.first == "0" {
+                                            return String(text.dropFirst())
+                                        } else {
+                                            return text
+                                        }
+                                    }
     }
     
-    func validate(code: String) -> Observable<Void> {
+    func validateItemCode(code: String) -> Observable<Void> {
         if code.allSatisfy({ $0.isNumber }) == false {
             return Observable.error(ValidationError.invalidCodeFormat)
-        } else if code.count != 5 || code.allSatisfy({ $0.isNumber }) == false {
+        } else if code.count != 5 {
             return Observable.error(ValidationError.emptyCode)
         } else {
             return Observable.just(())
@@ -57,7 +64,7 @@ class ValidationModel {
     }
 
     // 購入数のバリデーション
-    func validate2(count: String) -> Observable<Void> {
+    func validateItemCount(count: String) -> Observable<Void> {
         if count.allSatisfy({ $0.isNumber }) == false {
             return Observable.error(ValidationError.invalidItemCountFormat)
         } else if count.count == 0 {
@@ -66,5 +73,4 @@ class ValidationModel {
             return Observable.just(())
         }
     }
-
 }
