@@ -34,7 +34,7 @@ class SearchViewModel: SearchViewModelProtocol {
     
     private var disposeBag = DisposeBag()
     
-    init(itemCode: Observable<String?>, itemCount: Observable<String?>) {
+    init(itemCode: Observable<String?>, itemCount: Observable<String?>, searchButton: Observable<String>) {
         let model = ValidationModel(itemCode: itemCode, itemNumber: itemCount)
         
         // 通販コードに表示する文字列
@@ -115,6 +115,16 @@ class SearchViewModel: SearchViewModelProtocol {
                 }
             }
             .startWith(false)
+        
+        // アイテムの検索
+        Observable.combineLatest(itemCodeTextObservable, searchButton)
+            .bind { (itemCode, itemID) in
+                let searchItem = "\(itemID)-\(itemCode)"
+                print(#function, searchItem)
+                // TODO: この後検索処理を入れる
+                // 現在は ViewController で行っている。
+            }
+            .disposed(by: disposeBag)
     }
 }
 

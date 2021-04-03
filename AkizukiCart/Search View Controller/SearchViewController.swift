@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
     private var disposeBag = DisposeBag()
     
     /// View Model
-    private var viewModel: SearchViewModel!
+    private var viewModel: SearchViewModelProtocol!
 
     // MARK: - UI Setup
     /// 一括入力ボタン
@@ -222,7 +222,8 @@ extension SearchViewController {
         // View Model
         viewModel = SearchViewModel(
             itemCode: itemCodeSearchBar.rx.text.asObservable(),
-            itemCount: itemNumberSearchBar.rx.text.asObservable()
+            itemCount: itemNumberSearchBar.rx.text.asObservable(),
+            searchButton: searchButtonTapObservable
         )
 
         // 通販コードのサーチバーに表示させる文字列
@@ -268,6 +269,26 @@ extension SearchViewController {
             }
             .disposed(by: disposeBag)
     }
+    
+    var searchButtonTapObservable: Observable<String> {
+        selectedSearchBar?.resignFirstResponder()
+
+        return searchButton
+            .rx
+            .tap
+            .map {
+                
+                // 先頭文字の取得
+                let index = self.itemSegmentedControl.selectedSegmentIndex
+                guard let itemID = self.itemSegmentedControl.titleForSegment(at: index) else {
+                    fatalError()
+                }
+                
+                return itemID
+            }
+    }
+    
+
 }
 
 // MARK: - UISearchBarDelegate
