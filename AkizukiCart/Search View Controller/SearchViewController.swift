@@ -10,6 +10,7 @@ import Alamofire
 import PKHUD
 import RxSwift
 import RxCocoa
+import StoreKit
 
 // 商品の検索
 class SearchViewController: UIViewController {
@@ -338,7 +339,23 @@ extension SearchViewController: DetailViewControllerDelegate {
         
         partsBox.addNewParts(newParts: parts)
         // Navigation Controller を dismiss
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        
+        // 追加回数をインクリメントする
+        var count = UserDefaults.standard.integer(forKey: UserDefaultsKeys.addPartsCountKey)
+        count += 1
+        
+        UserDefaults.standard.set(count, forKey: UserDefaultsKeys.addPartsCountKey)
+        
+        dismiss(animated: true) {
+            // 20 回パーツを追加したら評価を督促する
+            if count % 20 == 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    // requestReview はレビューしたか否かを判断している
+                    SKStoreReviewController.requestReview()
+                }
+            }
+        }
     }
     
     func didCancelButtonTapped(_ detailedView: DetailViewController) {
