@@ -33,6 +33,12 @@ class AboutViewController:UIViewController {
         
         let leftButton = UIBarButtonItem(title: "戻る", style:.plain, target: self, action: #selector(goBack))
         navigationItem.leftBarButtonItem = leftButton
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemGreen
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBar.appearance().standardAppearance
     }
     
     @objc func goBack() {
