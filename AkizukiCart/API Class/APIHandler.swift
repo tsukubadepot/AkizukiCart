@@ -35,7 +35,7 @@ class APIHandler: APIHandlerProtocol {
     static func searchItem(_ item: String, successHandler: @escaping (PartsInfo) -> Void, notfoundHandler: @escaping (FailureResult) -> Void, errorHadler: @escaping (Error) -> Void) {
         let searchURL = URL(string: "https://akizuki-api.appspot.com/component")!.appendingPathComponent(item)
         
-        AF.request(searchURL).responseJSON { result in
+        AF.request(searchURL).responseData { result in
             if let error = result.error {
                 DispatchQueue.main.async {
                     errorHadler(error)
@@ -110,7 +110,7 @@ class APIHandler: APIHandlerProtocol {
                    method: .post,
                    parameters: parameters,
                    encoding: JSONEncoding.default)
-            .responseJSON { result in
+            .responseData { result in
                 if let error = result.error {
                     DispatchQueue.main.async {
                         errorHadler(error)
@@ -184,7 +184,7 @@ class APIHandler: APIHandlerProtocol {
         // ダウンロード開始
         downloadState.onNext(.loading)
         
-        AF.request(searchURL).responseJSON { result in
+        AF.request(searchURL).responseData { result in
             if let error = result.error {
                 self.downloadState.onError(error)
                 
