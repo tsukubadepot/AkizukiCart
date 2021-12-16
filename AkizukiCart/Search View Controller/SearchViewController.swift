@@ -352,7 +352,9 @@ extension SearchViewController: DetailViewControllerDelegate {
             if count % 20 == 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     // requestReview はレビューしたか否かを判断している
-                    SKStoreReviewController.requestReview()
+                    if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                        SKStoreReviewController.requestReview(in: scene)
+                    }
                 }
             }
         }
